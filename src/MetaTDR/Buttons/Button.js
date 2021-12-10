@@ -15,14 +15,30 @@ justify-content: center;
 align-items: center;
 padding: 12px 16px;
 position: absolute;
-width: 140px;
-height: 52px;
+width: 115px;
+height: 30px;
 left: 20px;
 top: 20px;
 background: #124596;
 border-radius: 8px;
-
+border:1px solid #124596;
 `
+const ButtonLargeSecondary = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 12px 16px;
+position: absolute;
+width: 115px;
+height: 30px;
+left: 20px;
+top: 20px;
+background: #19AB4F;
+border-radius: 8px;
+border:1px solid #19AB4F;
+`
+
 const ElementsLarge = styled.div`
 display: flex;
 flex-direction: row;
@@ -64,14 +80,31 @@ justify-content: center;
 align-items: center;
 padding: 12px 16px;
 position: absolute;
-width: 143px;
-height: 48px;
+width: 105px;
+height: 25px;
 left: 196px;
 top: 24px;
 background: #124596;
 border-radius: 8px;
 border:1px solid #124596;
 `
+
+const ButtonMediumSecondary = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 12px 16px;
+position: absolute;
+width: 105px;
+height: 25px;
+left: 196px;
+top: 24px;
+background: #19AB4F;
+border-radius: 8px;
+border:1px solid #19AB4F;
+`
+
 const ElementsMedium = styled.div`
 display: flex;
 flex-direction: row;
@@ -88,21 +121,16 @@ flex-grow: 0;
 margin: 0px 0px;
 `
 const TextMedium = styled.div`
-position: static;
-width: 111px;
-height: 24px;
-left: 0px;
-top: 0px;
+color: #FFFFFF;
 font-family: Nunito;
 font-style: normal;
-font-weight: normal;
+font-weight: 600;
 font-size: 12px;
 line-height: 24px;
-color: #FFFFFF;
 flex: none;
 order: 1;
 flex-grow: 0;
-margin: 10px;`
+margin: auto;`
 
 
 
@@ -115,14 +143,30 @@ justify-content: center;
 align-items: center;
 padding: 12px 16px;
 position: absolute;
-width: 116px;
-height: 44px;
+width: 95px;
+height: 20px;
 left: 374px;
 top: 30px;
 background: #124596;
 border-radius: 8px;
 border:1px solid #124596;
 `
+const ButtonSmallSecondary = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 12px 16px;
+position: absolute;
+width: 95px;
+height: 20px;
+left: 374px;
+top: 30px;
+background: #19AB4F;
+border-radius: 8px;
+border:1px solid #19AB4F;
+`
+
 
 const ElementsSmall = styled.div`
 display: flex;
@@ -140,21 +184,16 @@ flex-grow: 0;
 margin: 0px 0px;
 `
 const TextSmall = styled.div`
-position: static;
-width: 84px;
-height: 20px;
-left: 0px;
-top: 0px;
+color: #FFFFFF;
 font-family: Nunito;
 font-style: normal;
 font-weight: 600;
 font-size: 10px;
-line-height: 20px;
-color: #FFFFFF;
+line-height: 24px;
 flex: none;
 order: 1;
 flex-grow: 0;
-margin: 10px`
+margin: auto;`
 
 
 
@@ -162,13 +201,13 @@ margin: 10px`
 
 
 
-export const Button = ({ color, backgroundColor, size, ...props }) => {
+export const Button = ({ color, backgroundColor, size,primary, ...props }) => {
 
   return (
 
 
 
-    size === 'Large' ? (<ButtonLarge style={{ backgroundColor }}>
+    size === 'Large' & primary===true ? (<ButtonLarge style={{ backgroundColor }}>
       <ElementsLarge>
 
         <TextLarge style={{ color }}>
@@ -177,23 +216,52 @@ export const Button = ({ color, backgroundColor, size, ...props }) => {
 
       </ElementsLarge>
      
-    </ButtonLarge >) : size === 'Medium' ? (<ButtonMedium style={{ backgroundColor }}>
+    </ButtonLarge >) : size==='Large' & primary===false ? (<ButtonLargeSecondary style={{ backgroundColor }}>
+      <ElementsLarge>
+
+        <TextLarge style={{ color }}>
+          {props.text}
+        </TextLarge>
+
+      </ElementsLarge>
+     
+    </ButtonLargeSecondary >) : size==='Medium' & primary===true ?  (<ButtonMedium style={{ backgroundColor }}>
       <ElementsMedium>
-       
+
         <TextMedium style={{ color }}>
           {props.text}
         </TextMedium>
+
       </ElementsMedium>
-      
-    </ButtonMedium >) : size === 'Small' ? (<ButtonSmall style={{ backgroundColor }}>
+     
+    </ButtonMedium >) : size==='Medium' & primary===false ?  (<ButtonMediumSecondary style={{ backgroundColor }}>
+      <ElementsMedium>
+
+        <TextMedium style={{ color }}>
+          {props.text}
+        </TextMedium>
+
+      </ElementsMedium>
+     
+    </ButtonMediumSecondary >) : size==='Small' & primary===true ?  (<ButtonSmall style={{ backgroundColor }}>
       <ElementsSmall>
 
         <TextSmall style={{ color }}>
           {props.text}
         </TextSmall>
+
       </ElementsSmall>
-      
-    </ButtonSmall >) : ''
+     
+    </ButtonSmall >) : size==='Small' & primary===false ? (<ButtonSmallSecondary style={{ backgroundColor }}>
+      <ElementsSmall>
+
+        <TextSmall style={{ color }}>
+          {props.text}
+        </TextSmall>
+
+      </ElementsSmall>
+     
+    </ButtonSmallSecondary >) : null
   );
 
 };

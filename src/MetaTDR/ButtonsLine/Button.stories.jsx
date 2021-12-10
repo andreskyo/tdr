@@ -33,15 +33,18 @@ export const Small = Template.bind({});
 
 Large.args = {
   size: 'Large',
-  text:'Large Button'
+  text:'Large Button',
+  line:true
 };
 Medium.args = {
   size: 'Medium',
-  text:'Medium Button'
+  text:'Medium Button',
+  line:true
 };
 Small.args = {
   size: 'Small',
-  text:'Small Button'
+  text:'Small Button',
+  line:true
 };
 
 

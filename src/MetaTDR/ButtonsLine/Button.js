@@ -9,29 +9,27 @@ import styled from "styled-components";
 /***-----Large---***/
 
 const ButtonLarge = styled.div`
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-padding: 5.5px 9px 0px;
-position: absolute;
-width: 126px;
-height: 33.5px;
-left: 20px;
-`
-const LineLarge = styled.div`
-
 position: static;
-width: 115px;
-height: 0px;
+width: 108px;
+height: 28px;
 left: 9px;
-top: 33.5px;
-border: 1px solid #124596;
+top: 5.5px;
+font-family: Nunito;
+font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 28px;
+text-align: center;
+color: #124596;
 flex: none;
-order: 1;
-align-self: stretch;
+order: 0;
 flex-grow: 0;
 margin: 0px 0px;
+`
+const LineLarge = styled.div`
+border: 1px solid #124596;
+width:76px;
+margin:-8px auto;
 `
 const TextLarge = styled.div`
 position: static;
@@ -71,17 +69,9 @@ left: 196px;
 
 `
 const LineMedium = styled.div`
-position: static;
-width: 110px;
-height: 0px;
-left: 16px;
-top: 33.5px;
 border: 1px solid #124596;
-flex: none;
-order: 1;
-align-self: stretch;
-flex-grow: 0;
-margin: 0px 0px;
+width:84px;
+margin:-9px auto;
 `
 const TextMedium = styled.div`
 position: static;
@@ -119,17 +109,10 @@ left: 374px;
 `
 
 const LineSmall = styled.div`
-position: static;
-width: 84px;
-height: 0px;
-left: 12px;
-top: 33.5px;
+margin:-6px 10px;
+width: 66px;
 border: 1px solid #124596;
-flex: none;
-order: 1;
 align-self: stretch;
-flex-grow: 0;
-margin: 0px 0px;
 `
 const TextSmall = styled.div`
 position: static;

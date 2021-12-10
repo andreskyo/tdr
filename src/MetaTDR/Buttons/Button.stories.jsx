@@ -10,6 +10,7 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
     color:{control:'color'},
+    primary:{control:'boolean'},
     size: {
       options:['Large','Medium','Small'],
       control:{type:'select'}
@@ -32,15 +33,19 @@ export const Small = Template.bind({});
 
 Large.args = {
   size: 'Large',
-  text:'Large Button'
+  text:'Large Button',
+  primary:'true'
 };
 Medium.args = {
   size: 'Medium',
-  text:'Medium Button'
+  text:'Medium Button',
+  primary:'true'
+
 };
 Small.args = {
   size: 'Small',
-  text:'Small Button'
+  text:'Small Button',
+  primary:'true'
 };
 
 

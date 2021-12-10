@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from "styled-components";
-import Round  from './Round.png'
+import Round from './Round.png'
 
 
 
@@ -16,13 +16,29 @@ justify-content: center;
 align-items: center;
 padding: 12px 16px;
 position: absolute;
-width: 56px;
-height: 56px;
+width: 40px;
+height: 35px;
 left: 20px;
 background: #124596;
 border-radius: 8px;
-
+border: 2px solid #124596;
 `
+
+const IconLargePrimary = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 12px 16px;
+position: absolute;
+width: 40px;
+height: 35px;
+left: 20px;
+background: #19AB4F;
+border-radius: 8px;
+border: 2px solid #19AB4F;
+`
+
 const ContentLarge = styled.div`
 position: static;
 width: 28px;
@@ -36,6 +52,7 @@ margin: 0px 0px;
 `
 const IconL = styled.div`
 font-size:10px;
+padding:2px;
 
 margin:5px
 `
@@ -51,13 +68,29 @@ justify-content: center;
 align-items: center;
 padding: 12px 16px;
 position: absolute;
-width: 48px;
-height: 48px;
+width: 30px;
+height: 25px;
 left: 116px;
-
 background: #124596;
 border-radius: 8px;
+border: 2px solid #124596;
 `
+
+const IconMediumSecondary = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 12px 16px;
+position: absolute;
+width: 30px;
+height: 25px;
+left: 116px;
+background: #19AB4F;
+border-radius: 8px;
+border: 2px solid #19AB4F;
+`
+
 const ContentMedium = styled.div`
 display: flex;
 flex-direction: row;
@@ -75,7 +108,7 @@ margin: 0px 0px;
 `
 const IconM = styled.div`
 font-size:10px;
-
+padding:2 px;
 margin:auto;`
 /*----Small----*/
 
@@ -86,13 +119,28 @@ justify-content: center;
 align-items: center;
 padding: 12px 16px;
 position: absolute;
-width: 52px;
-height: 44px;
+width: 20px;
+height: 15px;
 left: 204px;
-
 background: #124596;
 border-radius: 8px;
+border: 2px solid #124596;
 `
+const IconSmallSecondary = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 12px 16px;
+position: absolute;
+width: 20px;
+height: 15px;
+left: 204px;
+border-radius: 8px;
+background: #19AB4F;
+border: 2px solid #19AB4F;
+`
+
 
 const ContentSmall = styled.div`
 position: static;
@@ -107,7 +155,7 @@ margin: auto;
 `
 const IconS = styled.div`
 font-size:10px;
-
+padding:3px;
 margin:auto`
 
 
@@ -116,10 +164,10 @@ margin:auto`
 
 
 
-export const Icon = ({ color, backgroundColor, size, ...props }) => {
+export const Icon = ({ color, backgroundColor, size, primary, ...props }) => {
 
   return (
-    size === 'Large' ? (<IconLarge style={{ backgroundColor }}>
+    size === 'Large' & primary === true ? (<IconLarge style={{ backgroundColor }}>
 
       <ContentLarge >
         <IconL>
@@ -129,27 +177,87 @@ export const Icon = ({ color, backgroundColor, size, ...props }) => {
 
       </ContentLarge>
 
-    </IconLarge>) : size === 'Medium' ? (<IconMedium style={{ backgroundColor }}>
+    </IconLarge>) : size === 'Large' & primary === false ? (<IconLargePrimary style={{ backgroundColor }}>
+
+      <ContentLarge >
+        <IconL>
+          <img src={Round} alt="" />
+
+        </IconL>
+
+      </ContentLarge>
+
+    </IconLargePrimary>) : size === 'Medium' & primary === true ? (<IconMedium style={{ backgroundColor }}>
 
       <ContentMedium >
-        <IconM style={{ color }}>
+        <IconM >
           <img src={Round} alt="" />
 
         </IconM>
 
       </ContentMedium>
 
-    </IconMedium>) : size === 'Small' ? (<IconSmall style={{ backgroundColor }}>
+    </IconMedium>) : size === 'Medium' & primary === false ? (<IconMediumSecondary style={{ backgroundColor }}>
+
+      <ContentMedium >
+        <IconM >
+          <img src={Round} alt="" />
+
+        </IconM>
+
+      </ContentMedium>
+
+    </IconMediumSecondary>) : size === 'Small' & primary === true ? (<IconSmall style={{ backgroundColor }}>
 
       <ContentSmall >
-        <IconS style={{ color }}>
+        <IconS >
           <img src={Round} alt="" />
 
         </IconS>
 
       </ContentSmall>
 
-    </IconSmall>) : null)
+    </IconSmall>) : size === 'Small' & primary === true ? (<IconSmall style={{ backgroundColor }}>
+
+      <ContentSmall >
+        <IconS >
+          <img src={Round} alt="" />
+
+        </IconS>
+
+      </ContentSmall>
+
+    </IconSmall>) : size === 'Small' & primary === true ? (<IconSmall style={{ backgroundColor }}>
+
+      <ContentSmall >
+        <IconS >
+          <img src={Round} alt="" />
+
+        </IconS>
+
+      </ContentSmall>
+
+    </IconSmall>) : size === 'Small' & primary === true ? (<IconSmall style={{ backgroundColor }}>
+
+      <ContentSmall >
+        <IconS >
+          <img src={Round} alt="" />
+
+        </IconS>
+
+      </ContentSmall>
+
+    </IconSmall>) : size === 'Small' & primary === false ? (<IconSmallSecondary style={{ backgroundColor }}>
+
+      <ContentSmall >
+        <IconS >
+          <img src={Round} alt="" />
+
+        </IconS>
+
+      </ContentSmall>
+
+    </IconSmallSecondary>) : '');
 };
 
 
