@@ -8,12 +8,13 @@ export default {
   component: Icon,
  
   argTypes: {
-    backgroundColor: { control: 'color' },
+   
     size: {
       options:['Large','Medium','Small'],
       control:{type:'select'}
     },
-    primary:{control:'boolean'}
+    primary:{control:'boolean'},
+    disabled:{control:'boolean'}
   
     
   },
@@ -31,15 +32,18 @@ export const Small = Template.bind({});
 
 Large.args = {
   size: 'Large',
-  primary:true
+  primary:true,
+  disabled:false
 };
 Medium.args = {
   size: 'Medium',
-  primary:true
+  primary:true,
+  disabled:false
 };
 Small.args = {
   size: 'Small',
-  primary:true
+  primary:true,
+  disabled:false
 };
 
 

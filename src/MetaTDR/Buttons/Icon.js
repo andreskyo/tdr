@@ -9,35 +9,81 @@ import Round from './Round.png'
 
 
 /***-----Large---***/
-const IconLarge = styled.div`
+const IconLarge = styled.button`
+&:hover ${Icon}{
+  background:#004BE8;
+  border:1px solid #004BE8;
+ }
+ &:active ${Icon}{
+   background:#0B5FFF;;
+   border:1px solid #0B5FFF;
+ }
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
 padding: 12px 16px;
 position: absolute;
-width: 40px;
-height: 35px;
+width: 60px;
+height: 50px;
 left: 20px;
 background: #124596;
 border-radius: 8px;
 border: 2px solid #124596;
 `
 
-const IconLargePrimary = styled.div`
+const IconLargeD = styled.button`
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
 padding: 12px 16px;
 position: absolute;
-width: 40px;
-height: 35px;
+width: 60px;
+height: 50px;
+left: 20px;
+background: rgba(11, 95, 255, 0.5);
+border-radius: 8px;
+border: none;
+`
+
+const IconLargeSecondary = styled.button`
+&:hover ${Icon}{
+  background:#0C9E42;
+  border:1px solid #0C9E42;
+ }
+ &:active ${Icon}{
+   background:#009236;
+   border:1px solid #009236;
+ }
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 12px 16px;
+position: absolute;
+width: 60px;
+height: 50px;
 left: 20px;
 background: #19AB4F;
 border-radius: 8px;
 border: 2px solid #19AB4F;
 `
+const IconLargeSecondaryD = styled.button`
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 12px 16px;
+position: absolute;
+width: 60px;
+height: 50px;
+left: 20px;
+background: rgba(25, 171, 79, 0.5);
+border-radius: 8px;
+border: none;
+`
+
 
 const ContentLarge = styled.div`
 position: static;
@@ -61,35 +107,83 @@ margin:5px
 
 
 
-const IconMedium = styled.div`
+const IconMedium = styled.button`
+&:hover ${Icon}{
+  background:#004BE8;
+  border:1px solid #004BE8;
+ }
+ &:active ${Icon}{
+   background:#0B5FFF;;
+   border:1px solid #0B5FFF;
+ }
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
 padding: 12px 16px;
 position: absolute;
-width: 30px;
-height: 25px;
+width: 55px;
+height: 45px;
 left: 116px;
 background: #124596;
 border-radius: 8px;
 border: 2px solid #124596;
 `
-
-const IconMediumSecondary = styled.div`
+const IconMediumD = styled.button`
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
 padding: 12px 16px;
 position: absolute;
-width: 30px;
-height: 25px;
+width: 55px;
+height: 45px;
+left: 116px;
+background: rgba(11, 95, 255, 0.5);
+border-radius: 8px;
+border:none;
+`
+
+
+
+const IconMediumSecondary = styled.button`
+&:hover ${Icon}{
+  background:#0C9E42;
+  border:1px solid #0C9E42;
+ }
+ &:active ${Icon}{
+   background:#009236;
+   border:1px solid #009236;
+ }
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 12px 16px;
+position: absolute;
+width: 55px;
+height: 45px;
 left: 116px;
 background: #19AB4F;
 border-radius: 8px;
 border: 2px solid #19AB4F;
 `
+const IconMediumSecondaryD = styled.button`
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 12px 16px;
+position: absolute;
+width: 55px;
+height: 45px;
+left: 116px;
+background: rgba(25, 171, 79, 0.5);
+border-radius: 8px;
+border: none;
+`
+
+
 
 const ContentMedium = styled.div`
 display: flex;
@@ -112,33 +206,80 @@ padding:2 px;
 margin:auto;`
 /*----Small----*/
 
-const IconSmall = styled.div`
+const IconSmall = styled.button`
+&:hover ${Icon}{
+  background:#004BE8;
+  border:1px solid #004BE8;
+ }
+ &:active ${Icon}{
+   background:#0B5FFF;;
+   border:1px solid #0B5FFF;
+ }
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
 padding: 12px 16px;
 position: absolute;
-width: 20px;
-height: 15px;
+width: 50px;
+height: 40px;
 left: 204px;
+
 background: #124596;
 border-radius: 8px;
 border: 2px solid #124596;
 `
-const IconSmallSecondary = styled.div`
+
+const IconSmallD = styled.button`
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 12px 16px;
+background: rgba(11, 95, 255, 0.5);
+position: absolute;
+width: 50px;
+height: 40px;
+left: 204px;
+border-radius: 8px;
+border: none;
+`
+
+const IconSmallSecondary = styled.button`
+&:hover ${Icon}{
+  background:#0C9E42;
+  border:1px solid #0C9E42;
+ }
+ &:active ${Icon}{
+   background:#009236;
+   border:1px solid #009236;
+ }
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
 padding: 12px 16px;
 position: absolute;
-width: 20px;
-height: 15px;
+width: 50px;
+height: 40px;
 left: 204px;
 border-radius: 8px;
 background: #19AB4F;
 border: 2px solid #19AB4F;
+`
+const IconSmallSecondaryD = styled.button`
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 12px 16px;
+position: absolute;
+width: 50px;
+height: 40px;
+left: 204px;
+border-radius: 8px;
+background: rgba(25, 171, 79, 0.5);
+border: none;
 `
 
 
@@ -154,8 +295,8 @@ flex-grow: 0;
 margin: auto;
 `
 const IconS = styled.div`
-font-size:10px;
-padding:3px;
+font-size:8px;
+padding:2px 15px 0px 0px;
 margin:auto`
 
 
@@ -164,10 +305,10 @@ margin:auto`
 
 
 
-export const Icon = ({ color, backgroundColor, size, primary, ...props }) => {
+export const Icon = ({ size, primary, disabled }) => {
 
   return (
-    size === 'Large' & primary === true ? (<IconLarge style={{ backgroundColor }}>
+    size === 'Large' & primary === true & disabled === false ? (<IconLarge>
 
       <ContentLarge >
         <IconL>
@@ -177,7 +318,7 @@ export const Icon = ({ color, backgroundColor, size, primary, ...props }) => {
 
       </ContentLarge>
 
-    </IconLarge>) : size === 'Large' & primary === false ? (<IconLargePrimary style={{ backgroundColor }}>
+    </IconLarge>) : size === 'Large' & primary === true & disabled === true ? (<IconLargeD>
 
       <ContentLarge >
         <IconL>
@@ -187,7 +328,37 @@ export const Icon = ({ color, backgroundColor, size, primary, ...props }) => {
 
       </ContentLarge>
 
-    </IconLargePrimary>) : size === 'Medium' & primary === true ? (<IconMedium style={{ backgroundColor }}>
+    </IconLargeD>) : size === 'Large' & primary === false & disabled === false ? (<IconLargeSecondary >
+
+      <ContentLarge>
+        <IconL >
+          <img src={Round} alt="" />
+
+        </IconL>
+
+      </ContentLarge>
+
+    </IconLargeSecondary>) : size === 'Large' & primary === false & disabled === true ? (<IconLargeSecondaryD >
+
+      <ContentLarge >
+        <IconL >
+          <img src={Round} alt="" />
+
+        </IconL>
+
+      </ContentLarge>
+
+    </IconLargeSecondaryD>) : size === 'Medium' & primary === true & disabled === false ? (<IconMedium >
+
+      <ContentMedium >
+        <IconM>
+          <img src={Round} alt="" />
+
+        </IconM>
+
+      </ContentMedium>
+
+    </IconMedium>) : size === 'Medium' & primary === true & disabled === true ? (<IconMediumD >
 
       <ContentMedium >
         <IconM >
@@ -197,7 +368,17 @@ export const Icon = ({ color, backgroundColor, size, primary, ...props }) => {
 
       </ContentMedium>
 
-    </IconMedium>) : size === 'Medium' & primary === false ? (<IconMediumSecondary style={{ backgroundColor }}>
+    </IconMediumD>) : size === 'Medium' & primary === false & disabled === false ? (<IconMediumSecondary >
+
+      <ContentMedium >
+        <IconM>
+          <img src={Round} alt="" />
+
+        </IconM>
+
+      </ContentMedium>
+
+    </IconMediumSecondary>) : size === 'Medium' & primary === false & disabled === true ? (<IconMediumSecondaryD >
 
       <ContentMedium >
         <IconM >
@@ -207,7 +388,7 @@ export const Icon = ({ color, backgroundColor, size, primary, ...props }) => {
 
       </ContentMedium>
 
-    </IconMediumSecondary>) : size === 'Small' & primary === true ? (<IconSmall style={{ backgroundColor }}>
+    </IconMediumSecondaryD>) : size === 'Small' & primary === true & disabled === false ? (<IconSmall>
 
       <ContentSmall >
         <IconS >
@@ -217,7 +398,7 @@ export const Icon = ({ color, backgroundColor, size, primary, ...props }) => {
 
       </ContentSmall>
 
-    </IconSmall>) : size === 'Small' & primary === true ? (<IconSmall style={{ backgroundColor }}>
+    </IconSmall>) : size === 'Small' & primary === true & disabled === true ? (<IconSmallD>
 
       <ContentSmall >
         <IconS >
@@ -227,37 +408,25 @@ export const Icon = ({ color, backgroundColor, size, primary, ...props }) => {
 
       </ContentSmall>
 
-    </IconSmall>) : size === 'Small' & primary === true ? (<IconSmall style={{ backgroundColor }}>
+    </IconSmallD>) : size === 'Small' & primary === false & disabled === false ? (<IconSmallSecondary>
 
-      <ContentSmall >
-        <IconS >
+      <ContentSmall>
+        <IconS>
           <img src={Round} alt="" />
-
         </IconS>
 
       </ContentSmall>
 
-    </IconSmall>) : size === 'Small' & primary === true ? (<IconSmall style={{ backgroundColor }}>
+    </IconSmallSecondary>) : size === 'Small' & primary === false & disabled === true ? (<IconSmallSecondaryD>
 
-      <ContentSmall >
-        <IconS >
-          <img src={Round} alt="" />
+<ContentSmall>
+  <IconS>
+    <img src={Round} alt="" />
+  </IconS>
 
-        </IconS>
+</ContentSmall>
 
-      </ContentSmall>
-
-    </IconSmall>) : size === 'Small' & primary === false ? (<IconSmallSecondary style={{ backgroundColor }}>
-
-      <ContentSmall >
-        <IconS >
-          <img src={Round} alt="" />
-
-        </IconS>
-
-      </ContentSmall>
-
-    </IconSmallSecondary>) : '');
+</IconSmallSecondaryD>) : null);
 };
 
 

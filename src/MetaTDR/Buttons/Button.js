@@ -8,35 +8,87 @@ import styled from "styled-components";
 
 /***-----Large---***/
 
-const ButtonLarge = styled.div`
+const ButtonLarge = styled.button`
+&:hover ${Button}{
+ background:#004BE8;
+ border:1px solid #004BE8;
+}
+&:active ${Button}{
+  background:#0B5FFF;;
+  border:1px solid #0B5FFF;
+}
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
 padding: 12px 16px;
 position: absolute;
-width: 115px;
-height: 30px;
+width: 140px;
+height: 50px;
 left: 20px;
 top: 20px;
 background: #124596;
 border-radius: 8px;
 border:1px solid #124596;
 `
-const ButtonLargeSecondary = styled.div`
+const ButtonLargeD = styled.button`
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
 padding: 12px 16px;
 position: absolute;
-width: 115px;
-height: 30px;
+width: 140px;
+height: 50px;
+left: 20px;
+top: 20px;
+background: rgba(11, 95, 255, 0.5);
+border-radius: 8px;
+border:none;
+`
+
+
+
+
+
+const ButtonLargeSecondary = styled.button`
+&:hover ${Button}{
+  background:#0C9E42;
+  border:1px solid #0C9E42;
+ }
+ &:active ${Button}{
+   background:#009236;
+   border:1px solid #009236;
+ }
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 12px 16px;
+position: absolute;
+width: 140px;
+height: 50px;
 left: 20px;
 top: 20px;
 background: #19AB4F;
 border-radius: 8px;
 border:1px solid #19AB4F;
+`
+
+const ButtonLargeSecondaryD = styled.button`
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 12px 16px;
+position: absolute;
+width: 140px;
+height: 50px;
+left: 20px;
+top: 20px;
+background: rgba(25, 171, 79, 0.5);
+border-radius: 8px;
+border:none;
 `
 
 const ElementsLarge = styled.div`
@@ -57,14 +109,9 @@ margin: 0px 0px;
 const TextLarge = styled.div`
 color: #FFFFFF;
 font-family: Nunito;
-font-style: normal;
-font-weight: 600;
-font-size: 14px;
-line-height: 24px;
-flex: none;
-order: 1;
-flex-grow: 0;
-margin: auto;
+font-size: 18px;
+font-weight:bold;
+
 
 `
 
@@ -73,15 +120,23 @@ margin: auto;
 
 
 
-const ButtonMedium = styled.div`
+const ButtonMedium = styled.button`
+&:hover ${Button}{
+  background:#004BE8;
+  border:1px solid #004BE8;
+ }
+ &:active ${Button}{
+   background:#0B5FFF;;
+   border:1px solid #0B5FFF;
+ }
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
 padding: 12px 16px;
 position: absolute;
-width: 105px;
-height: 25px;
+width: 135px;
+height: 45px;
 left: 196px;
 top: 24px;
 background: #124596;
@@ -89,15 +144,56 @@ border-radius: 8px;
 border:1px solid #124596;
 `
 
-const ButtonMediumSecondary = styled.div`
+const ButtonMediumD = styled.button`
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
 padding: 12px 16px;
 position: absolute;
-width: 105px;
-height: 25px;
+width: 135px;
+height: 45px;
+left: 196px;
+top: 24px;
+background: rgba(11, 95, 255, 0.5);
+border-radius: 8px;
+border:none;
+`
+
+const ButtonMediumSecondaryD = styled.button`
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 12px 16px;
+position: absolute;
+width: 135px;
+height: 45px;
+left: 196px;
+top: 24px;
+background: rgba(25, 171, 79, 0.5);
+border-radius: 8px;
+border:none;
+`
+
+
+const ButtonMediumSecondary = styled.button`
+&:hover ${Button}{
+  background:#0C9E42;
+  border:1px solid #0C9E42;
+ }
+ &:active ${Button}{
+   background:#009236;
+   border:1px solid #009236;
+ }
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 12px 16px;
+position: absolute;
+width: 135px;
+height: 45px;
 left: 196px;
 top: 24px;
 background: #19AB4F;
@@ -123,50 +219,95 @@ margin: 0px 0px;
 const TextMedium = styled.div`
 color: #FFFFFF;
 font-family: Nunito;
-font-style: normal;
-font-weight: 600;
-font-size: 12px;
-line-height: 24px;
-flex: none;
-order: 1;
-flex-grow: 0;
-margin: auto;`
+font-size: 15px;
+font-weight:bold;
+margin:auto;`
 
 
 
 /*----Small----*/
 
-const ButtonSmall = styled.div`
+const ButtonSmall = styled.button`
+&:hover ${Button}{
+  background:#004BE8;
+  border:1px solid #004BE8;
+ }
+ &:active ${Button}{
+   background:#0B5FFF;;
+   border:1px solid #0B5FFF;
+ }
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
 padding: 12px 16px;
 position: absolute;
-width: 95px;
-height: 20px;
+width: 125px;
+height: 40px;
 left: 374px;
 top: 30px;
 background: #124596;
 border-radius: 8px;
 border:1px solid #124596;
 `
-const ButtonSmallSecondary = styled.div`
+const ButtonSmallD = styled.button`
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
 padding: 12px 16px;
 position: absolute;
-width: 95px;
-height: 20px;
+width: 125px;
+height: 40px;
+left: 374px;
+top: 30px;
+background: rgba(11, 95, 255, 0.5);
+border-radius: 8px;
+border:none;
+color:white;
+`
+
+
+
+const ButtonSmallSecondary = styled.button`
+&:hover ${Button}{
+  background:#0C9E42;
+  border:1px solid #0C9E42;
+ }
+ &:active ${Button}{
+   background:#009236;
+   border:1px solid #009236;
+ }
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 12px 16px;
+position: absolute;
+width: 125px;
+height: 40px;
 left: 374px;
 top: 30px;
 background: #19AB4F;
 border-radius: 8px;
 border:1px solid #19AB4F;
 `
-
+const ButtonSmallSecondaryD = styled.button`
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 12px 16px;
+position: absolute;
+width: 125px;
+height: 40px;
+left: 374px;
+top: 30px;
+background: rgba(25, 171, 79, 0.5);
+border-radius: 8px;
+border:none;
+color:white;
+`
 
 const ElementsSmall = styled.div`
 display: flex;
@@ -186,14 +327,9 @@ margin: 0px 0px;
 const TextSmall = styled.div`
 color: #FFFFFF;
 font-family: Nunito;
-font-style: normal;
-font-weight: 600;
-font-size: 10px;
-line-height: 24px;
-flex: none;
-order: 1;
-flex-grow: 0;
-margin: auto;`
+font-size: 14px;
+font-weight:bold;
+margin:auto;`
 
 
 
@@ -201,67 +337,159 @@ margin: auto;`
 
 
 
-export const Button = ({ color, backgroundColor, size,primary, ...props }) => {
+export const Button = ({ color, size, primary, disabled, ...props }) => {
 
   return (
 
+    /*---Large Button---*/
 
 
-    size === 'Large' & primary===true ? (<ButtonLarge style={{ backgroundColor }}>
-      <ElementsLarge>
+    size === 'Large' & primary === true & disabled === true ?
+      (<ButtonLargeD>
+        <ElementsLarge>
+          <TextLarge>
+            {props.text}
+          </TextLarge>
+        </ElementsLarge>
 
-        <TextLarge style={{ color }}>
-          {props.text}
-        </TextLarge>
+      </ButtonLargeD>)
 
-      </ElementsLarge>
-     
-    </ButtonLarge >) : size==='Large' & primary===false ? (<ButtonLargeSecondary style={{ backgroundColor }}>
-      <ElementsLarge>
+      : size === 'Large' & primary === true & disabled === false ?
+        (<ButtonLarge >
+          <ElementsLarge>
 
-        <TextLarge style={{ color }}>
-          {props.text}
-        </TextLarge>
+            <TextLarge style={{ color }}>
+              {props.text}
+            </TextLarge>
 
-      </ElementsLarge>
-     
-    </ButtonLargeSecondary >) : size==='Medium' & primary===true ?  (<ButtonMedium style={{ backgroundColor }}>
-      <ElementsMedium>
+          </ElementsLarge>
 
-        <TextMedium style={{ color }}>
-          {props.text}
-        </TextMedium>
+        </ButtonLarge >) : size === 'Large' & primary === false & disabled === false ?
+          (<ButtonLargeSecondary >
+            <ElementsLarge>
 
-      </ElementsMedium>
-     
-    </ButtonMedium >) : size==='Medium' & primary===false ?  (<ButtonMediumSecondary style={{ backgroundColor }}>
-      <ElementsMedium>
+              <TextLarge style={{ color }}>
+                {props.text}
+              </TextLarge>
 
-        <TextMedium style={{ color }}>
-          {props.text}
-        </TextMedium>
+            </ElementsLarge>
 
-      </ElementsMedium>
-     
-    </ButtonMediumSecondary >) : size==='Small' & primary===true ?  (<ButtonSmall style={{ backgroundColor }}>
-      <ElementsSmall>
+          </ButtonLargeSecondary >) : size === 'Large' & primary === false & disabled === true ?
+            (<ButtonLargeSecondaryD >
+              <ElementsLarge>
 
-        <TextSmall style={{ color }}>
-          {props.text}
-        </TextSmall>
+                <TextLarge style={{ color }}>
+                  {props.text}
+                </TextLarge>
 
-      </ElementsSmall>
-     
-    </ButtonSmall >) : size==='Small' & primary===false ? (<ButtonSmallSecondary style={{ backgroundColor }}>
-      <ElementsSmall>
+              </ElementsLarge>
 
-        <TextSmall style={{ color }}>
-          {props.text}
-        </TextSmall>
+            </ButtonLargeSecondaryD >) : size === 'Large' & primary === true & disabled === true ?
+              (<ButtonLargeD>
+                <ElementsLarge>
+                  <TextLarge>
+                    {props.text}
+                  </TextLarge>
+                </ElementsLarge>
 
-      </ElementsSmall>
-     
-    </ButtonSmallSecondary >) : null
+              </ButtonLargeD>)
+
+
+              /*---Medium Button---*/
+
+
+              : size === 'Medium' & primary === true & disabled === false ?
+                (<ButtonMedium>
+                  <ElementsMedium>
+
+                    <TextMedium style={{ color }}>
+                      {props.text}
+                    </TextMedium>
+
+                  </ElementsMedium>
+
+                </ButtonMedium >) : size === 'Medium' & primary === true & disabled === true ?
+                  (<ButtonMediumD>
+                    <ElementsMedium>
+
+                      <TextMedium style={{ color }}>
+                        {props.text}
+                      </TextMedium>
+
+                    </ElementsMedium>
+
+                  </ButtonMediumD >) : size === 'Medium' & primary === false & disabled === false ?
+                    (<ButtonMediumSecondary>
+                      <ElementsMedium>
+
+                        <TextMedium style={{ color }}>
+                          {props.text}
+                        </TextMedium>
+
+                      </ElementsMedium>
+
+                    </ButtonMediumSecondary >) 
+
+                    /*---Small Button---*/
+
+                    : size === 'Medium' & primary === false & disabled === true ?
+                      (<ButtonMediumSecondaryD>
+                        <ElementsMedium>
+
+                          <TextMedium style={{ color }}>
+                            {props.text}
+                          </TextMedium>
+
+                        </ElementsMedium>
+                        
+                      </ButtonMediumSecondaryD >) : size === 'Small' & primary === true & disabled === false ?
+                        (<ButtonSmall>
+
+                          <ElementsSmall>
+
+                            <TextSmall style={{ color }}>
+                              {props.text}
+
+                            </TextSmall>
+                          </ElementsSmall>
+
+                        </ButtonSmall>) : size === 'Small' & primary === true & disabled === true ?
+                          (<ButtonSmallD>
+
+                            <ElementsSmall>
+
+                              <TextSmall style={{ color }}>
+                                {props.text}
+
+                              </TextSmall>
+
+                            </ElementsSmall>
+                          </ButtonSmallD>) : size === 'Small' & primary === false & disabled === false ?
+                            (<ButtonSmallSecondary>
+
+                              <ElementsSmall>
+
+                                <TextSmall style={{ color }}>
+                                  {props.text}
+
+                                </TextSmall>
+
+                              </ElementsSmall>
+
+                            </ButtonSmallSecondary>) : size === 'Small' & primary === false & disabled === true ?
+                              (<ButtonSmallSecondaryD>
+
+                                <ElementsSmall>
+
+                                  <TextSmall style={{ color }}>
+                                    {props.text}
+
+                                  </TextSmall>
+
+                                </ElementsSmall>
+
+                              </ButtonSmallSecondaryD>) : null
+
   );
 
 };

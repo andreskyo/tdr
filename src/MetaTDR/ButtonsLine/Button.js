@@ -8,9 +8,12 @@ import styled from "styled-components";
 
 /***-----Large---***/
 
-const ButtonLarge = styled.div`
+const ButtonLarge = styled.button`
+&:active ${Button}{
+    text-decoration-line: underline
+   }
 position: static;
-width: 108px;
+width: 120px;
 height: 28px;
 left: 9px;
 top: 5.5px;
@@ -18,37 +21,66 @@ font-family: Nunito;
 font-style: normal;
 font-weight: 600;
 font-size: 18px;
-line-height: 28px;
 text-align: center;
-color: #124596;
-flex: none;
 order: 0;
 flex-grow: 0;
 margin: 0px 0px;
+border:none;
+background:transparent;
+
 `
-const LineLarge = styled.div`
-border: 1px solid #124596;
-width:76px;
-margin:-8px auto;
-`
-const TextLarge = styled.div`
+
+const ButtonLargeD = styled.button`
+
 position: static;
-width: 108px;
+width: 120px;
 height: 28px;
-left: 5px;
+left: 9px;
 top: 5.5px;
 font-family: Nunito;
 font-style: normal;
 font-weight: 600;
-font-size: 13px;
-line-height: 28px;
-color:red;
+font-size: 18px;
 text-align: center;
-color: #124596;
+order: 0;
+flex-grow: 0;
+margin: 0px 0px;
+border:none;
+background:transparent;
+
+`
+
+const TextLarge = styled.div`
+position: static;
+left: 5px;
+font-family: Nunito;
+font-style: normal;
+font-weight: 600;
+font-size: 15px;
+line-height: 28px;
+text-align: center;
+color:#124596;
 flex: none;
 order: 0;
 flex-grow: 0;
 margin: auto;
+`
+
+const TextLargeD = styled.div`
+position: static;
+left: 5px;
+font-family: Nunito;
+font-style: normal;
+font-weight: 600;
+font-size: 15px;
+line-height: 28px;
+text-align: center;
+color:#124596;
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: auto;
+color:#b9c2ff;
 `
 
 
@@ -56,68 +88,115 @@ margin: auto;
 
 
 
-const ButtonMedium = styled.div`
+const ButtonMedium = styled.button`
+&:active ${Button}{
+    text-decoration-line: underline
+   }
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
 padding: 5.5px 16px 0px;
 position: absolute;
-width: 145px;
-height: 33.5px;
+width: 115px;
+height: 25px;
 left: 196px;
+border:none;
+background:transparent;
 
 `
-const LineMedium = styled.div`
-border: 1px solid #124596;
-width:84px;
-margin:-9px auto;
+const ButtonMediumD = styled.button`
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 5.5px 16px 0px;
+position: absolute;
+width: 115px;
+height: 25px;
+left: 196px;
+border:none;
+background:transparent;
+
 `
+
 const TextMedium = styled.div`
 position: static;
-width: 113px;
-height: 28px;
+width:200px;
+left: 5px;
+font-family: Nunito;
+font-style: normal;
+font-weight: 600;
+font-size: 13px;
+line-height: 28px;
+text-align: center;
+color:#124596;
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: auto;
+`
+
+const TextMediumD = styled.div`
+position: static;
 left: 14px;
 top: 5.5px;
 font-family: Nunito;
 font-style: normal;
 font-weight: 600;
-font-size: 12px;
+width:200px;
+font-size: 13px;
 line-height: 28px;
 text-align: center;
 color: #124596;
 flex: none;
 order: 0;
 flex-grow: 0;
-margin: auto`
+margin: auto;
+color:#b9c2ff;`
+
 
 
 
 /*----Small----*/
 
-const ButtonSmall = styled.div`
+const ButtonSmall = styled.button`
+&:active ${Button}{
+    text-decoration-line: underline
+   }
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
 padding: 5.5px 12px 0px;
 position: absolute;
-width: 108px;
-height: 33.5px;
+width: 111px;
+height: 23px;
 left: 374px;
+border:none;
+background:transparent;
 
 `
 
-const LineSmall = styled.div`
-margin:-6px 10px;
-width: 66px;
-border: 1px solid #124596;
-align-self: stretch;
+const ButtonSmallD = styled.button`
+
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 5.5px 12px 0px;
+position: absolute;
+width: 111px;
+height: 23px;
+left: 374px;
+border:none;
+background:transparent;
+
 `
+
+
 const TextSmall = styled.div`
 position: static;
-width: 84px;
-height: 28px;
 left: 10px;
 top: 5.5px;
 font-family: Nunito;
@@ -134,66 +213,71 @@ order: 0;
 flex-grow: 0;
 margin: 0px 0px;`
 
+const TextSmallD = styled.div`
+position: static;
+left: 10px;
+top: 5.5px;
+font-family: Nunito;
+font-style: normal;
+font-weight: 600;
+font-size: 11px;
+line-height: 28px;
+display: flex;
+align-items: center;
+text-align: center;
+color: #124596;
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 0px;
+color:#b9c2ff;`
 
 
 
 
 
 
-export const Button = ({ color, size,line, ...props }) => {
+
+export const Button = ({ color, size, disabled, ...props }) => {
 
     return (
-         line === true & size=== 'Large' ? (<ButtonLarge >
-            <TextLarge style={{color}}>
-                {props.text}
-                <LineLarge style={{color}}>
+        size === 'Large' & disabled === false ? (<ButtonLarge>
+            <TextLarge>
 
-                </LineLarge>
+                {props.text}
             </TextLarge>
 
-        </ButtonLarge>) : line=== false & size=== 'Large'? (<ButtonLarge >
-            <TextLarge style={{color}}>
+        </ButtonLarge>) : size==='Large' & disabled===true ? (<ButtonLargeD>
+            <TextLargeD>
+
                 {props.text}
-                
+            </TextLargeD>
 
-                
-            </TextLarge>
+        </ButtonLargeD>) : size==='Medium' & disabled===true ? (<ButtonMediumD>
+            <TextMediumD>
 
-        </ButtonLarge>) : line === true & size=== 'Medium' ? (<ButtonMedium >
-            <TextMedium style={{color}}>
                 {props.text}
-                <LineMedium style={{color}}>
+            </TextMediumD>
 
-                </LineMedium>
+        </ButtonMediumD>) : size==='Medium' & disabled===false ? (<ButtonMedium>
+            <TextMedium>
+
+                {props.text}
             </TextMedium>
 
-        </ButtonMedium>) : line=== false & size=== 'Medium' ? (<ButtonMedium >
-            <TextMedium style={{color}}>
+        </ButtonMedium>) : size==='Small' & disabled===true? (<ButtonSmallD>
+            <TextSmallD>
+
                 {props.text}
-                
+            </TextSmallD>
 
-                
-            </TextMedium>
+        </ButtonSmallD>) : size==='Small' & disabled===false ?(<ButtonSmall>
+            <TextSmall>
 
-        </ButtonMedium>) :line=== true & size=== 'Small' ?(<ButtonSmall >
-            <TextSmall style={{color}}>
                 {props.text}
-                
-
-                
-            </TextSmall>
-            <LineSmall style={{color}}>
-
-</LineSmall>
-        </ButtonSmall>) : line=== false & size==='Small' ?(<ButtonSmall >
-            <TextSmall style={{color}}>
-                {props.text}
-                
-
-                
             </TextSmall>
 
-        </ButtonSmall>) : ''
+        </ButtonSmall>) : null
 
 
     )

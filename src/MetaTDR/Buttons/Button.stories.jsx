@@ -8,9 +8,10 @@ export default {
   component: Button,
  
   argTypes: {
-    backgroundColor: { control: 'color' },
+    
     color:{control:'color'},
     primary:{control:'boolean'},
+    disabled:{control:'boolean'},
     size: {
       options:['Large','Medium','Small'],
       control:{type:'select'}
@@ -34,18 +35,24 @@ export const Small = Template.bind({});
 Large.args = {
   size: 'Large',
   text:'Large Button',
-  primary:'true'
+  primary:true,
+  disabled:false
+  
 };
 Medium.args = {
   size: 'Medium',
   text:'Medium Button',
-  primary:'true'
+  primary:true,
+  disabled:false
+  
 
 };
 Small.args = {
   size: 'Small',
   text:'Small Button',
-  primary:'true'
+  primary:true,
+  disabled:false
+  
 };
 
 
