@@ -30,6 +30,7 @@ left: 20px;
 background: #124596;
 border-radius: 8px;
 border: 2px solid #124596;
+cursor:pointer;
 `
 
 const IconLargeD = styled.button`
@@ -68,6 +69,7 @@ left: 20px;
 background: #19AB4F;
 border-radius: 8px;
 border: 2px solid #19AB4F;
+cursor:pointer;
 `
 const IconLargeSecondaryD = styled.button`
 display: flex;
@@ -128,6 +130,7 @@ left: 116px;
 background: #124596;
 border-radius: 8px;
 border: 2px solid #124596;
+cursor:pointer;
 `
 const IconMediumD = styled.button`
 display: flex;
@@ -167,6 +170,7 @@ left: 116px;
 background: #19AB4F;
 border-radius: 8px;
 border: 2px solid #19AB4F;
+cursor:pointer;
 `
 const IconMediumSecondaryD = styled.button`
 display: flex;
@@ -224,7 +228,7 @@ position: absolute;
 width: 50px;
 height: 40px;
 left: 204px;
-
+cursor:pointer;
 background: #124596;
 border-radius: 8px;
 border: 2px solid #124596;
@@ -266,6 +270,7 @@ left: 204px;
 border-radius: 8px;
 background: #19AB4F;
 border: 2px solid #19AB4F;
+cursor:pointer;
 `
 const IconSmallSecondaryD = styled.button`
 display: flex;

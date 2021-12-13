@@ -19,6 +19,7 @@ width: 164px;
 height: 52px;
 left: 27px;
 border-radius: 8px;
+cursor:pointer;
 
 `
 const ElementsIconLarge = styled.div`
@@ -77,6 +78,7 @@ width: 169px;
 height: 48px;
 left: 203px;
 border-radius: 8px;
+cursor:pointer;
 `
 const ElementsIconMedium = styled.div`
 display: flex;
@@ -130,6 +132,7 @@ width: 140px;
 height: 44px;
 left: 381px;
 border-radius: 8px;
+cursor:pointer;
 
 `
 

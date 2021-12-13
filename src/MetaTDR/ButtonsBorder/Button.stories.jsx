@@ -14,7 +14,7 @@ export default {
       options:['Large','Medium','Small'],
       control:{type:'select'}
     },
-    
+    disabled:{control:'boolean'}
  
   
     
@@ -33,15 +33,19 @@ export const Small = Template.bind({});
 
 Large.args = {
   size: 'Large',
-  text:'Large Button'
+  text:'Large Button',
+  disabled:false
 };
 Medium.args = {
   size: 'Medium',
-  text:'Medium Button'
+  text:'Medium Button',
+  disabled:false
+
 };
 Small.args = {
   size: 'Small',
-  text:'Small Button'
+  text:'Small Button',
+  disabled:false
 };
 
 

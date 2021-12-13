@@ -30,6 +30,7 @@ top: 20px;
 background: #124596;
 border-radius: 8px;
 border:1px solid #124596;
+cursor:pointer;
 `
 const ButtonLargeD = styled.button`
 display: flex;
@@ -73,6 +74,7 @@ top: 20px;
 background: #19AB4F;
 border-radius: 8px;
 border:1px solid #19AB4F;
+cursor:pointer;
 `
 
 const ButtonLargeSecondaryD = styled.button`
@@ -142,6 +144,7 @@ top: 24px;
 background: #124596;
 border-radius: 8px;
 border:1px solid #124596;
+cursor:pointer;
 `
 
 const ButtonMediumD = styled.button`
@@ -158,6 +161,7 @@ top: 24px;
 background: rgba(11, 95, 255, 0.5);
 border-radius: 8px;
 border:none;
+cursor:pointer;
 `
 
 const ButtonMediumSecondaryD = styled.button`
@@ -199,6 +203,7 @@ top: 24px;
 background: #19AB4F;
 border-radius: 8px;
 border:1px solid #19AB4F;
+cursor:pointer;
 `
 
 const ElementsMedium = styled.div`
@@ -249,6 +254,7 @@ top: 30px;
 background: #124596;
 border-radius: 8px;
 border:1px solid #124596;
+cursor:pointer;
 `
 const ButtonSmallD = styled.button`
 display: flex;
@@ -291,6 +297,7 @@ top: 30px;
 background: #19AB4F;
 border-radius: 8px;
 border:1px solid #19AB4F;
+cursor:pointer;
 `
 const ButtonSmallSecondaryD = styled.button`
 display: flex;

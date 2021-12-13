@@ -27,7 +27,7 @@ flex-grow: 0;
 margin: 0px 0px;
 border:none;
 background:transparent;
-
+cursor:pointer;
 `
 
 const ButtonLargeD = styled.button`
@@ -103,6 +103,7 @@ height: 25px;
 left: 196px;
 border:none;
 background:transparent;
+cursor:pointer;
 
 `
 const ButtonMediumD = styled.button`
@@ -175,6 +176,7 @@ height: 23px;
 left: 374px;
 border:none;
 background:transparent;
+cursor:pointer;
 
 `
 
