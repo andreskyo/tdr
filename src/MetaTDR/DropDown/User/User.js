@@ -57,9 +57,6 @@ margin: 5px 0px;
 `
 const TextA = styled.div`
 position: static;
-width: 132px;
-height: 17px;
-left: 21.5px;
 top: 57px;
 font-family: Nunito;
 font-style: normal;
@@ -74,7 +71,7 @@ color: #09101D;
 flex: none;
 order: 1;
 flex-grow: 0;
-margin: 5px 0px;
+margin: 15px 0px;
 `
 const TextB = styled.div`
 position: static;
@@ -125,11 +122,11 @@ margin:10px 210px;
 
 
 const RrcIconA = styled.div`
-position: absolute;
-width: 20px;
+position:absolute;
+width: 520px;
 height: 20px;
 left: 220px;
-top: 20px;
+top: 12px;
 
 `
 
@@ -169,6 +166,8 @@ left: 220px;
 top: 220px;`
 
 const TextCerrar = styled.div`
+&:hover ${User}{font-weight: bold;}
+cursor:pointer;
 position: absolute;
 height: 19px;
 left: 36px;
@@ -176,7 +175,7 @@ right: 12px;
 top: 1px;
 font-family: Nunito;
 font-style: normal;
-font-weight: bold;
+
 font-size: 14px;
 line-height: 19px;
 display: flex;
@@ -186,6 +185,10 @@ color: #09101D;
 `
 
 const TextUno = styled.div`
+&:hover ${User}{color:black;}
+color: #858C94;
+font-weight: bold;
+cursor:pointer;
 position: absolute;
 height: 19px;
 left: 36px;
@@ -193,120 +196,142 @@ right: 12px;
 top: 1px;
 font-family: Nunito;
 font-style: normal;
-font-weight: normal;
 font-size: 15px;
 line-height: 19px;
 display: flex;
 align-items: center;
+margin:5px 0px;
 font-feature-settings: 'ss07' on;
-color: #6D7580;
+
 `
 const P = styled.p`
 color:green;
 `
+const Div=styled.div`
+&:hover ${User}{background:   #fefaf9 ; 
+    
+margin:-30px -10px;
+width:180px;
+height:40px;}
+`
 
-export const User = () => {
+const DivDos=styled.div`
+&:hover ${User}{background:   #fefaf9 ; 
+    
+margin:-0px -10px;
+width:180px;
+height:40px;}
+`
+
+
+
+export const User = (props) => {
 
     return (
         <div>
-        <Menu>
-            <Line></Line>
-            <Name>
-                
-                <UserIcon>
-                    <img src={Vector} />
-                </UserIcon>
-                <TextA>
-                    ¡Hola, Juan Martínez!
-                </TextA>
-                
-                <TextB>
-                    20282516129
-                </TextB>
-                <TextC>
-                    Situación fiscal: <P>Regular</P>
-                </TextC>
-            </Name>
-            
+
+            <Menu>
+
+                <Line></Line>
+                <Name>
+
+                    <UserIcon>
+                        <img src={Vector} />
+                    </UserIcon>
+                   
+                        <TextA>
+                            {props.textNombre}
+                        </TextA>
+                    
+                    <TextB>
+                        {props.textId}
+                    </TextB>
+                    <TextC>
+                        Situación fiscal: <P>{props.textSituacion}</P>
+                    </TextC>
+                </Name>
+
                 <RrcIconA>
+                    
                     <img src={RcIcons} />
-                    <TextUno>Impuestos</TextUno>
+                    <Div><TextUno>Impuestos</TextUno></Div>
+                    
                 </RrcIconA>
-            
-            <RrcIconB>
-                <img src={RcIcons} />
-                <TextUno>Representados</TextUno>
-            </RrcIconB>
-            <RrcIconC>
-                <img src={RcIcons} />
-                <TextUno>Fiscalizaciones</TextUno>
-            </RrcIconC>
-            <RrcIconD>
-                <img src={RcIcons} />
-                <TextUno>Corredor</TextUno>
-            </RrcIconD>
-            <RrcIconE>
-                <img src={RcIcons} />
-                <TextUno>Procurador</TextUno>
-            </RrcIconE>
-            <RrcIconCerrar>
-                <img src={Logout} />
-                <TextCerrar>Cerrar sesión</TextCerrar>
-            </RrcIconCerrar>
+
+                <RrcIconB>
+                    <img src={RcIcons} />
+                   <Div><TextUno>Representados</TextUno></Div>
+                </RrcIconB>
+                <RrcIconC>
+                    <img src={RcIcons} />
+                   <Div><TextUno>Fiscalizaciones</TextUno></Div> 
+                </RrcIconC>
+                <RrcIconD>
+                    <img src={RcIcons} />
+                   <Div><TextUno>Corredor</TextUno></Div>
+                </RrcIconD>
+                <RrcIconE>
+                    <img src={RcIcons} />
+                    <Div> <TextUno>Procurador</TextUno></Div>
+                </RrcIconE>
+                <RrcIconCerrar>
+                    <img src={Logout} />
+                    <TextCerrar>Cerrar sesión</TextCerrar>
+                </RrcIconCerrar>
 
 
 
-        </Menu>
+            </Menu>
 
-        <MenuDos>
-            <Line></Line>
-            <Name>
-                
-                <UserIcon>
-                    <img src={Vector} />
-                </UserIcon>
-                <TextA>
-                    ¡Hola, Juan Martínez!
-                </TextA>
-                
-                <TextB>
-                    20282516129
-                </TextB>
-                <TextC>
-                    Situación fiscal: <P>Regular</P>
-                </TextC>
-            </Name>
-            
-                
-                <RrcIconA>  
-                    <TextUno>Impuestos</TextUno>
-                    </RrcIconA>
-                
-            
-            <RrcIconB>
-                
-                <TextUno>Representados</TextUno>
-            </RrcIconB>
-            <RrcIconC>
-                
-                <TextUno>Fiscalizaciones</TextUno>
-            </RrcIconC>
-            <RrcIconD>
-                
-                <TextUno>Corredor</TextUno>
-            </RrcIconD>
-            <RrcIconE>
-                
-                <TextUno>Procurador</TextUno>
-            </RrcIconE>
-            <RrcIconCerrar>
-                
-                <TextCerrar>Cerrar sesión</TextCerrar>
-            </RrcIconCerrar>
+            <MenuDos>
+                <Line></Line>
+                <Name>
+
+                    <UserIcon>
+                        <img src={Vector} />
+                    </UserIcon>
+                    <TextA>
+                        {props.textNombre}
+                    </TextA>
+
+                    <TextB>
+                        {props.textId}
+                    </TextB>
+                    <TextC>
+                        Situación fiscal: <P>{props.textSituacion}</P>
+                    </TextC>
+                </Name>
 
 
+                <RrcIconA>
+                  <DivDos><TextUno>Impuestos</TextUno></DivDos>
+                </RrcIconA>
 
-        </MenuDos>
+
+                <RrcIconB>
+
+                <DivDos>  <TextUno>Representados</TextUno></DivDos>
+                </RrcIconB>
+                <RrcIconC>
+
+                <DivDos>  <TextUno>Fiscalizaciones</TextUno></DivDos>
+                </RrcIconC>
+                <RrcIconD>
+
+                <DivDos>  <TextUno>Corredor</TextUno></DivDos>
+                </RrcIconD>
+                <RrcIconE>
+
+                <DivDos>  <TextUno>Procurador</TextUno></DivDos>
+                </RrcIconE>
+                <RrcIconCerrar>
+
+                  <TextCerrar>Cerrar sesión</TextCerrar>
+                </RrcIconCerrar>
+
+
+
+            </MenuDos>
 
         </div>
     );

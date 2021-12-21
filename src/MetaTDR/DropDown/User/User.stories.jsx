@@ -15,13 +15,15 @@ export default {
 
 const Template = (args) => <User {...args} />;
 
-export const Large = Template.bind({});
+export const UserIcon = Template.bind({});
 
 
 
 
 
-Large.args = {
-  size:'Large',
+UserIcon.args = {
+  textNombre:'¡Hola, Juan Martínez!',
+  textId:'20282516129',
+  textSituacion:'Regular'
   
 };

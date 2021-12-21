@@ -15,13 +15,16 @@ export default {
 
 const Template = (args) => <MenuInput {...args} />;
 
-export const Large = Template.bind({});
+export const InputA = Template.bind({});
 
 
 
 
 
-Large.args = {
-  size:'Large',
+InputA.args = {
+  TextHora:'Hace 3 horas',
+  TextMulta:'Tienes una multa próxima a vencer',
+  TextVencimiento:'Vence 24/10/2019',
+  TextNotificaciones:'Ver todas las notificaciones'
   
 };
