@@ -15,14 +15,25 @@ export default {
 
 const Template = (args) => <MenuOptions {...args} />;
 
-export const Large = Template.bind({});
+export const MenuuOptions = Template.bind({});
 
+let datos= [
+  {
+    text:'Menu Option 1',
+    accion:"m 1"
+  },
+  {
+    text:'Menu Option 2',
+    accion:"m 2"
+  },
+  {
+    text:'Menu Option 3',
+    accion:"m 3"
+  }
+]
 
-
-
-
-Large.args = {
-  size:'Large'
+MenuuOptions.args = {
+  datos:datos
 };
 
 

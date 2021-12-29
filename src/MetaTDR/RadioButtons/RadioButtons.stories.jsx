@@ -1,30 +1,24 @@
 import React from 'react';
-
 import { RadioButtons } from "./RadioButtons";
-
-
 export default {
-  title: 'DropDown/RadioButtons/RadioButtons',
+  title: 'MetaTDR/RadioButtons/RadioButtons',
   component: RadioButtons,
  
   argTypes: {
-    
      },
 };
-
-
 const Template = (args) => <RadioButtons {...args} />;
-
 export const RbuttonSelected = Template.bind({});
 
-
-
-
-
-
+// const funcion = (e) =>{
+//     alert("dato del radio" + e)
+// };
 RbuttonSelected.args = {
- Selecteed:true,
- Disableed:false
+ 
+ disableed:false,
+ 
+//  onChange:funcion
   
 };
+
 

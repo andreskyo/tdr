@@ -4,37 +4,39 @@ import { Card } from "./Card";
 
 
 export default {
-  title: 'DropDown/Card',
+  title: 'DropDown/Card/Card',
   component: Card,
  
   argTypes: {
-    size: {
-      options:['Large','Medium','Small'],
-      control:{type:'select'}
-    },
+    
      },
 };
 
 
 const Template = (args) => <Card {...args} />;
 
-export const Large = Template.bind({});
-export const Medium = Template.bind({});
-export const Small = Template.bind({});
+export const NotCorreo = Template.bind({});
+
+let Cards=[{
+notificaciones:'No hay notificaciónes',
+alertas:'Regresa más tarde, no hay alertas por el momento',
+bandeja:'Ir a bandeja de entrada'
+
+},
+]
+
+let Cardb=[{
+  notificaciones:'No hay notificaciónes',
+  alertas:'Regresa más tarde, no hay alertas por el momento',
+  },
+  ]
 
 
-
-Large.args = {
-  size:'Large'
+NotCorreo.args = {
+Cards:Cards, 
+Cardb:Cardb
 };
 
-Medium.args = {
-  size:'Large'
-};
-
-Small.args = {
-  size:'Large'
-};
 
 
 

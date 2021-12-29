@@ -2,15 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from "styled-components";
 import Rectangle from './Rectangle.png'
-import IconA from './IconA.png'
-import IconB from './IconB.png'
-import IconC from './IconC.png'
-import IconD from './IconD.png'
-import IconE from './IconE.png'
-import IconF from './IconF.png'
-import IconG from './IconG.png'
-import IconH from './IconH.png'
-
+import mail from './mail.png';
 
 
 const DivMenu = styled.div`
@@ -24,213 +16,131 @@ background: #FFFFFF;
 box-shadow: 0px 1px 4px rgba(14, 31, 53, 0.12), 0px 4px 8px rgba(14, 31, 53, 0.08);
 border-radius: 8px;
 overflow:scroll;
+overflow-x:hidden;
 
 `
 
 const MenuUl = styled.ul`
 width:100%;
-margin:auto -15.1px;
+margin:auto -20.1px;
 `
 
 const Li = styled.li`
-list-style:none;
-cursor:pointer;
-padding:8px;
 
+&:hover{
+    
+    cursor:pointer;
+    background:  #cfc6c3;
+   
+}
+list-style:none;
+width:300px;
+height:80px;
+padding:0px;
+margin:20px -29px;
 `
 
 const TextHoora=styled.p`
-position: static;
-width: 176px;
-height: 14px;
-left: 0px;
-top: 0px;
+color:red;
 font-family: Nunito;
 font-style: normal;
 font-weight: normal;
 font-size: 10px;
 line-height: 14px;
-font-feature-settings: 'ss07' on;
 color: #6D7580;
-opacity: 0.64;
-flex: none;
-order: 0;
-align-self: stretch;
-flex-grow: 0;
-margin: 12px 6px;
+margin: 12px 40px;
 `
 
 const TextMuulta=styled.p`
 position: static;
-height: 28px;
-left: 0px;
-right: 0px;
-top: 16px;
 font-family: Nunito;
 font-style: normal;
 font-weight: 600;
 font-size: 14px;
-line-height: 14px;
-font-feature-settings: 'ss07' on;
+line-height:13px;
 color: #09101D;
-flex: none;
-order: 1;
-align-self: stretch;
-flex-grow: 0;
-margin: 7px 16px;
+margin: -1px 50px;
 `
 
 const TextVeencimiento=styled.p`
-position: static;
 height: 14px;
-left: 0px;
-right: 0px;
-top: 46px;
 font-family: Nunito;
 font-style: normal;
 font-weight: normal;
 font-size: 10px;
-line-height: 14px;
-font-feature-settings: 'ss07' on;
 color: #09101D;
-flex: none;
-order: 2;
-align-self: stretch;
-flex-grow: 0;
-margin: -8px 16px;
+margin: 7px 45px;
 `
 
-const IconAa=styled.image`
+const Icon=styled.image`
 position:absolute;
 width: 34px;
 height: 34px;
 left: 15px;
-margin:50px -10px;
+margin:18px -12px;
 `
-
-const IconAA=styled.image`
+const IconMail=styled.image`
 position:absolute;
 width: 34px;
 height: 34px;
 left: 15px;
-margin:42px -10px;
-`
-const Rectanggle=styled.image`
-position: absolute;
-width: 3px;
-height: 60px;
-right: 4px;
-top: 8px;
-background: #6D7580;
-opacity: 0.44;
-border-radius: 20px;
-`
-const Notificaciones=styled.p`
-position: absolute;
-height: 16px;
-left: 16px;
-right: 16px;
-bottom: 1px;
+margin:-3px -12px;
 
+`
+const Domicilio=styled.a`
+&:hover{
+    text-decoration:underline;
+    cursor:pointer;
+}
 font-family: Nunito;
 font-style: normal;
 font-weight: normal;
 font-size: 12px;
-line-height: 16px;
-text-align: center;
+margin:0px 30px;
+`
 
-/* Action Primary/Default */
+const Notificaciones=styled.a`
+&:hover{
+    cursor:pointer;
+    text-decoration:underline;
+}
+font-family: Nunito;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+margin:10px 30px;
 
-color: #124596;
 `
 
 export const MenuInput = ({...props}) => {
 
-    return (
-
-        <div>
-
-            <DivMenu>
-
+    const renderCards = () =>{
+        let resultado = props.datosCards.map((card)=>{
            
-                <MenuUl>
-                   
-                <IconAa><img src={IconA}/></IconAa>
-                    <Li>
-                       
-                        
-                        
-                        <TextHoora>{props.TextHora}</TextHoora>
-                        <TextMuulta>{props.TextMulta}</TextMuulta>
-                        <TextVeencimiento>{props.TextVencimiento}</TextVeencimiento>
-                        
+            return <>
+                <Icon><img src={card.imagen}/></Icon>
+                    <Li onClick={()=>{alert(card.accion)}}>
+                        <TextHoora>{card.TextHora}</TextHoora>
+                        <TextMuulta>{card.TextMulta}</TextMuulta>
+                        <TextVeencimiento>{card.TextVencimiento}</TextVeencimiento>
+
                     </Li>
-                    <Li>
-                       
-                       <IconAA><img src={IconB}/></IconAA>
-                       
-                       <TextHoora>{props.TextHora}</TextHoora>
-                       <TextMuulta>{props.TextMulta}</TextMuulta>
-                       <TextVeencimiento>{props.TextVencimiento}</TextVeencimiento>
-                       
-                   </Li>
-                   <Li>
-                       
-                       <IconAA><img src={IconC}/></IconAA>
-                       
-                       <TextHoora>{props.TextHora}</TextHoora>
-                       <TextMuulta>{props.TextMulta}</TextMuulta>
-                       <TextVeencimiento>{props.TextVencimiento}</TextVeencimiento>
-                       
-                   </Li>
-                   <Li>
-                       
-                       <IconAA><img src={IconD}/></IconAA>
-                       
-                       <TextHoora>{props.TextHora}</TextHoora>
-                       <TextMuulta>{props.TextMulta}</TextMuulta>
-                       <TextVeencimiento>{props.TextVencimiento}</TextVeencimiento>
-                       
-                   </Li>
-                   <Li>
-                       
-                       <IconAA><img src={IconE}/></IconAA>
-                       
-                       <TextHoora>{props.TextHora}</TextHoora>
-                       <TextMuulta>{props.TextMulta}</TextMuulta>
-                       <TextVeencimiento>{props.TextVencimiento}</TextVeencimiento>
-                       
-                   </Li>
-                   <Li>
-                       
-                       <IconAA><img src={IconF}/></IconAA>
-                       
-                       <TextHoora>{props.TextHora}</TextHoora>
-                       <TextMuulta>{props.TextMulta}</TextMuulta>
-                       <TextVeencimiento>{props.TextVencimiento}</TextVeencimiento>
-                       
-                   </Li>
-                   <Li>
-                       
-                       <Notificaciones>{props.TextNotificaciones}</Notificaciones>
-                       
-                   </Li>
+                </>
 
+        });
+   return resultado;
+    };
 
-                </MenuUl>
-
-
-
-
-
-
-
-
-            </DivMenu>
-
-
-
-        </div>
+    return (
+            <div>
+                <DivMenu>
+                    <IconMail><img src={mail}/></IconMail><Domicilio onClick={()=>props.onClickk()}>{props.DomicilioFiscal}</Domicilio>
+                    <MenuUl>
+                    {renderCards()}
+                    </MenuUl>
+                    <Notificaciones onClick={()=>props.onClick()}>{props.TextNotificaciones}</Notificaciones>
+                </DivMenu>
+            </div>
     );
 
 };
