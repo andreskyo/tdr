@@ -20,12 +20,11 @@ export const Tooltipp = Template.bind({});
 const Datos=[
   
   
-{label:'impuesto inicial',
-value:'$38.700'} ,
+
 
 
 {
-descuentos:'Descuentos',  
+
 label:'30% por estar al dia',
 value:'$11.400'
 },
@@ -52,7 +51,12 @@ value:'- $3.460' ,
 Tooltipp.args = {
  Datos:Datos,
  Total:'Total a pagar',
- Monto:'$ 21.093'
+ Monto:'$ 21.093',
+ label:'Impuesto inicial',
+ value:'$38.700',
+ descuentos:'Descuentos',
+ TextDiv:'Sin el 5% de descuento extra de las buenas prácticas agropecuarias.',
+ apto:'No apta para plan'
 
 
 };
