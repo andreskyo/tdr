@@ -63,7 +63,7 @@ Tooltipp.args = {
  Datos:Datos,
  centro:'Sin el 5% de descuento extra de las buenas prácticas agropecuarias.',
  plan:'No apta plan',
- estado:'A vencer'
+ estado:true
  
 
 

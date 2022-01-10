@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from "styled-components";
 import Ellipse from './Ellipse.png'
+import CircleIcon from '@mui/icons-material/Circle';
 
 const Container = styled.div`
 position:absolute;
@@ -112,6 +113,11 @@ font-size: 14px;
 }
 
 `
+
+const CircleIconn=styled(CircleIcon)`
+color:red;
+`
+
 export const Tooltip = ({ ...props }) => {
 
     const renderCards = () => {
@@ -173,8 +179,10 @@ export const Tooltip = ({ ...props }) => {
                     <p>{props.plan}</p>
                 </div>
                 <div>
+                    
                     <p>Estado</p>
-                    <p><img src={Ellipse} alt="" />{props.estado}</p>
+                    {props.estado===true ? <p><CircleIcon fontSize="small" sx={{ fontSize: 17 }} color="success" />A vencer</p> : <p><CircleIconn fontSize="small" sx={{ fontSize: 17 }} />Vencido</p>}
+                    
                 </div>
             </DivFinal>
         </Container>
