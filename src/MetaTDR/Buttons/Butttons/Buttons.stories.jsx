@@ -1,4 +1,5 @@
 import React from 'react';
+import AddIcon from '@mui/icons-material/Add';
 
 import { Buttons } from "./Buttons";
 
@@ -21,6 +22,10 @@ export default {
 const Template = (args) => <Buttons {...args} />;
 
 export const Buttonss = Template.bind({});
+// export const ButtonIconn = Template.bind({});
+// export const ButtonIconnDos = Template.bind({});
+
+
 
 const alertt=()=>{
 return alert('hola mundo')
@@ -33,12 +38,29 @@ Buttonss.args = {
   text:'Large Button',
   primary:true,
   disabled:false,
-  onClick:alertt
-  
+  buttton:true,
+  buttonIconM:true,
+  buttonIconR:true,
+  buttonBorderr:true,
+  buttonLine:true,
+  onClick:alertt,
 };
 
 
+// ButtonIconn.args = {
+//   primary:true,
+//   text:<AddIcon />, 
+//   size:'large',
+//   disabled:false,
+//   onClick:alertt
+// };
+ 
 
+// ButtonIconnDos.args = {
+//   size: 'large',
+//   text:'Large Button',
+//   onClick:alertt
+// };
 
 
 
