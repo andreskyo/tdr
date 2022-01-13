@@ -14,6 +14,13 @@ const StepButtonn = styled(StepButton)`
 
 `
 
+const StepContentt = styled(StepContent)`
+&&{
+    border-left:none;
+}
+
+`
+
 
 
 
@@ -36,13 +43,19 @@ export const StepperV = ({ disabled, ...props }) => {
         
     };
 
-    // useEffect(() => {
-    //    console.log(props.activeStep)
-    //    if(props.activeStep && props.activeStep !== " "){
-    //     setActiveStep(props.activeStep)
-    //    }
+    useEffect(() => {
+        
+        alert(`Step ${activeStep + 1}`)
+ 
+      },[activeStep])
 
-    //  })
+    useEffect(() => {
+       
+       if(props.activeStep && props.activeStep !== ''){
+        setActiveStep(props.activeStep)
+       }
+
+     })
 
     return (
         <Box sx={{ ml: 20 }}>
@@ -51,8 +64,8 @@ export const StepperV = ({ disabled, ...props }) => {
 
                     <Step key={label} >
 
-                        <StepButtonn color="inherit" onClick={handleStep(index)} >
-                            <StepContent>
+                        <StepButtonn color="inherit" onClick={handleStep(index)} onClickCheck={()=>props.onClick()}>
+                            <StepContentt>
                                 <Box sx={{ ml: -4 , mt:0}} >
                                     <div>
                                 <Typography> {label.labell} </Typography>
@@ -60,9 +73,9 @@ export const StepperV = ({ disabled, ...props }) => {
                                     <Typography>{label.description}</Typography>
                                     </div>
                                 </Box>
-                            </StepContent>
+                            </StepContentt>
                             <StepContent>
-                                <Box sx={{ mt: -4 , ml:-26 }}>
+                                <Box sx={{ mt: -4 , ml:-28 }}>
                                     {label.date}
 
                                     

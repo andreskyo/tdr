@@ -1,28 +1,16 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import PropTypes from 'prop-types';
 import styled from "styled-components";
 import Stepper from '@material-ui/core/Stepper'
 import Step from '@material-ui/core/Step'
 import StepButton from '@material-ui/core/StepButton'
 import Box from '@material-ui/core/Box'
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+
 
 
 
 const Boxx=styled(Box)`
-position: static;
-width: 760px;
-height: 376px;
-left: 0px;
-top: 434px;
-border: 1px dashed #7B61FF;
-box-sizing: border-box;
-border-radius: 5px;
-flex: none;
-order: 6;
-flex-grow: 0;
-margin: 16px 0px;
+
 
 `
 
@@ -38,7 +26,19 @@ const handleStep = (step) => () => {
     setActiveStep(step);
   };
 
-  
+  useEffect(() => {
+        
+    alert(`Step ${activeStep + 1}`)
+
+  },[activeStep])
+
+useEffect(() => {
+   
+   if(props.activeStep && props.activeStep !== ''){
+    setActiveStep(props.activeStep)
+   }
+
+ })
 
   return (
     <Boxx sx={{ width: '100%' }}>

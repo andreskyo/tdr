@@ -15,10 +15,9 @@ export default {
 
 const DatosPopups=[{
   title:'Sure you want to accept?',
-  label:"Are you sure you want to accept this?",
-  inputt:<input type="text" placeholder="Your Name"></input>,
-  linkA:<button>No,cancel</button>,
-  linkB:<button>Yes,confirm</button>,
+  label:"Egestas arcu egestas parturient dui vitae. Ornare risus id ullamcorper in ut. Vestibulum neque ullamcorper non orci vel, consectetur mi, pulvinar. Eu lectus quis leo viverra lacus non fames est ut",
+  linkA:"No,cancel",
+  linkB:"Yes,confirm",
 }]
 
 
@@ -28,9 +27,17 @@ export const Popupss = Template.bind({});
 
 const alerrt=()=>{
 
-  return alert('hola')
+  return alert('ok')
 }
+
+const alerrtt=()=>{
+
+  return alert('okk')
+}
+
 Popupss.args = {
   DatosPopups:DatosPopups, 
   onClick:alerrt,
+  onClickk:alerrtt,
+  inputt:true
 };

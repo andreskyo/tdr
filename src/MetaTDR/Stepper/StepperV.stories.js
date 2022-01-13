@@ -41,6 +41,11 @@ const labelArray=[
     
     ]
 
+    const onClickCheck=()=>{
+
+      return alert('check')
+    }    
+
 Stepperr.args = {
 labelArray:labelArray,
 activeStep:0
