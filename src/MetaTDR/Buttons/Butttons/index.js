@@ -1,33 +1,67 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import './button.css';
-
-/**
- * Primary UI component for user interaction
- */
-export const Button = ({ primary, backgroundColor, size, label, ...props }) => {
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
+import React, {Fragment} from 'react';
+import classNames from 'classnames';
+import PropTypes from "prop-types";
 
 
+class Button extends React.Component {
 
+    constructor (props) {
+        super(props);
+        this.state = {hasValue: false, hasError: false};
 
+        this.onClick = this.onClick.bind(this);
 
-  
-  return (
-    <button
-    style={this.props.stilo?this.props.stilo.container:null}
-    type={type}
-    disabled={disabled}
-    className={buttonClasses}
-    id={id}
-    name={name}
-    onClick={this.onClick}
->
-    {value}
-</button>
-  );
-};
-<style jsx>{`
+    }
+
+    onClick(e) {
+        if (this.props.disabled) {
+            e.preventDefault();
+            return;
+        }
+
+        if (this.props.onClick) {
+            this.props.onClick(e);
+        }
+    }
+
+    render() {
+        const {type, id, name, disabled, value, outline } = this.props;
+        let buttonClasses;
+
+        if(outline){
+            let classes = "btnLogin btn btn-outline-success";
+            if(this.props.small){
+                classes = "btnLogin btn btn-outline-success btn-outline-small ";
+            }
+
+         buttonClasses = classNames(classes, {'disabled': disabled }, {'': disabled });
+}else{
+            let classes = "btnLogin btn btn-success";
+            if(this.props.small){
+                classes = "btnLogin btn btn-success btn-small ";
+            }
+
+         buttonClasses = classNames(classes, {'disabled': disabled }, {'': disabled });
+}
+
+        return (
+        <Fragment>
+            <Fragment>
+                <button
+                    style={this.props.stilo?this.props.stilo.container:null}
+                    type={type}
+                    disabled={disabled}
+                    className={buttonClasses}
+                    id={id}
+                    name={name}
+                    onClick={this.onClick}
+                >
+                    {value}
+                </button>
+
+            </Fragment>
+            {/* language=CSS*/}
+            <style jsx>{`
                 .btnLogin {
                     border-radius: 1.5rem !important;
                     padding-top: 11px;
@@ -107,32 +141,23 @@ export const Button = ({ primary, backgroundColor, size, label, ...props }) => {
                     color: #4a4a4a!important;
                 }
             `}</style>
-Button.propTypes = {
-  /**
-   * Is this the principal call to action on the page?
-   */
-  primary: PropTypes.bool,
-  /**
-   * What background color to use
-   */
-  backgroundColor: PropTypes.string,
-  /**
-   * How large should the button be?
-   */
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
-  /**
-   * Button contents
-   */
-  label: PropTypes.string.isRequired,
-  /**
-   * Optional click handler
-   */
-  onClick: PropTypes.func,
-};
+        </Fragment>
 
-Button.defaultProps = {
-  backgroundColor: null,
-  primary: false,
-  size: 'medium',
-  onClick: undefined,
-};
+        );
+    }
+}
+
+Button.propTypes = {
+    disabled: PropTypes.bool,
+    id: PropTypes.string,
+    name: PropTypes.string,
+    onClick: PropTypes.func,
+    outline: PropTypes.bool,
+    type: PropTypes.string,
+    value: PropTypes.string,
+    estiloHover:PropTypes.any,
+    stilo:PropTypes.any,
+    small:PropTypes.bool
+  }
+
+export default Button;

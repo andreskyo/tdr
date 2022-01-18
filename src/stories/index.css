@@ -1,0 +1,75 @@
+
+    .btnLogin {
+        border-radius: 1.5rem !important;
+        padding-top: 11px;
+        padding-bottom: 11px;
+        padding-left: 61px;
+        padding-right: 61px;
+        text-align: center;
+        letter-spacing: 0.1px;
+        text-align: center;
+        font-stretch: normal;
+        font-style: normal;
+        font-size: 14px;
+        font-weight: 500;
+        white-space: nowrap;
+    }
+
+    .btn-success {
+        background-color: #7aac39;
+    }
+
+    .btn-outline-success {
+        color: #7aac39 ;
+        /*border-radius: 20px!important;*/
+        border: solid 2px #7aac39 ;
+        font-size: 14px;
+        font-weight: 500;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1;
+        letter-spacing: 0.1px;
+        text-align: center;
+
+    }
+
+    .btn-outline-small {
+     height: 70%;
+     width: 70%;
+     display: flex;
+     justify-content: center;
+     margin-right: 1px;
+      margin-bottom: 15px;
+        /*border-radius: 20px!important;*/
+
+    }
+
+      .btn-small {
+     height: 70%;
+     width: 70%;
+     display: flex;
+     justify-content: center;
+      margin-right: 1px;
+       margin-bottom: 15px;
+        /*border-radius: 20px!important;*/
+
+    }
+
+  
+    .btnLogin:hover {
+        box-shadow: 1px 1px 10px 0 rgba(219, 219, 219, 1);
+        border-color: white;
+        color: white;
+    }
+
+    .btnLogin:focus {
+        box-shadow: 1px 1px 10px 0 rgba(219, 219, 219, 1);
+        border-color: #7aac39;
+        color: white;
+    }
+
+    .btnLogin.disabled {
+        background-color: #e8e8e8!important;
+        border-color: white!important;
+        color: #4a4a4a!important;
+    }

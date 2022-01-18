@@ -4,6 +4,9 @@ import AddIcon from '@mui/icons-material/Add';
 import { Buttons } from "./Buttons";
 
 
+
+
+
 export default {
   title: 'Buttons/Butttons/Buttons',
   component: Buttons,
@@ -12,7 +15,15 @@ export default {
     size: {
       options:['large','medium','small'],
       control:{type:'radio'}
-    }
+    },
+    // variant:{
+    //   options:['contained','outlined','text'],
+    //   control:{type:'radio'}
+    // },
+    // color:{
+    //   options:['primary','success'],
+    //   control:{type:'radio'}
+    // }
   
     
   },
@@ -34,33 +45,18 @@ return alert('hola mundo')
 
 
 Buttonss.args = {
+  text:"large button",
   size:'large',
-  text:'Large Button',
   primary:true,
   disabled:false,
-  buttton:true,
-  buttonIconM:true,
-  buttonIconR:true,
-  buttonBorderr:true,
-  buttonLine:true,
+  outlined:false,
+  addIcon:false,
+  alarmIcon:false,
+  line:false,
   onClick:alertt,
 };
 
 
-// ButtonIconn.args = {
-//   primary:true,
-//   text:<AddIcon />, 
-//   size:'large',
-//   disabled:false,
-//   onClick:alertt
-// };
- 
-
-// ButtonIconnDos.args = {
-//   size: 'large',
-//   text:'Large Button',
-//   onClick:alertt
-// };
 
 
 
