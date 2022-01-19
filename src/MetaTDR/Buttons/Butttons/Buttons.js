@@ -4,17 +4,23 @@ import styled from "styled-components";
 import Button from '@material-ui/core/Button';
 import AddIcon from '@mui/icons-material/Add';
 import AccessAlarmIcon from '@mui/icons-material/AccessAlarm';
-
+import Typography from '@mui/material/Typography'
 
 
 const PrimaryButton = styled(Button)`
+
 && {
   
-  background: ${({ outlined }) => outlined ? 'transparent ' : '#004BE8'};
+  background: ${({ outlined }) => outlined ? 'transparent ' : '#124596'};
   border:${({ outlined }) => outlined ? '1px solid #004BE8 ' : '#004BE8'};
   color:${({ outlined }) => outlined ? '#004BE8' : 'white'};
+  text-transform: none;
   border-radius: ${({ outlined }) => outlined ? 'none' : '8px'};
   font-size:11px;
+  font-family: Nunito;
+ font-style: normal;
+ font-weight: 600;
+
 
   }
 
@@ -36,10 +42,16 @@ const PrimaryButton = styled(Button)`
 
 const SecondaryButton = styled(Button)`
 && {
+  text-transform: none;
   background:${({ outlined }) => outlined? 'transparent' : '#19AB4F'};  
   border:${({ outlined }) => outlined ? '1px solid #19AB4F ' : '#19AB4F'};
   border-radius: ${({ outlined }) => outlined ? 'none' : '8px'};
   font-size:11px;
+  font-size:11px;
+  font-family: Nunito;
+ font-style: normal;
+ font-weight: 600;
+
   color:${({ outlined }) => outlined? '#19AB4F' : 'white'};
   }
 
@@ -96,7 +108,11 @@ const ButtonLinee = styled(Button)`
   
   `
 
-
+const Texto=styled.p`
+>div>div>div>div>div{
+  color:red;
+}
+`
 
 export const Buttons = ({ disabled, size, primary, outlined, addIcon, text, line, alarmIcon, ...props }) => {
 
@@ -108,6 +124,9 @@ export const Buttons = ({ disabled, size, primary, outlined, addIcon, text, line
 
 
     <>
+
+
+
       {line ? <ButtonLinee onClick={() => props.onClick()}
         
         size={size}
@@ -116,7 +135,7 @@ export const Buttons = ({ disabled, size, primary, outlined, addIcon, text, line
 
         {alarmIcon ? <ButtonLinee  startIcon={<AccessAlarmIcon/>}>
           {text}
-        </ButtonLinee> :  text }
+        </ButtonLinee> : {text}  }
 
 
       </ButtonLinee>

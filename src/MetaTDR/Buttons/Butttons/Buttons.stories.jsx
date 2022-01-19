@@ -45,7 +45,7 @@ return alert('hola mundo')
 
 
 Buttonss.args = {
-  text:"large button",
+  text:"Large Button",
   size:'large',
   primary:true,
   disabled:false,
