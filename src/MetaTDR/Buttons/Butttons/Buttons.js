@@ -76,7 +76,7 @@ const SecondaryButton = styled(Button)`
 
 
 const ButtonLinee = styled(Button)`
-
+text-transform: none;
 && {
     
   border:none;
@@ -108,11 +108,7 @@ const ButtonLinee = styled(Button)`
   
   `
 
-const Texto=styled.p`
->div>div>div>div>div{
-  color:red;
-}
-`
+
 
 export const Buttons = ({ disabled, size, primary, outlined, addIcon, text, line, alarmIcon, ...props }) => {
 
