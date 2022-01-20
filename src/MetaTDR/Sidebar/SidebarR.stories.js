@@ -17,50 +17,40 @@ export default {
   },
 };
 
-const Datos=[{
-    id:'1',
+const datos=[{
+    id:'00990000',
     description:'Servicios de organizaciones y órganos extraterritoriales.',
     alic:'Alic.: 1.5'
 },{
-    id:'2',
-    description:'Servicios de organizaciones y órganos extraterritoriales.',
+    id:'00990000',
+    description:'Lavado y limpieza de articulos de tela, cuero y/o de piel, incluso la limpieza en seco.',
     alic:'Alic.: 1.5'
 },
 {
-    id:'3',
-    description:'Servicios de organizaciones y órganos extraterritoriales.',
+    id:'00990000',
+    description:'Servicios de hogares privados que contratan servicio domestico',
     alic:'Alic.: 1.5'
 },
 {
-    id:'3',
-    description:'Servicios de organizaciones y órganos extraterritoriales.',
+    id:'00990000',
+    description:'Servicios de organizaciones y órganos extraterritoriales',
     alic:'Alic.: 1.5'
 },
 {
-    id:'3',
-    description:'Servicios de organizaciones y órganos extraterritoriales.',
+    id:'00990000',
+    description:'Servicios de tratamiento de belleza, excepto los de peluqueria.',
     alic:'Alic.: 1.5'
 },
 {
-    id:'3',
-    description:'Servicios de organizaciones y órganos extraterritoriales.',
+    id:'00990000',
+    description:'Transporte de energía eléctrica.',
     alic:'Alic.: 1.5'
 },
 {
-    id:'3',
-    description:'Servicios de organizaciones y órganos extraterritoriales.',
+    id:'00990000',
+    description:'Transporte de energía eléctrica.',
     alic:'Alic.: 1.5'
-},
-{
-    id:'3',
-    description:'Servicios de organizaciones y órganos extraterritoriales.',
-    alic:'Alic.: 1.5'
-},
-{
-    id:'3',
-    description:'Servicios de organizaciones y órganos extraterritoriales.',
-    alic:'Alic.: 1.5'
-},
+}
 
 ]
 
@@ -80,5 +70,5 @@ return alert('hola mundo')
 
 
 SideBarr.args = {
-Datos:Datos
+datos:datos
 };

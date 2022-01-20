@@ -9,6 +9,7 @@ import Typography from '@mui/material/Typography'
 
 const PrimaryButton = styled(Button)`
 
+
 && {
   
   background: ${({ outlined }) => outlined ? 'transparent ' : '#124596'};
@@ -31,12 +32,18 @@ const PrimaryButton = styled(Button)`
     
   }
   &&:active {
-    background: #0B5FFF;
-    
-  }
+    box-shadown:'none';
+    background: blue;
+    }
+
+  
   &&:disabled {
   background: ${({ outlined }) => outlined ? 'none' : 'rgba(11, 95, 255, 0.5)'};
   font-size:11px;
+  }
+
+  &&:focus {
+    background: 'red',
   }
   `;
 
@@ -131,7 +138,7 @@ export const Buttons = ({ disabled, size, primary, outlined, addIcon, text, line
 
         {alarmIcon ? <ButtonLinee  startIcon={<AccessAlarmIcon/>}>
           {text}
-        </ButtonLinee> : {text}  }
+        </ButtonLinee> : text  }
 
 
       </ButtonLinee>
