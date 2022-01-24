@@ -98,7 +98,7 @@ export const SidebarR = ({ datos }) => {
     const handleClose = () => setOpen(false);
 
     const [page, setPage] = useState(0);
-    const [rowsPerPage, setRowsPerPage] = React.useState(4);
+    const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
@@ -229,16 +229,7 @@ export const SidebarR = ({ datos }) => {
                             {renderCards()}
                             <br />
                                 <Stack spacing={0}>
-                                <TablePagination
-
-
-                                    
-                                    count={datos.length}
-                                    rowsPerPage={rowsPerPage}
-                                    page={page}
-                                    onChangePage={handleChangePage}
-                                    onChangeRowsPerPage={handleChangeRowsPerPage}
-                                />
+                            
                                 </Stack>
                         </BoxCards>
                     </Boxxx>

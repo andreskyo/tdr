@@ -16,14 +16,7 @@ export default {
       options:['large','medium','small'],
       control:{type:'radio'}
     },
-    // variant:{
-    //   options:['contained','outlined','text'],
-    //   control:{type:'radio'}
-    // },
-    // color:{
-    //   options:['primary','success'],
-    //   control:{type:'radio'}
-    // }
+  
   
     
   },
@@ -33,8 +26,7 @@ export default {
 const Template = (args) => <Buttons {...args} />;
 
 export const Buttonss = Template.bind({});
-// export const ButtonIconn = Template.bind({});
-// export const ButtonIconnDos = Template.bind({});
+
 
 
 
