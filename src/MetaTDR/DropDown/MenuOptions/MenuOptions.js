@@ -8,6 +8,7 @@ import Link from '@material-ui/core/Link'
 
 
 const Div = styled.div`
+
 display: flex;
 flex-direction: column;
 align-items: flex-start;
@@ -20,6 +21,21 @@ filter: drop-shadow(0px 1px 4px rgba(14, 31, 53, 0.12)) drop-shadow(0px 4px 8px 
 `
 
 const Bubble = styled.div`
+@media (max-width:568px){
+    height:100px;
+    width:220px;
+   
+   }
+   @media (min-width:414px){
+    
+    width:320px;
+   
+   }
+   @media (min-width:834px){
+    height:100px;
+    width:730px;
+   
+   }
 display: flex;
 flex-direction: row;
 align-items: center;

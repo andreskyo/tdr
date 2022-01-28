@@ -13,10 +13,35 @@ height: 260px;
 background: #FFFFFF;
 box-shadow: 0px 1px 4px rgba(14, 31, 53, 0.12), 0px 4px 8px rgba(14, 31, 53, 0.08);
 border-radius: 8px;
+@media (min-width:320px){
+  width:290px;
+
+} 
+@media (min-width:320px){
+  width:290px;
+
+} 
+@media (min-width:414px){
+  width:380px;
+
+} 
+
+@media (min-width:834px){
+  width:800px;
+
+} 
 `
 
 const Boton = styled(Button)`
 &&{
+  @media (min-width:414px){
+    margin:20px 30px;
+   
+   }
+   @media (min-width:834px){
+    margin:20px 80px;
+   
+   } 
   margin:20px;
   left:7px;
   top:120px;
@@ -36,6 +61,14 @@ const Boton = styled(Button)`
   background:white;
 }
 &&:first-child{
+  @media (min-width:414px){
+    margin:20px 30px;
+   
+   } 
+   @media (min-width:834px){
+    margin:20px 80px;
+   
+   } 
 margin:20px;
 left:7px;
 top:0px;
@@ -105,7 +138,7 @@ export const Logued = ({ ...props }) => {
 
       return <>
 
-        <Boton ><p>{log.botonText}</p></Boton>
+        <Boton disableRipple onClick={() => { alert("button") }}><p>{log.botonText}</p></Boton>
 
         <Text><p>{log.divP}</p>
           <a href="" onClick={() => { alert("crear cuenta") }}>{log.divA}</a></Text>

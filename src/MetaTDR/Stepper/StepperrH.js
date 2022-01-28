@@ -13,23 +13,43 @@ import Box from '@material-ui/core/Box'
 const QontoConnector = styled(StepConnector)(({ theme }) => ({
  
   [`&.${stepConnectorClasses.active}`]: {
+    
     [`& .${stepConnectorClasses.line}`]: {
-      borderColor: 'blue',
+      borderColor: '#124596',
+      
+      
     },
   },
   [`&.${stepConnectorClasses.completed}`]: {
+    
     [`& .${stepConnectorClasses.line}`]: {
-      borderColor: 'blue',
+      borderColor: '#124596',
+      
     },
   },
   [`& .${stepConnectorClasses.line}`]: {
     borderColor: theme.palette.mode === 'dark' ? theme.palette.grey[800] : '#eaeaf0',
-    borderTopWidth: 4,
+    borderTopWidth: 2,
     borderRadius: 4,
+    width:'254px',
+  
+    margin:'0px -8px'
   },
 }));
 
+const Boxx=styled(Box)`
+>div>div>span>span>svg>path{
+  color:#124596;
+  
+}
 
+>div>div>span>span>svg>circle:selected{
+  color:#124596;
+}
+.css-g5ymu1-MuiSvgIcon-root-MuiStepIcon-root.Mui-active {
+  color: #124596;
+}
+`
 
 
 
@@ -38,6 +58,9 @@ export const StepperrH = ({ disabled, ...props }) =>  {
   
 const handleStep = (step) => () => {
     setActiveStep(step);
+    
+    
+    
   };
 
   useEffect(() => {
@@ -54,19 +77,20 @@ useEffect(() => {
 
  })
 
+
   return (
-    <Box sx={{ width: '100%' }}>
+    <Boxx sx={{ width: '100%' }}>
       <Stepper  activeStep={activeStep} alternativeLabel connector={<QontoConnector />} >
         {props.labelArray.map((label, index) => (
           <Step key={label} >
-            <StepLabel onClick={handleStep(index)} >
+            <StepLabel id="colorr" onClick={handleStep(index)} >
               {label.labell}
               </StepLabel>
           </Step>
         ))}
       </Stepper>
       
-    </Box>
+    </Boxx>
   );
 }
 

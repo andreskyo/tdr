@@ -18,14 +18,39 @@ import SearchIcon from '@mui/icons-material/Search';
 import InputAdornment from '@mui/material/InputAdornment';
 
 
+const Div = styled.div`
+@media (max-width:568px)  {
+    width:60px;
+    margin:0px ;
+    height:0px;
+    
+    
+    
+  }
+height: 1112px;
+
+  
+
+`
+
 
 const Boxxx = styled(Box)`
+
     &&{
+        
         width:400px;
-        height:auto;
+        
         background:white;
         box-shadow: -15px 0px 40px -1px rgba(14, 31, 53, 0.2);
         border-radius: 16px 0px 0px 16px;
+        @media (max-width:568px)  {
+            
+            
+            
+            
+            
+            
+          }
     }
 `
 const BoxHeader = styled(Box)`
@@ -82,94 +107,121 @@ const IconButtonn = styled(IconButton)`
 }
 
 `
-const Div=styled.div`
->div>button{
-    background:blue;
-}
+const Stackk = styled(Stack)`
+&&{display:block;
+margin:0px 50px;}
+`
+const Stackkk = styled(Stack)`
+&&{display:none;
+padding:10px;
+>button{
+    margin:0px 30px;
+}}
+
 
 `
 
 
 export const SidebarR = ({ datos }) => {
-    var data;
-
+    
+    
+    const [text, setText] = React.useState(null);
     const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+    const handleOpen = () => setOpen(false);
 
-    const [page, setPage] = useState(0);
-    const [rowsPerPage, setRowsPerPage] = React.useState(10);
+
+   
+
+    const [page, setPage] = useState(1);
+    const [rowsPerPage, setRowsPerPage] = React.useState(3);
 
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
-      };
-    
-      const handleChangeRowsPerPage = event => {
+    };
+
+    const handleChangeRowsPerPage = event => {
         setRowsPerPage(parseInt(event.target.value, 10));
+
         setPage(0);
-      };
+    };
 
 
 
-    const [filtrados, setFiltrado] = useState(null);
-
-    useEffect(() => {
-        setup();
-    }, [])
+    const [filtrados, setFiltrado] = useState(datos);
 
 
-    const setup = () => {
-        data = datos
-        setFiltrado(data)
-
-    }
 
     const handleBuscador = (e) => {
-
-      
-
-
         const cadena = e.target.value.toLowerCase();
         let tmpArray = [];
         const limite = datos.length;
 
         for (let index = 0; index < limite; index++) {
-            const id = datos[index].id;
+
             const description = datos[index].description.toLowerCase();
-            const alic = datos[index].alic;
+            const id = datos[index].id;
 
             const patt = new RegExp(cadena)
             const res = patt.test(description)
             const ress = patt.test(id)
-            const resss = patt.test(alic)
 
-            if (res) {
-                tmpArray.push(datos[index])
-            }
-            if (ress) {
-                tmpArray.push(datos[index])
-            }
 
-            if (resss) {
+            if (res || ress) {
                 tmpArray.push(datos[index])
             }
 
         }
         setFiltrado(tmpArray);
+        setPage(1);
 
     }
 
+    const handleClose = () => {
+        document.getElementById('box').style.display="none"
+        
+    };
+
+
+    const handleChange = (e) => {
+        document.getElementById('buttons').style.display = "block"
+        document.getElementById('table').style.display = "none"
+        let valor = e.target;
+        console.log(valor)
+        setText(valor)
+
+    }
+
+
+
+    const handleChangeCancel = () => {
+        document.getElementById('buttons').style.display = "none"
+        document.getElementById('table').style.display = "block"
+
+
+    }
+
+
+    const handleChangeAceptar = () => {
+        alert(text)
+
+
+    }
+
+
+    
     const renderCards = () => {
-        let resultado = filtrados && filtrados.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((data, i) => {
+        let resultado = filtrados && filtrados.slice((page -1) * rowsPerPage, page * rowsPerPage + rowsPerPage).map((data, i) => {
+            
             return <>
-                <Card key={i} sx={{ minWidth: "auto" }}>
-                    <CardContentt onClick={() => { alert(data.accion) }}>
+
+                <Card key={i} sx={{ minWidth: "auto" }} >
+                    <CardContentt >
 
                         <Typography variant="h5" component="div">
                             {data.id}
 
                         </Typography>
-                        <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                        <Typography onClick={handleChange} sx={{ mb: 1.5 }} color="text.secondary">
                             {data.description}
                         </Typography>
                         <Typography variant="body2">
@@ -190,52 +242,64 @@ export const SidebarR = ({ datos }) => {
     }
 
     return (
-        <Div>
-            <Button variant="contained" className="MuiButtonBase-root"size="small" onClick={handleOpen}>Agregar Actividad</Button>
+        <>
+             <Boxxx id="box">
+                <BoxHeader>
+                    <IconButtonn aria-label="close" size="small" ><CloseIcon onClick={handleClose} fontSize="small" /> </IconButtonn> <a onClick={() => alert('hola')}>Agregar Actividad   </a>
+                </BoxHeader>
 
-            <Modal
-                keepMounted
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="keep-mounted-modal-title"
-                aria-describedby="keep-mounted-modal-description"
-            >
+                <BoxSearch>
+                    <TextField
+                        className="search"
+                        placeholder='Buscar'
+                        size="small"
+                        onChange={handleBuscador}
+                        InputProps={{
+                            startAdornment: (
+                                <InputAdornment position="start">
+                                    <SearchIcon />
+                                </InputAdornment>
+                            ),
+                        }}
+                        type="search" />
+                </BoxSearch>
+
+                <BoxCards>
+            
+                    {renderCards()}
+                    <br />
+                    <Stackk id="table" spacing={0}>
+                   
+                        <Pagination
+                            count={Math.ceil(filtrados.length/4)}
+                            size="medium"
+                            page={page}
+                            color="primary"
+                            onChange={handleChangePage}
+                        />
 
 
-                <Collapse in={open} >
-                    <Boxxx>
-                        <BoxHeader>
-                        <IconButtonn aria-label="close" size="small" onClick={() => { setOpen(false) }}><CloseIcon fontSize="small" /> </IconButtonn> <a onClick={()=>alert('hola')}>Agregar Actividad   </a>
-                        </BoxHeader>
+                    </Stackk>
 
-                        <BoxSearch>
-                            <TextField
-                                className="search"
-                                placeholder='Buscar'
-                                size="small"
-                                onChange={handleBuscador}
-                                InputProps={{
-                                    startAdornment: (
-                                        <InputAdornment position="start">
-                                            <SearchIcon />
-                                        </InputAdornment>
-                                    ),
-                                }}
-                                type="search" />
-                        </BoxSearch>
 
-                        <BoxCards>
+                </BoxCards>
+                <Stackkk id="buttons" spacing={0}>
+                    <Button onClick={handleChangeCancel} variant="outlined" color="error">
+                        Cancelar
+                    </Button>
 
-                            {renderCards()}
-                            <br />
-                                <Stack spacing={0}>
-                            
-                                </Stack>
-                        </BoxCards>
-                    </Boxxx>
-                </Collapse>
-            </Modal>
-        </Div>
+                    <Button onClick={handleChangeAceptar} variant="contained" color="success" >
+                        Aceptar
+                    </Button>
+
+
+                </Stackkk>
+            </Boxxx>
+
+
+            
+            
+        </>
     )
 
 };

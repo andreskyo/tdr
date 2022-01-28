@@ -15,25 +15,29 @@ const QontoConnector = styled(StepConnector)(({ theme }) => ({
 
     [`&.${stepConnectorClasses.active}`]: {
         [`& .${stepConnectorClasses.line}`]: {
-            borderColor: 'blue',
+            borderColor: '#124596',
+
+
+
         },
     },
     [`&.${stepConnectorClasses.completed}`]: {
         [`& .${stepConnectorClasses.line}`]: {
-            borderColor: 'blue',
+            borderColor: '#124596',
+
+
         },
     },
+
     [`& .${stepConnectorClasses.line}`]: {
         borderColor: theme.palette.mode === 'dark' ? theme.palette.grey[800] : '#eaeaf0',
         borderTopWidth: 4,
         borderRadius: 1,
+
     },
 }));
 
-// const StepButtonn = styled(StepButton)`
-// >button{margin:150px;}
 
-// `
 
 const StepContentt = styled(StepContent)`
 &&{
@@ -67,10 +71,27 @@ export const StepperV = ({ disabled, ...props }) => {
 
     })
 
+    const Boxx = styled(Box)`
+>div>div>span>span>svg>path{
+  color:#124596;
+  
+}
+>div>div>span{
+    
+    min-height: 50px;
+    margin: -10px 0px;
+  }
+  
+      
+    .css-g5ymu1-MuiSvgIcon-root-MuiStepIcon-root.Mui-active {
+        color: #124596;
+      }
+  
+`
     return (
 
 
-        <Box sx={{ width: '100%' , ml:20}}>
+        <Boxx sx={{ width: '100%', ml: 20 }}>
             <Stepper activeStep={activeStep} orientation='vertical' connector={<QontoConnector />} >
                 {props.labelArray.map((label, index) => (
                     <Step key={label} >
@@ -85,10 +106,10 @@ export const StepperV = ({ disabled, ...props }) => {
                                 </Box>
                             </StepContentt>
                             <StepContent>
-                                <Box sx={{ mt: -4 , ml:-28 }}>
+                                <Box sx={{ mt: -4, ml: -28 }}>
                                     {label.date}
 
-                                    
+
                                 </Box>
                             </StepContent>
 
@@ -98,7 +119,7 @@ export const StepperV = ({ disabled, ...props }) => {
                 ))}
             </Stepper>
 
-        </Box>
+        </Boxx>
         // <Box sx={{ ml: 20 }}>
         //     <Stepper nonLinear  activeStep={activeStep}  connector={<QontoConnector/>}>
         //         {props.labelArray.map((label, index) => (
