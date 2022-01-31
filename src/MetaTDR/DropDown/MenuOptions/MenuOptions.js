@@ -65,7 +65,7 @@ export const MenuOptions = ({ ...props }) => {
 
         let resultado = props.datos.map((data) => {
             return <>
-                <Bubble onClick={()=>{alert(data.accion)}}>
+                <Bubble onClick={data.accion}>
 
                     <Linkk >
                     {data.text}

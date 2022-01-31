@@ -132,18 +132,18 @@ flex-direction: column;
 
 
 
-export const Logued = ({ ...props }) => {
+export const Logued = ({ onClick,...props }) => {
   const renderLogued = () => {
     let result = props.Logueddd.map((log) => {
 
       return <>
 
-        <Boton disableRipple onClick={() => { alert("button") }}><p>{log.botonText}</p></Boton>
+        <Boton disableRipple onClick={onClick}><p>{log.botonText}</p></Boton>
 
         <Text><p>{log.divP}</p>
-          <a href="" onClick={() => { alert("crear cuenta") }}>{log.divA}</a></Text>
+          <a href="" target="_blank">{log.divA}</a></Text>
           <Textt><p>{log.divPP}</p>
-          <a href="" onClick={() => { alert("solicitar clave") }}>{log.divAA}</a></Textt>
+          <a href="" target="_blank">{log.divAA}</a></Textt>
   
 
 

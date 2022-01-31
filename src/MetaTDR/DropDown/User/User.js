@@ -195,7 +195,7 @@ export const User = ({ ...props }) => {
 
       return <>
 
-        <Options onClick={() => { alert(linkk.accion) }}>{linkk.link} <img src={linkk.iconCerrar} alt="" /> <a href="">{linkk.cerrar}</a></Options>
+        <Options onClick={linkk.accion}>{linkk.link} <img src={linkk.iconCerrar} alt="" /> <a href="" onClick={linkk.accion}>{linkk.cerrar}</a></Options>
 
 
 

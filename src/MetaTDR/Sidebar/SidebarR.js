@@ -18,20 +18,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import InputAdornment from '@mui/material/InputAdornment';
 
 
-const Div = styled.div`
-@media (max-width:568px)  {
-    width:60px;
-    margin:0px ;
-    height:0px;
-    
-    
-    
-  }
-height: 1112px;
 
-  
-
-`
 
 
 const Boxxx = styled(Box)`
@@ -44,13 +31,8 @@ const Boxxx = styled(Box)`
         box-shadow: -15px 0px 40px -1px rgba(14, 31, 53, 0.2);
         border-radius: 16px 0px 0px 16px;
         @media (max-width:568px)  {
-            
-            
-            
-            
-            
-            
-          }
+        
+              }
     }
 `
 const BoxHeader = styled(Box)`
@@ -107,30 +89,19 @@ const IconButtonn = styled(IconButton)`
 }
 
 `
-const Stackk = styled(Stack)`
-&&{display:block;
-margin:0px 50px;}
-`
-const Stackkk = styled(Stack)`
-&&{display:none;
-padding:10px;
->button{
-    margin:0px 30px;
-}}
+const StackButtons=styled(Stack)`
+&&{display:none}`
+
+const StackPagination=styled(Stack)``
 
 
-`
-
-
-export const SidebarR = ({ datos }) => {
+export const SidebarR = ({ disabled,datos }) => {
     
     
-    const [text, setText] = React.useState(null);
-    const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(false);
+    const [text, setText] = React.useState();
+    
+    
 
-
-   
 
     const [page, setPage] = useState(1);
     const [rowsPerPage, setRowsPerPage] = React.useState(3);
@@ -139,11 +110,7 @@ export const SidebarR = ({ datos }) => {
         setPage(newPage);
     };
 
-    const handleChangeRowsPerPage = event => {
-        setRowsPerPage(parseInt(event.target.value, 10));
-
-        setPage(0);
-    };
+  
 
 
 
@@ -176,34 +143,30 @@ export const SidebarR = ({ datos }) => {
 
     }
 
-    const handleClose = () => {
-        document.getElementById('box').style.display="none"
-        
-    };
+  
 
 
     const handleChange = (e) => {
-        document.getElementById('buttons').style.display = "block"
-        document.getElementById('table').style.display = "none"
-        let valor = e.target;
-        console.log(valor)
-        setText(valor)
+        let valor = e;
+        return setText(valor.id + valor.alic + valor.description)
+        
+
+        
 
     }
 
 
 
     const handleChangeCancel = () => {
-        document.getElementById('buttons').style.display = "none"
-        document.getElementById('table').style.display = "block"
+        
 
 
     }
 
 
     const handleChangeAceptar = () => {
-        alert(text)
-
+        
+   alert(text)
 
     }
 
@@ -214,14 +177,14 @@ export const SidebarR = ({ datos }) => {
             
             return <>
 
-                <Card key={i} sx={{ minWidth: "auto" }} >
+                <Card key={i} sx={{ minWidth: "auto" }} onClick={()=>handleChange(data)} >
                     <CardContentt >
 
                         <Typography variant="h5" component="div">
                             {data.id}
 
                         </Typography>
-                        <Typography onClick={handleChange} sx={{ mb: 1.5 }} color="text.secondary">
+                        <Typography  sx={{ mb: 1.5 }} color="text.secondary">
                             {data.description}
                         </Typography>
                         <Typography variant="body2">
@@ -243,9 +206,10 @@ export const SidebarR = ({ datos }) => {
 
     return (
         <>
+        {disabled===false?
              <Boxxx id="box">
                 <BoxHeader>
-                    <IconButtonn aria-label="close" size="small" ><CloseIcon onClick={handleClose} fontSize="small" /> </IconButtonn> <a onClick={() => alert('hola')}>Agregar Actividad   </a>
+                    <IconButtonn aria-label="close" size="small" ><CloseIcon  fontSize="small" /> </IconButtonn> <a onClick={() => alert('hola')}>Agregar Actividad   </a>
                 </BoxHeader>
 
                 <BoxSearch>
@@ -268,9 +232,10 @@ export const SidebarR = ({ datos }) => {
             
                     {renderCards()}
                     <br />
-                    <Stackk id="table" spacing={0}>
+                    <StackPagination id="table" spacing={0}>
                    
                         <Pagination
+                        
                             count={Math.ceil(filtrados.length/4)}
                             size="medium"
                             page={page}
@@ -279,12 +244,12 @@ export const SidebarR = ({ datos }) => {
                         />
 
 
-                    </Stackk>
+                    </StackPagination>
 
 
                 </BoxCards>
-                <Stackkk id="buttons" spacing={0}>
-                    <Button onClick={handleChangeCancel} variant="outlined" color="error">
+                <StackButtons  id="buttons" spacing={0}>
+                    <Button  variant="outlined" color="error">
                         Cancelar
                     </Button>
 
@@ -293,10 +258,10 @@ export const SidebarR = ({ datos }) => {
                     </Button>
 
 
-                </Stackkk>
+                </StackButtons>
             </Boxxx>
 
-
+:null}
             
             
         </>

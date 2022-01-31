@@ -119,12 +119,12 @@ export const SideBarr = Template.bind({});
 
 
 
-const alertt=()=>{
-return alert('hola mundo')
-}
+
 
 
 
 SideBarr.args = {
-datos:datos
+    disabled:false,
+    datos:datos,
+
 };

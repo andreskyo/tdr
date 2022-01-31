@@ -5,34 +5,31 @@ import Correo from './Correo.png';
 import NotificacionC from './NotificacionC.png';
 
 const Div = styled.div`
- @media (min-width:0px)  {
-    position: absolute;
-    width:340px;
-    height: auto;
-    left: 20px;
-    background: #FFFFFF;
-    padding:20px;
-    box-shadow: 0px 1px 4px rgba(14, 31, 53, 0.12), 0px 4px 8px rgba(14, 31, 53, 0.08);
-    border-radius: 8px;
-}
-@media (min-width:320px)  {
+@media (max-width:320px)  {
   
-  width:250px;
+  width:200px;
   
   margin:0px;
 }
-@media (min-width:414px)  {
+@media (min-width:321px)  {
   
   width:340px;
   
   margin:0px;
 }
-@media (min-width:834px)  {
+@media (min-width:415px )  {
   
   width:750px;
-  
-  margin:0px;
 }
+position: absolute;
+width:340px;
+height: auto;
+
+background: #FFFFFF;
+padding:20px;
+box-shadow: 0px 1px 4px rgba(14, 31, 53, 0.12), 0px 4px 8px rgba(14, 31, 53, 0.08);
+border-radius: 8px;
+
 `
 
 const CardUno = styled.div`
@@ -43,25 +40,24 @@ const DivDos = styled.div`
 position: absolute;
 width: 350px;
 height: auto;
-left: 20px;
 top:290px;
 background: #FFFFFF;
 padding:20px;
 box-shadow: 0px 1px 4px rgba(14, 31, 53, 0.12), 0px 4px 8px rgba(14, 31, 53, 0.08);
 border-radius: 8px;
-@media (max-width:568px)  {
+@media (max-width:320px)  {
   
   width:250px;
   
   margin:0px;
 }
-@media (min-width:414px)  {
+@media (min-width:321px)  {
   
   width:340px;
   
   margin:0px;
 }
-@media (min-width:834px)  {
+@media (min-width:415px)  {
   
   width:750px;
   
@@ -147,7 +143,10 @@ margin: 5px 0px;
 
 `
 
-export const Card = ({ ...props }) => {
+export const Card = ({ onClick,...props }) => {
+
+ 
+
   const renderCard = () => {
     let result = props.Cards.map((card) => {
 
@@ -155,7 +154,7 @@ export const Card = ({ ...props }) => {
         <Text>
           <p>{card.notificaciones}</p>
           <p>{card.alertas}</p>
-          <a href="" onClick={(e) => { alert(e.preventDefault()) }}>{card.bandeja}</a>
+          <a href="" onClick={onClick}>{card.bandeja}</a>
 
         </Text>
       </>

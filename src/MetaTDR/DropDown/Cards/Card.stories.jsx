@@ -31,10 +31,15 @@ let Cardb=[{
   },
   ]
 
+  const click=()=>{
+    alert("bandeja entrada")
+  }
 
 NotCorreo.args = {
 Cards:Cards, 
-Cardb:Cardb
+Cardb:Cardb,
+onClick:click
+
 };
 
 

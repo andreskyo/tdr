@@ -220,7 +220,7 @@ export const MenuInput = ({...props}) => {
            
             return <>
                 <Icon><img src={card.imagen}/></Icon>
-                    <Li onClick={()=>{alert(card.accion)}}>
+                    <Li onClick={card.accion}>
                         <TextHoora>{card.TextHora}</TextHoora>
                         <TextMuulta>{card.TextMulta}</TextMuulta>
                         <TextVeencimiento>{card.TextVencimiento}</TextVeencimiento>

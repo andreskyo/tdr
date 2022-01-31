@@ -38,6 +38,42 @@ const QontoConnector = styled(StepConnector)(({ theme }) => ({
 }));
 
 const Boxx=styled(Box)`
+@media (max-width:320px)  {
+  >div>div>span>span>svg>path{
+    color:#124596;
+} 
+  >div>div>span>span>svg>circle:selected{
+    color:#124596;
+  }
+  .css-g5ymu1-MuiSvgIcon-root-MuiStepIcon-root.Mui-active {
+    color: #124596;
+  }
+  
+}
+@media (min-width:321px)  {
+  >div>div>span>span>svg>path{
+    color:#124596;
+} 
+  >div>div>span>span>svg>circle:selected{
+    color:#124596;
+  }
+  .css-g5ymu1-MuiSvgIcon-root-MuiStepIcon-root.Mui-active {
+    color: #124596;
+  }
+}
+
+@media (min-width:415px max-width:834px)  {
+  
+  >div>div>span{
+    
+    width:120px;
+    margin: 0px 0px;
+    
+  }
+  div>div>.css-1g47i0x-MuiStepConnector-root .MuiStepConnector-line{
+    width:112px;
+}
+
 >div>div>span>span>svg>path{
   color:#124596;
   
@@ -58,12 +94,10 @@ export const StepperrH = ({ disabled, ...props }) =>  {
   
 const handleStep = (step) => () => {
     setActiveStep(step);
-    
-    
-    
-  };
+};
 
   useEffect(() => {
+    
     if(activeStep>=0){    
     alert(`Step ${activeStep + 1}`)
   }

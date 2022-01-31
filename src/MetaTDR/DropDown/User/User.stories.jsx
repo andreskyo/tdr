@@ -21,29 +21,29 @@ export const UserIcon = Template.bind({});
 let Menu=[
   {
     link:'Impuestos',
-    accion:'link 1'
+    accion:()=>{alert("link 1")}
   },
   {
     link:'Respresentados',
-    accion:'link 2'
+    accion:()=>{alert("link 2")}
   },
   {
     link:'Fiscalizaciones',
-    accion:'link 3'
+    accion:()=>{alert("link 3")}
   },
   {
     link:'Corredor',
-    accion:'link 4'
+    accion:()=>{alert("link 4")}
   },
   {
     link:'Procurador',
-    accion:'link 5'
+    accion:()=>{alert("link 5")}
 
   },
   {
     iconCerrar:Logout,
     cerrar:'cerrar sesion',
-    accion:'cerrar'
+    accion:()=>{alert("cerrar")}
   }
 ]
 

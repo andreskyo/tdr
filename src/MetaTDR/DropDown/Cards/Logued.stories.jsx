@@ -32,8 +32,13 @@ divA:'Crear cuenta'
   }]
 
 
+  const button=(e)=>{
+    alert("")
+  }
 
 Loguedd.args = {
-  Logueddd:Logueddd
+  Logueddd:Logueddd,
+  onClick:button,
+  
   
 };
