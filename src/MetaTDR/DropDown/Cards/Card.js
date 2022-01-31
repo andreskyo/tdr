@@ -7,7 +7,7 @@ import NotificacionC from './NotificacionC.png';
 const Div = styled.div`
 @media (max-width:320px)  {
   
-  width:200px;
+  width:250px;
   
   margin:0px;
 }

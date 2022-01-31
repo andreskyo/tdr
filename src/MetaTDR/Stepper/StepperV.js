@@ -120,35 +120,6 @@ export const StepperV = ({ disabled, ...props }) => {
             </Stepper>
 
         </Boxx>
-        // <Box sx={{ ml: 20 }}>
-        //     <Stepper nonLinear  activeStep={activeStep}  connector={<QontoConnector/>}>
-        //         {props.labelArray.map((label, index) => (
-
-        //             <Step key={label} >
-
-        //                 <StepLabel color="inherit" onClick={handleStep(index)} onClickCheck={()=>props.onClick()}>
-        //                     <StepContent>
-        //                         <Box sx={{ ml: -4 , mt:0}} >
-        //                             <div>
-        //                         <Typography> {label.labell} </Typography>
-
-        //                             <Typography>{label.description}</Typography>
-        //                             </div>
-        //                         </Box>
-        //                     </StepContent>
-        //                     <StepContent>
-        //                         <Box sx={{ mt: -4 , ml:-28 }}>
-        //                             {label.date}
-
-
-        //                         </Box>
-        //                     </StepContent>
-        //                 </StepLabel>
-
-        //             </Step>
-        //         ))}
-        //     </Stepper>
-
-        // </Box>
+     
     );
 }
