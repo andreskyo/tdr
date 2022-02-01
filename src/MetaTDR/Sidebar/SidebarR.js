@@ -30,9 +30,18 @@ const Boxxx = styled(Box)`
         background:white;
         box-shadow: -15px 0px 40px -1px rgba(14, 31, 53, 0.2);
         border-radius: 16px 0px 0px 16px;
-        @media (max-width:568px)  {
-        
-              }
+        @media (max-width:320px)  {
+            width:280px;
+            
+                  }
+                  @media (min-width:321px)  {
+                    width:370px;
+                    
+                          }
+                          @media (min-width:415px)  {
+                            width:800px;
+                            
+                                  }   
     }
 `
 const BoxHeader = styled(Box)`
@@ -70,11 +79,13 @@ const BoxSearch = styled(Box)`
 }
 `
 const BoxCards = styled(Box)`
+
  width:100%;
 `
 
 
 const CardContentt = styled(CardContent)`
+
 &&:hover{
     background: #e8e3e2 ;
     cursor:pointer;
@@ -89,35 +100,35 @@ const IconButtonn = styled(IconButton)`
 }
 
 `
-const StackButtons=styled(Stack)`
+const StackButtons = styled(Stack)`
+&&{
+    display:flex;
+    justify-content:space-around;
+    flex-direction:row;
+    padding:5px;
+}
+>Button{
+    display:flex;
+    width:30%;
+    text-transform:none;
+}
 `
 
-const StackPagination=styled(Stack)``
+const StackPagination = styled(Stack)``
 
 
-export const SidebarR = ({ disabled,datos }) => {
-    
+export const SidebarR = ({ disabled, datos }) => {
+
+    const [selected, setSelected] = React.useState(true);
     
     const [text, setText] = React.useState();
-    
-    
-
-
+    const [filtrados, setFiltrado] = useState(datos);
     const [page, setPage] = useState(1);
     const [rowsPerPage, setRowsPerPage] = React.useState(3);
 
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
     };
-
-  
-
-
-
-    const [filtrados, setFiltrado] = useState(datos);
-
-
-
     const handleBuscador = (e) => {
         const cadena = e.target.value.toLowerCase();
         let tmpArray = [];
@@ -143,47 +154,42 @@ export const SidebarR = ({ disabled,datos }) => {
 
     }
 
-  
+
 
 
     const handleChange = (e) => {
         let valor = e;
-        return setText(valor.id + valor.alic + valor.description)
-        
-        
-
+        setSelected(false)
+        return setText(`${valor.id} - ${valor.description} - ${valor.alic}`)
     }
 
 
 
     const handleChangeCancel = () => {
-        
-
+        setSelected(true)
 
     }
 
 
     const handleChangeAceptar = () => {
-        
-   alert(text)
-
+        alert(text)
     }
 
 
-    
+
     const renderCards = () => {
-        let resultado = filtrados && filtrados.slice((page -1) * rowsPerPage, page * rowsPerPage + rowsPerPage).map((data, i) => {
-            
+        let resultado = filtrados && filtrados.slice((page - 1) * rowsPerPage, page * rowsPerPage + rowsPerPage).map((data, i) => {
+
             return <>
 
-                <Card key={i} sx={{ minWidth: "auto" }} onClick={()=>handleChange(data)} >
+                <Card key={i} sx={{ minWidth: "auto" }} onClick={() => handleChange(data)} >
                     <CardContentt >
 
                         <Typography variant="h5" component="div">
                             {data.id}
 
                         </Typography>
-                        <Typography  sx={{ mb: 1.5 }} color="text.secondary">
+                        <Typography sx={{ mb: 1.5 }} color="text.secondary">
                             {data.description}
                         </Typography>
                         <Typography variant="body2">
@@ -205,64 +211,72 @@ export const SidebarR = ({ disabled,datos }) => {
 
     return (
         <>
-        {disabled===false?
-             <Boxxx id="box">
-                <BoxHeader>
-                    <IconButtonn aria-label="close" size="small" ><CloseIcon  fontSize="small" /> </IconButtonn> <a onClick={() => alert('hola')}>Agregar Actividad   </a>
-                </BoxHeader>
+            {disabled === false ?
+                <Boxxx id="box">
+                    <BoxHeader>
+                        <IconButtonn aria-label="close" size="small" ><CloseIcon fontSize="small" /> </IconButtonn> <a onClick={() => alert('hola')}>Agregar Actividad   </a>
+                    </BoxHeader>
 
-                <BoxSearch>
-                    <TextField
-                        className="search"
-                        placeholder='Buscar'
-                        size="small"
-                        onChange={handleBuscador}
-                        InputProps={{
-                            startAdornment: (
-                                <InputAdornment position="start">
-                                    <SearchIcon />
-                                </InputAdornment>
-                            ),
-                        }}
-                        type="search" />
-                </BoxSearch>
+                    <BoxSearch>
+                        <TextField
+                            className="search"
+                            placeholder='Buscar'
+                            size="small"
+                            onChange={handleBuscador}
+                            InputProps={{
+                                startAdornment: (
+                                    <InputAdornment position="start">
+                                        <SearchIcon />
+                                    </InputAdornment>
+                                ),
+                            }}
+                            type="search" />
+                    </BoxSearch>
 
-                <BoxCards>
-            
-                    {renderCards()}
-                    <br />
-                    <StackPagination id="table" spacing={0}>
-                   
-                        <Pagination
-                        
-                            count={Math.ceil(filtrados.length/4)}
-                            size="medium"
-                            page={page}
-                            color="primary"
-                            onChange={handleChangePage}
-                        />
+                    <BoxCards>
+
+                        {renderCards()}
+                        <br />
 
 
-                    </StackPagination>
+                        {selected === true ?
+
+                            <StackPagination id="table" spacing={0}>
+
+                                <Pagination
+
+                                    count={Math.ceil(filtrados.length / 4)}
+                                    size="medium"
+                                    page={page}
+                                    color="primary"
+                                    onChange={handleChangePage}
+                                />
 
 
-                </BoxCards>
-                <StackButtons  id="buttons" spacing={0}>
-                    <Button  variant="outlined" color="error">
-                        Cancelar
-                    </Button>
+                            </StackPagination>
 
-                    <Button onClick={handleChangeAceptar} variant="contained" color="success" >
-                        Aceptar
-                    </Button>
+                            : 
+                            
+                            <StackButtons onClick={handleChangeCancel} id="buttons" spacing={0}>
+                            <Button variant="outlined" color="error">
+                                Cancelar
+                            </Button>
+    
+                            <Button onClick={handleChangeAceptar} variant="contained" color="success" >
+                                Aceptar
+                            </Button>
+    
+    
+                        </StackButtons>}
+
+                    </BoxCards>
+                    
+
+                </Boxxx>
+
+                : null}
 
 
-                </StackButtons>
-            </Boxxx>
-
-:null}
-            
-            
         </>
     )
 

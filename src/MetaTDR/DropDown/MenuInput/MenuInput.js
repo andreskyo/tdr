@@ -33,9 +33,7 @@ border-radius: 8px;
 
 
 overflow-x: hidden;
-::-webkit-scrollbar {
-    display: none;
-  }
+
 
 `
 

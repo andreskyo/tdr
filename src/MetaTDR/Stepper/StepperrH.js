@@ -14,7 +14,7 @@ const QontoConnector = styled(StepConnector)(({ theme }) => ({
   [`&.${stepConnectorClasses.alternativeLabel}`]: {
     top: 10,
     left: 'calc(-50% + 12px)',
-    right: 'calc(50% + 11px)',
+    right: 'calc(50% + 12px)',
     
 
 
