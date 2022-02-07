@@ -1,6 +1,8 @@
 import React from 'react';
 import Logout from './Logout.png';
 import { User } from "./User";
+import Button from '@mui/material/Button';
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 
 
 export default {
@@ -18,7 +20,7 @@ const Template = (args) => <User {...args} />;
 export const UserIcon = Template.bind({});
 
 
-let Menu=[
+let menu=[
   {
     link:'Impuestos',
     accion:()=>{alert("link 1")}
@@ -39,20 +41,28 @@ let Menu=[
     link:'Procurador',
     accion:()=>{alert("link 5")}
 
-  },
-  {
-    iconCerrar:Logout,
-    cerrar:'cerrar sesion',
-    accion:()=>{alert("cerrar")}
   }
+  
 ]
 
+const datosUsuario=[{
+  imagen:<AccountCircleOutlinedIcon sx={{ fontSize: 60 }} />,
+  nombre:"¡Hola, Juan Martínez!",
+  id:20282516129,
+  situacion:`Situacion fiscal Regular`
+
+}]
+
+let cerrar=()=>{
+  return alert("cerrar")
+}
 
 UserIcon.args = {
-  Menu:Menu,
-  textNombre:'¡Hola, Juan Martínez!',
-  textId:'20282516129',
-  textSituacion:'Regular',
+  menu:menu,
+  datosUsuario:datosUsuario,
+  iconCerrar:<img style={{width:"25px"}} src={Logout}/>,
+  cerrar:<Button disableRipple style={{textTransform:"none"}} onClick={cerrar}>Cerrar Sesión</Button>,
+
   
   
 };

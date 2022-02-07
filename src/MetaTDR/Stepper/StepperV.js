@@ -45,9 +45,26 @@ const StepContentt = styled(StepContent)`
 }
 
 `
+const Boxx = styled(Box)`
+>div>div>span>span>svg>path{
+  color:#124596;
+  
+}
+>div>div>span{
+    
+    min-height: 50px;
+    margin: -7px 0px;
+  }
+  
+      
+    .css-g5ymu1-MuiSvgIcon-root-MuiStepIcon-root.Mui-active {
+        color: #124596;
+        
+      }
+  
+`
 
-
-export const StepperV = ({ disabled, ...props }) => {
+export const StepperV = ({ disabled,labelArray, ...props }) => {
     const [activeStep, setActiveStep] = React.useState(-1);
 
 
@@ -71,29 +88,13 @@ export const StepperV = ({ disabled, ...props }) => {
 
     })
 
-    const Boxx = styled(Box)`
->div>div>span>span>svg>path{
-  color:#124596;
-  
-}
->div>div>span{
-    
-    min-height: 50px;
-    margin: -10px 0px;
-  }
-  
-      
-    .css-g5ymu1-MuiSvgIcon-root-MuiStepIcon-root.Mui-active {
-        color: #124596;
-      }
-  
-`
+
     return (
 
 
         <Boxx sx={{ width: '100%', ml: 20 }}>
             <Stepper activeStep={activeStep} orientation='vertical' connector={<QontoConnector />} >
-                {props.labelArray.map((label, index) => (
+                {labelArray.map((label, index) => (
                     <Step key={label} >
                         <StepLabel onClick={handleStep(index)} >
                             <StepContentt>

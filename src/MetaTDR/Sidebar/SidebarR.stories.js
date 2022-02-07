@@ -1,6 +1,5 @@
 import React from 'react';
-import AddIcon from '@mui/icons-material/Add';
-
+import Button from '@mui/material/Button';
 import { SidebarR } from "./SidebarR";
 
 
@@ -117,7 +116,9 @@ const Template = (args) => <SidebarR {...args} />;
 
 export const SideBarr = Template.bind({});
 
-
+let actividadButton=()=>{
+    return alert("agregar")
+}
 
 
 
@@ -126,5 +127,6 @@ export const SideBarr = Template.bind({});
 SideBarr.args = {
     disabled:false,
     datos:datos,
-
+    bActividad:<Button disableRipple  onClick={actividadButton} style={{textTransform:"none"}}>Agregar Actividad</Button>,
+    
 };

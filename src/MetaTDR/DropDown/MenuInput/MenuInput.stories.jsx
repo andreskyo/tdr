@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { MenuInput } from "./MenuInput";
+
 import IconA from './IconA.png'
 import IconB from './IconB.png'
 import IconC from './IconC.png'
@@ -9,7 +10,7 @@ import IconE from './IconE.png'
 import IconF from './IconF.png'
 import IconG from './IconG.png'
 import IconH from './IconH.png'
-
+import mail from './mail.png'
 
 export default {
   title: 'DropDown/MenuInput/MenuInput',
@@ -21,84 +22,87 @@ export default {
 };
 
 
-const Template = (args) => <MenuInput {...args} />;
+const Template = (args) => <MenuInput {...args} />
 
-export const InputA = Template.bind({});
+export const menuInnput = Template.bind({});
+
+
+let dateTime=()=>{
+ 
+     
+  let showdate=new Date();
+  
+  const minutos=((showdate.getMinutes()<10) ? "0":"") + showdate.getMinutes();
+  
+  return(
+      showdate.getDate() +  minutos 
+  )
+  
+  }
 
 let datosCards = [
+  
+ 
   {
-    TextHora: 'Hace 3 horas',
-    TextMulta: 'Tienes una multa próxima a vencer',
-    TextVencimiento: 'Vence 24/10/2019',
-    imagen: IconA,
-    accion: () => { alert("haga algo") }
+    textHora: 'Hace 6 horas',
+    textMulta: 'Tu embarcación está al día. ',
+    textVencimiento: 'Vence 24/10/2019',
+    imagen:  <img src={IconB} alt="" />,
+    accion: ()=>{alert("lalal")}
   },
   {
-    TextHora: 'Hace 6 horas',
-    TextMulta: 'Tu embarcación está al día. ',
-    TextVencimiento: 'Vence 24/10/2019',
-    imagen: IconB,
-    accion: () => { alert("haga algo") }
+    textHora: '24 de agosto',
+    textMulta: 'A partir de 2020, por convenio entre la Municipalidad ALPA...',
+    textVencimiento: 'Vence 24/10/2019',
+    imagen: <img src={IconC} alt="" />,
+    accion: ()=>{alert("lalal")}
   },
   {
-    TextHora: '24 de agosto',
-    TextMulta: 'A partir de 2020, por convenio entre la Municipalidad ALPA...',
-    TextVencimiento: 'Vence 24/10/2019',
-    imagen: IconC,
-    accion: () => { alert("haga algo") }
+    textHora: 'Hace 3 horas',
+    textMulta: 'Motivo inclusíon-Listado de riesgo fiscal mayo..',
+    textVencimiento: 'Vence 24/10/2019',
+    imagen: <img src={IconD} alt="" />,
+    accion: ()=>{alert("lalal")}
   },
   {
-    TextHora: 'Hace 3 horas',
-    TextMulta: 'Motivo inclusíon-Listado de riesgo fiscal mayo..',
-    TextVencimiento: 'Vence 24/10/2019',
-    imagen: IconD,
-    accion: () => { alert("haga algo") }
+    textHora: 'hace 3 horas',
+    textMulta: 'Fiscalización electrónica',
+    textVencimiento: 'Vence 24/10/2019',
+    imagen: <img  src={IconE} alt="" />,
+    accion: ()=>{alert("lalal")}
   },
   {
-    TextHora: 'hace 3 horas',
-    TextMulta: 'Fiscalización electrónica',
-    TextVencimiento: 'Vence 24/10/2019',
-    imagen: IconE,
-    accion: () => { alert("haga algo") }
+    textHora: '24 de agosto',
+    textMulta: 'El pago único de ingresos brutos se prorrogga hasta..',
+    textVencimiento: 'Vence 24/10/2019',
+    imagen: <img src={IconF} alt="" />,
+    accion: ()=>{alert("lalal")}
   },
   {
-    TextHora: '24 de agosto',
-    TextMulta: 'El pago único de ingresos brutos se prorrogga hasta..',
-    TextVencimiento: 'Vence 24/10/2019',
-    imagen: IconF,
-    accion: () => { alert("haga algo") }
+    textHora: 'Hace 6 horas',
+    textMulta: 'Tienes una multa próxima a vencer',
+    textVencimiento: 'Vence 01/01/2019',
+    imagen: <img src={IconG} alt="" />,
+    accion: ()=>{alert("lalal")}
   },
   {
-    TextHora: 'Hace 6 horas',
-    TextMulta: 'Tienes una multa próxima a vencer',
-    TextVencimiento: 'Vence 01/01/2019',
-    imagen: IconG,
-    accion: () => { alert("haga algo") }
+    textHora: 'Hace 6 horas ',
+    textMulta: 'Tu embarcacion esta al dia',
+    textVencimiento: 'Vence 01/01/2019',
+    imagen: <img src={IconH} alt="" />,
+    accion: ()=>{alert("lalal")}
   },
   {
-    TextHora: 'Hace 6 horas ',
-    TextMulta: 'Tu embarcacion esta al dia',
-    TextVencimiento: 'Vence 01/01/2019',
-    imagen: IconH,
-    accion: () => { alert("haga algo") }
+    textHora: "Hace 3 horas",
+    textMulta: "Tienes una multa próxima a vencer",
+    textVencimiento:"Vence 24/10/2019",
+    imagen: <img src={IconA} alt="" />,
+    accion: ()=>{alert("lalal")}
   },
-
 ];
 
-
-const noti = () => {
-  return alert('notificaciones')
-}
-const domicilio = () => {
-  return alert('domicilio')
-}
-
-
-InputA.args = {
-  datosCards: datosCards,
-  TextNotificaciones: 'Ver todas las notificaciones',
-  onClick: noti,
-  onClickk: domicilio,
-  DomicilioFiscal: 'Domicilio fiscal electrónico'
-
+menuInnput.args = {
+datosCards:datosCards,
+domicilio:"Domicilio fiscal electrónico",
+notificaciones:()=>{alert("notificaciones")}
 };

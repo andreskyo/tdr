@@ -19,15 +19,15 @@ export const MenuuOptions = Template.bind({});
 
 let datos= [
   {
-    text:'Menu Option 1',
+    text:<a className="text-center">Menu Option 1</a>,
     accion:()=>{alert("m1")}
   },
   {
-    text:'Menu Option 2',
+    text:<a className="text-center">Menu Option 2</a>,
     accion:()=>{alert("m2")}
   },
   {
-    text:'Menu Option 3',
+    text:<a className="text-center">Menu Option 3</a>,
     accion:()=>{alert("m3")}
   }
 ]

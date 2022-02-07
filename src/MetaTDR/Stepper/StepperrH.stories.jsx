@@ -18,12 +18,11 @@ const Template = (args) => <StepperrH {...args} />;
 export const Stepperrr = Template.bind({});
 
 const labelArray=[
-{labell:'Step 1'},
-{labell:'Step 2'}, 
-{labell:'Step 3'},
-{labell:'Step 4'},
-{labell:'Step 5'},
-{labell:'Step 6'},
+  {labell:'Step 1',description:'Step 1 Description '},
+  {labell:'Step 2',description:'Step 2 Description '},
+  {labell:'Step 3',description:'Step 3 Description '},
+  {labell:'Step 4',description:'Step 4 Description '}
+
 ]
 
 

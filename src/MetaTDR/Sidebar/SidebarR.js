@@ -9,9 +9,6 @@ import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import TablePagination from "@material-ui/core/TablePagination";
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import SearchIcon from '@mui/icons-material/Search';
@@ -21,85 +18,27 @@ import InputAdornment from '@mui/material/InputAdornment';
 
 
 
-const Boxxx = styled(Box)`
+const Div = styled.div`
+background:white;
+box-shadow: -15px 0px 40px -1px rgba(14, 31, 53, 0.2);
+border-radius: 16px 0px 0px 16px;
 
-    &&{
-        
-        width:400px;
-        
-        background:white;
-        box-shadow: -15px 0px 40px -1px rgba(14, 31, 53, 0.2);
-        border-radius: 16px 0px 0px 16px;
-        @media (max-width:320px)  {
-            width:280px;
-            
-                  }
-                  @media (min-width:321px)  {
-                    width:370px;
-                    
-                          }
-                          @media (min-width:415px)  {
-                            width:800px;
-                            
-                                  }   
+>div>div>button{
+    :hover{
+        background:none;
+        text-decoration:underline;
     }
-`
-const BoxHeader = styled(Box)`
-&&{
-    display:flex;
-    width:auto;
-    height:auto;
-    padding:15px;
-}
->a{
-margin:2px 0px;
-font-family: Nunito;
-font-style: normal;
-font-weight:bold;
-font-size: 18px;
-line-height: 25px;
-color: #124596;}
->a:hover{
-   text-decoration:underline;
-   cursor:pointer;
-   }
-
-
-`
-const BoxSearch = styled(Box)`
-&&{
-    margin:auto;
-    width:90%;
-}
-.search{
-    width:100%;
-    margin:auto;
-    background: #F6F8FA;
-    border-radius: 5px;
 }
 `
-const BoxCards = styled(Box)`
 
- width:100%;
-`
-
-
-const CardContentt = styled(CardContent)`
+const DivCards = styled.div`
 
 &&:hover{
     background: #e8e3e2 ;
     cursor:pointer;
 }
 `
-const IconButtonn = styled(IconButton)`
-&&{
-    
-    display:flex;
-    flex-direction:row-reverse;
-    border:0px;
-}
 
-`
 const StackButtons = styled(Stack)`
 &&{
     display:flex;
@@ -117,10 +56,10 @@ const StackButtons = styled(Stack)`
 const StackPagination = styled(Stack)``
 
 
-export const SidebarR = ({ disabled, datos }) => {
+export const SidebarR = ({ disabled, datos,...props }) => {
 
     const [selected, setSelected] = React.useState(true);
-    
+
     const [text, setText] = React.useState();
     const [filtrados, setFiltrado] = useState(datos);
     const [page, setPage] = useState(1);
@@ -182,8 +121,8 @@ export const SidebarR = ({ disabled, datos }) => {
 
             return <>
 
-                <Card key={i} sx={{ minWidth: "auto" }} onClick={() => handleChange(data)} >
-                    <CardContentt >
+                <div className="container-fluid m-0" key={i} sx={{ minWidth: "auto" }} onClick={() => handleChange(data)} >
+                    <DivCards className="row p-2 cards" >
 
                         <Typography variant="h5" component="div">
                             {data.id}
@@ -197,9 +136,9 @@ export const SidebarR = ({ disabled, datos }) => {
                             <br />
 
                         </Typography>
-                    </CardContentt>
+                    </DivCards>
 
-                </Card>
+                </div>
 
             </>
 
@@ -208,71 +147,77 @@ export const SidebarR = ({ disabled, datos }) => {
         })
         return resultado;
     }
-
+    
     return (
         <>
             {disabled === false ?
-                <Boxxx id="box">
-                    <BoxHeader>
-                        <IconButtonn aria-label="close" size="small" ><CloseIcon fontSize="small" /> </IconButtonn> <a onClick={() => alert('hola')}>Agregar Actividad   </a>
-                    </BoxHeader>
+                <Div className="container-fluid m-0" >
+                    <div className="row ">
+                        
+                        <div className="col-12"><CloseIcon className="mt-1"sx={{ fontSize: 25 }} />
+                        {props.bActividad}
+                        </div>
+                        <div className="col">
 
-                    <BoxSearch>
-                        <TextField
-                            className="search"
-                            placeholder='Buscar'
-                            size="small"
-                            onChange={handleBuscador}
-                            InputProps={{
-                                startAdornment: (
-                                    <InputAdornment position="start">
-                                        <SearchIcon />
-                                    </InputAdornment>
-                                ),
-                            }}
-                            type="search" />
-                    </BoxSearch>
+                            <TextField
+                                className="m-1"
+                                fullWidth
+                                placeholder='Buscar'
+                                onChange={handleBuscador}
+                                InputProps={{
+                                    startAdornment: (
+                                        <InputAdornment position="start">
+                                            <SearchIcon />
+                                        </InputAdornment>
+                                    ),
+                                }}
+                                type="search" />
 
-                    <BoxCards>
+                        </div>
+                    </div>
+
+
+
+                    <div className="row">
 
                         {renderCards()}
                         <br />
 
 
                         {selected === true ?
-
-                            <StackPagination id="table" spacing={0}>
-
-                                <Pagination
-
-                                    count={Math.ceil(filtrados.length / 4)}
-                                    size="medium"
-                                    page={page}
-                                    color="primary"
-                                    onChange={handleChangePage}
-                                />
-
-
-                            </StackPagination>
-
-                            : 
                             
-                            <StackButtons onClick={handleChangeCancel} id="buttons" spacing={0}>
-                            <Button variant="outlined" color="error">
-                                Cancelar
-                            </Button>
-    
-                            <Button onClick={handleChangeAceptar} variant="contained" color="success" >
-                                Aceptar
-                            </Button>
-    
-    
-                        </StackButtons>}
+                                <StackPagination className="m-2" id="table" spacing={0}>
 
-                    </BoxCards>
-                    
+                                    <Pagination
 
-                </Boxxx>
+                                        count={Math.ceil(filtrados.length / 4)}
+                                        size="large"
+                                        page={page}
+                                        color="primary"
+                                        onChange={handleChangePage}
+                                    />
+
+
+                                </StackPagination>
+                            
+                            :
+
+                            <StackButtons  id="buttons" spacing={0}>
+                                <Button onClick={handleChangeCancel} variant="outlined" color="error">
+                                    Cancelar
+                                </Button>
+
+                                <Button onClick={handleChangeAceptar} variant="contained" color="success" >
+                                    Aceptar
+                                </Button>
+
+
+                            </StackButtons>}
+
+                    </div>
+
+
+                </Div>
 
                 : null}
 

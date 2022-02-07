@@ -16,11 +16,7 @@ const QontoConnector = styled(StepConnector)(({ theme }) => ({
     left: 'calc(-50% + 12px)',
     right: 'calc(50% + 12px)',
     
-
-
-
-
-  },
+ },
   [`&.${stepConnectorClasses.active}`]: {
     [`& .${stepConnectorClasses.line}`]: {
       borderColor: '#124596',
@@ -51,17 +47,10 @@ const Boxx = styled(Box)`
   color:#124596;
 } 
 
-  
-}
-
-
-
-  
 `
 
 
-
-export const StepperrH = ({ disabled, ...props }) => {
+export const StepperrH = ({ disabled,labelArray, ...props }) => {
   const [activeStep, setActiveStep] = React.useState(-1);
 
   const handleStep = (step) => () => {
@@ -82,13 +71,14 @@ export const StepperrH = ({ disabled, ...props }) => {
     }
 
   })
-
+{labelArray=='' ? alert("no hay datos") : ''}
 
   return (
+    
     <Boxx sx={{ width: '100%' }}>
       <Stepper activeStep={activeStep} alternativeLabel connector={<QontoConnector />} >
-        {props.labelArray.map((label, index) => (
-          <Step key={label} >
+        {labelArray.map((label, index) => (
+          <Step key={index} >
             <StepLabel id="colorr" onClick={handleStep(index)} >
               {label.labell}
             </StepLabel>
