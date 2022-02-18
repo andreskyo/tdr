@@ -50,6 +50,9 @@ const StackButtons = styled(Stack)`
     display:flex;
     width:30%;
     text-transform:none;
+    :hover{
+        color:black;
+    }
 }
 `
 
@@ -203,11 +206,11 @@ export const SidebarR = ({ disabled, datos,...props }) => {
                             :
 
                             <StackButtons  id="buttons" spacing={0}>
-                                <Button onClick={handleChangeCancel} variant="outlined" color="error">
+                                <Button onClick={handleChangeCancel} disableRipple variant="outlined" color="error">
                                     Cancelar
                                 </Button>
 
-                                <Button onClick={handleChangeAceptar} variant="contained" color="success" >
+                                <Button onClick={handleChangeAceptar} disableRipple variant="contained" color="success" >
                                     Aceptar
                                 </Button>
 
