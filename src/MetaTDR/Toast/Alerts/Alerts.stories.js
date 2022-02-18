@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Button from '@mui/material/Button';
 import { Alerts } from "./Alerts";
 
 
@@ -16,7 +16,7 @@ const DatosNnotification=[{
     
     title:` Successfully applied!`,
     label:"Malesuada tellus tincidunt fringilla enim, id mauris. Id etiam nibh suscipit aliquam dolor. Nunc sit nunc aliquet justo, facilisi leo. Nulla a eget tincidunt integer orci.",
-    
+    button:<Button disableRipple onClick={()=>{alert("learn more")}}>Learn More</Button>
     
   }]
 
@@ -24,12 +24,10 @@ const DatosNnotification=[{
 const Template = (args) => <Alerts {...args} />;
 export const Alertss = Template.bind({});
 
-const noti=()=>{
-    return alert('notificaciones')
-  }
+
 
 Alertss.args = {
     DatosNnotification:DatosNnotification,
-    button:true,
-    onClick:noti
+    
+    
 };
