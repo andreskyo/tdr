@@ -1,5 +1,6 @@
 import React from 'react';
-
+import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
+import ClearIcon from '@mui/icons-material/Clear';
 import { TextInput } from "./TextInput";
 
 
@@ -26,7 +27,13 @@ export const Textiinput = Template.bind({});
 
 Textiinput.args = {
 disabled:false,
-color:false
+color:false,
+label:"label",
+select:true,
+icono:true,
+iconDelete:<ClearIcon className="iconDelete"></ClearIcon>,
+icon:<LocalPhoneIcon className="iconPhone"/>,
+
 
 
 
