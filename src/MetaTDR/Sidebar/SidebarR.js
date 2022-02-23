@@ -22,25 +22,49 @@ const Div = styled.div`
 background:white;
 box-shadow: -15px 0px 40px -1px rgba(14, 31, 53, 0.2);
 border-radius: 16px 0px 0px 16px;
->div>div>button{
+>div>div>div>div>div>svg{
+    position:absolute;
+    margin-left: 12px;
+    margin-top:19px;
+}
+
+
+
+>div>div>div>div>input{
+background: #F6F8FA;
+border-radius: 5px;
+padding-left: 50px;
+margin-top:20px;
+margin-left:-20px;
+
+}
+>div>div>div>div>fieldset{
+border:none;
+
+border-radius: 5px;
+
+}
+
+>div>div>p{
 font-family: Nunito;
 font-style: normal;
 font-weight: bold;
-font-size: 18px;
-line-height: 20px;
+font-size: 25px;
 color: #124596;
+margin-top:21px;
+margin-left:20px;
 text-transform:none;
 :hover{
     background:none;
     
 }
 }
-
 `
 
 const DivCards = styled.div`
-margin-top: 20px;
-
+margin-top: 22px;
+border-bottom:1px solid #F4F6F9;
+height: 100%;
 .id{
 font-family: Nunito;
 font-style: normal;
@@ -108,7 +132,6 @@ const StackButtons = styled(Stack)`
         
         background:none;
     }
-
 }
 `
 
@@ -215,25 +238,36 @@ export const SidebarR = ({ disabled, datos, ...props }) => {
                 <Div className="container-fluid m-0" >
                     <div className="row ">
 
-                        <div className="col-12"><CloseIcon className="mt-1" sx={{ fontSize: 25 }} />
+                        <div className="col-12 d-flex" style={{borderBottom:"1px solid #F4F6F9"}}>
+
+
+                            <CloseIcon className="mt-4" sx={{ fontSize: 30 }} />
+
+
                             {props.bActividad}
+
+
+
+
                         </div>
+
+
                         <div className="col">
 
                             <TextField
-                                className="m-1"
+
+                                
                                 fullWidth
-                                placeholder='Buscar'
+                                placeholder='Buscar...'
                                 onChange={handleBuscador}
                                 InputProps={{
-                                    startAdornment: (
+                                    startAdornment: 
                                         <InputAdornment position="start">
                                             <SearchIcon />
                                         </InputAdornment>
-                                    ),
+                                    ,
                                 }}
                                 type="search" />
-
                         </div>
                     </div>
 
@@ -247,7 +281,7 @@ export const SidebarR = ({ disabled, datos, ...props }) => {
 
                         {selected === true ?
 
-                            <StackPagination className="m-2" id="table" spacing={0}>
+                            <StackPagination className="mt-5" id="table" spacing={0}>
 
                                 <Pagination
 
@@ -263,7 +297,7 @@ export const SidebarR = ({ disabled, datos, ...props }) => {
 
                             :
 
-                            <StackButtons id="buttons" spacing={0}>
+                            <StackButtons className="mt-5" spacing={0}>
                                 <Button onClick={handleChangeCancel} disableRipple variant="outlined" color="error" className="cancel">
                                     Cancelar
                                 </Button>
