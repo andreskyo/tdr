@@ -135,7 +135,10 @@ const StackButtons = styled(Stack)`
 }
 `
 
+const Div2=styled.div`
 
+.active{background: #e8e3e2 }
+`
 
 const StackPagination = styled(Stack)``
 
@@ -143,6 +146,7 @@ const StackPagination = styled(Stack)``
 export const SidebarR = ({ disabled, datos, ...props }) => {
 
     const [selected, setSelected] = React.useState(true);
+    const [selectedItem,setselecteditem]=React.useState();
 
     const [text, setText] = React.useState();
     const [filtrados, setFiltrado] = useState(datos);
@@ -150,6 +154,7 @@ export const SidebarR = ({ disabled, datos, ...props }) => {
     const [rowsPerPage, setRowsPerPage] = React.useState(3);
 
     const handleChangePage = (event, newPage) => {
+        setselecteditem();
         setPage(newPage);
     };
     const handleBuscador = (e) => {
@@ -182,6 +187,7 @@ export const SidebarR = ({ disabled, datos, ...props }) => {
 
     const handleChange = (e) => {
         let valor = e;
+        console.log(e)
         setSelected(false)
         return setText(`${valor.id} - ${valor.description} - ${valor.alic}`)
     }
@@ -203,10 +209,10 @@ export const SidebarR = ({ disabled, datos, ...props }) => {
     const renderCards = () => {
         let resultado = filtrados && filtrados.slice((page - 1) * rowsPerPage, page * rowsPerPage + rowsPerPage).map((data, i) => {
 
-            return <>
+            return <div style={{height:"100%"}}>
 
-                <div className="container-fluid m-0" key={i} sx={{ minWidth: "auto" }} onClick={() => handleChange(data)} >
-                    <DivCards className="row p-2 cards" >
+                <div className={selectedItem===i?"active container-fluid m-0":"container-fluid m-0"} key={i} sx={{ minWidth: "auto" }} onClick={() =>{setselecteditem(i);handleChange(data)}} >
+                    <DivCards className="row p-2 cards" style={{height:"100%"}} >
 
                         <Typography sx={{ mb: 1.5 }} component="div" className="id">
                             {data.id}
@@ -224,7 +230,7 @@ export const SidebarR = ({ disabled, datos, ...props }) => {
 
                 </div>
 
-            </>
+            </div>
 
 
 
@@ -273,7 +279,7 @@ export const SidebarR = ({ disabled, datos, ...props }) => {
 
 
 
-                    <div className="row">
+                    <Div2 className="row">
 
                         {renderCards()}
                         <br />
@@ -309,7 +315,7 @@ export const SidebarR = ({ disabled, datos, ...props }) => {
 
                             </StackButtons>}
 
-                    </div>
+                    </Div2>
 
 
                 </Div>
