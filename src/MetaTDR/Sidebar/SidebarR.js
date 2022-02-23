@@ -198,7 +198,7 @@ export const SidebarR = ({ disabled, datos, ...props }) => {
 
     const handleChangeCancel = () => {
         setSelected(true)
-
+        setselecteditem()
     }
 
 
