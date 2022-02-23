@@ -127,6 +127,6 @@ let actividadButton=()=>{
 SideBarr.args = {
     disabled:false,
     datos:datos,
-    bActividad:<Button disableRipple  onClick={actividadButton} style={{textTransform:"none"}}>Agregar Actividad</Button>,
+    bActividad:<Button disableRipple  onClick={actividadButton} >Agregar Actividad</Button>,
     
 };

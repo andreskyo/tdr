@@ -22,17 +22,48 @@ const Div = styled.div`
 background:white;
 box-shadow: -15px 0px 40px -1px rgba(14, 31, 53, 0.2);
 border-radius: 16px 0px 0px 16px;
-
 >div>div>button{
-    :hover{
-        background:none;
-        text-decoration:underline;
-    }
+font-family: Nunito;
+font-style: normal;
+font-weight: bold;
+font-size: 18px;
+line-height: 20px;
+color: #124596;
+text-transform:none;
+:hover{
+    background:none;
+    
 }
+}
+
 `
 
 const DivCards = styled.div`
+margin-top: 20px;
 
+.id{
+font-family: Nunito;
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 16px;
+color: #858C94;
+}
+.description{
+font-family: Nunito;
+font-style: normal;
+font-weight: 600;
+font-size: 18px;
+color: #09101D;
+}
+.alic{
+font-family: Nunito;
+font-style: normal;
+font-weight: bold;
+font-size: 19px;
+line-height: 16px;
+color: purple;
+}
 &&:hover{
     background: #e8e3e2 ;
     cursor:pointer;
@@ -46,20 +77,47 @@ const StackButtons = styled(Stack)`
     flex-direction:row;
     padding:5px;
 }
->Button{
-    display:flex;
-    width:30%;
+>.aceptar{
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 17px;
+    color: white;
+    line-height: 25px;
     text-transform:none;
+    padding:10px;
+    width:30%;
     :hover{
-        color:black;
+        
+        
+        background:green;
     }
 }
+>.cancel{
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 17px;
+    color: red;
+    line-height: 25px;
+    text-transform:none;
+    padding:10px;
+    width:30%;
+    :hover{
+        
+        
+        background:none;
+    }
+
+}
 `
+
+
 
 const StackPagination = styled(Stack)``
 
 
-export const SidebarR = ({ disabled, datos,...props }) => {
+export const SidebarR = ({ disabled, datos, ...props }) => {
 
     const [selected, setSelected] = React.useState(true);
 
@@ -127,14 +185,14 @@ export const SidebarR = ({ disabled, datos,...props }) => {
                 <div className="container-fluid m-0" key={i} sx={{ minWidth: "auto" }} onClick={() => handleChange(data)} >
                     <DivCards className="row p-2 cards" >
 
-                        <Typography variant="h5" component="div">
+                        <Typography sx={{ mb: 1.5 }} component="div" className="id">
                             {data.id}
 
                         </Typography>
-                        <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                        <Typography sx={{ mb: 1.5 }} className="description" color="text.secondary">
                             {data.description}
                         </Typography>
-                        <Typography variant="body2">
+                        <Typography variant="body2" className="alic">
                             {data.alic}
                             <br />
 
@@ -150,15 +208,15 @@ export const SidebarR = ({ disabled, datos,...props }) => {
         })
         return resultado;
     }
-    
+
     return (
         <>
             {disabled === false ?
                 <Div className="container-fluid m-0" >
                     <div className="row ">
-                        
-                        <div className="col-12"><CloseIcon className="mt-1"sx={{ fontSize: 25 }} />
-                        {props.bActividad}
+
+                        <div className="col-12"><CloseIcon className="mt-1" sx={{ fontSize: 25 }} />
+                            {props.bActividad}
                         </div>
                         <div className="col">
 
@@ -188,29 +246,29 @@ export const SidebarR = ({ disabled, datos,...props }) => {
 
 
                         {selected === true ?
-                            
-                                <StackPagination className="m-2" id="table" spacing={0}>
 
-                                    <Pagination
+                            <StackPagination className="m-2" id="table" spacing={0}>
 
-                                        count={Math.ceil(filtrados.length / 4)}
-                                        size="large"
-                                        page={page}
-                                        color="primary"
-                                        onChange={handleChangePage}
-                                    />
+                                <Pagination
+
+                                    count={Math.ceil(filtrados.length / 4)}
+                                    size="large"
+                                    page={page}
+                                    color="primary"
+                                    onChange={handleChangePage}
+                                />
 
 
-                                </StackPagination>
-                            
+                            </StackPagination>
+
                             :
 
-                            <StackButtons  id="buttons" spacing={0}>
-                                <Button onClick={handleChangeCancel} disableRipple variant="outlined" color="error">
+                            <StackButtons id="buttons" spacing={0}>
+                                <Button onClick={handleChangeCancel} disableRipple variant="outlined" color="error" className="cancel">
                                     Cancelar
                                 </Button>
 
-                                <Button onClick={handleChangeAceptar} disableRipple variant="contained" color="success" >
+                                <Button onClick={handleChangeAceptar} disableRipple variant="contained" color="success" className="aceptar"  >
                                     Aceptar
                                 </Button>
 
