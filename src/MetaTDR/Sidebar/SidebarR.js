@@ -137,7 +137,9 @@ const StackButtons = styled(Stack)`
 
 const Div2=styled.div`
 
-.active{background: #e8e3e2 }
+.active{
+    width:100%;
+    background: #e8e3e2 }
 `
 
 const StackPagination = styled(Stack)``
