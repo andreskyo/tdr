@@ -6,6 +6,11 @@ import { useState } from "react";
 import InputAdornment from '@mui/material/InputAdornment';
 import Alert from '@mui/material/Alert';
 
+import InputBase from "@mui/material/InputBase";
+import InputLabel from "@mui/material/InputLabel";
+import FormControl from "@mui/material/FormControl";
+
+
 const Div = styled.div`
 
 `;
@@ -17,8 +22,28 @@ const TextFieldd = styled(TextField)`
 >div{
     border-radius:8px;
 }
->div>div>.iconPhone{
-   display: ${({ icono }) => icono ? 'block' : 'none'};
+&&.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input{
+    border:0px;
+}
+&&.bg-primary{
+  border-radius:10px;
+  background: rgba(0.0, 0.0, 0.0, 0.0)
+}
+&&.bg-error{
+  border-radius:10px;
+  
+}
+&&.bg-success{
+  border-radius:10px;
+  
+}
+&&.bg-warning{
+  border-radius:10px;
+  
+}
+&&.bg-info{
+  border-radius:10px;
+  
 }
 >div>div>.iconDelete{
   cursor:pointer;
@@ -42,19 +67,35 @@ const Alertt = styled(Alert)`
 
 
 `
-
+const BootstrapInput = styled(InputBase)(({ theme }) => ({
+    "label + &": {
+      marginTop: 30
+    },
+    "& .MuiInputBase-input": {
+      borderRadius: 4,
+      
+      backgroundColor: "transparent",
+      border: "1px solid #ced4da",
+     
+      padding: "10px 12px",
+  
+      "&:focus": {
+        boxShadow: 'transparent',
+        borderColor: "blue"
+      }
+    }
+  }));
 
 /*----------------*/
 
 export const TextInput = ({ icono, ...props }) => {
-
     const renderMsj = () => {
         let resultado = props.datos.map((res) => {
             return <>
                 <Alertt
-                    
+                    className={props.margin ? 'mt-2' : false}
                     iconMapping={{
-                        
+
                         success: props.iconAlert,
                         error: props.iconAlert,
                         info: props.iconAlert,
@@ -62,39 +103,43 @@ export const TextInput = ({ icono, ...props }) => {
                     }}
                     severity={props.color}
 
+
                 >
                     {res.msj}
 
 
                 </Alertt>
+
                 <Alertt
                     className="description"
                     icon={false}
                     severity=''>
-                    {res.description}
+                    {props.description ? res.description : false}
+
                 </Alertt>
             </>
         })
         return resultado
     }
 
+
     const [text, setText] = useState('')
-    
-    
+
+
 
     const handleInput = (e) => {
         const texto = e.target.value
-        
+
         return setText(texto)
     }
 
     const handleSet = () => {
-        
+
         return setText('')
     }
 
-   
- 
+
+
 
     return (
         <Div className="container-fluid m-0">
@@ -102,24 +147,22 @@ export const TextInput = ({ icono, ...props }) => {
 
             <div className="row">
 
-
                 <TextFieldd
-                    
-                    label={props.label}
+
+                    label={props.label ? props.label : null}
                     color={props.color}
                     disabled={props.disabled}
                     value={text}
-                    
-                    icono={icono}
-                    
+                    className={props.background ? `bg-${props.color}` : null}
                     onChange={handleInput}
                     InputProps={{
-                        startAdornment: <InputAdornment position="start" >{props.icon}</InputAdornment>,
+
+                        startAdornment: <InputAdornment position="start" >{props.icon ? props.icon : null}</InputAdornment>,
                         endAdornment: <InputAdornment position="start" onClick={handleSet}>{text.length > 0 ? props.iconDelete : null}</InputAdornment>
                     }}
                     variant="outlined" />
-              
-                {props.color!='primary' ? renderMsj()  : <Alertt
+
+                {props.color != '' ? renderMsj() : <Alertt
                     className="description"
                     icon={false}
                     severity=''>
@@ -128,11 +171,17 @@ export const TextInput = ({ icono, ...props }) => {
 
 
 
+                {/* <FormControl variant="standard">
+                    <InputLabel shrink>Bootstrap</InputLabel>
+                    <BootstrapInput  />
+                </FormControl> */}
+
 
 
 
 
             </div>
+
         </Div>
     );
 };

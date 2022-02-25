@@ -12,7 +12,7 @@ export default {
 
   argTypes: {
      color: {
-       options:['primary','error','success','warning','info'],
+       options:['','primary','error','success','warning','info'],
        control:{type:'radio'}
      },
   
@@ -32,20 +32,16 @@ const datos=[
 ]
 
 Textiinput.args = {
-color:'primary',
-description:"This is the description area",
+
+color:'',
 label:"label",
 disabled:false,
-icono:true,
+background:false,
+margin:true,
+description:true,
 datos:datos,
 iconAlert:<ErrorOutlinedIcon></ErrorOutlinedIcon>,
 iconDelete:<ClearIcon className="iconDelete"></ClearIcon>,
 icon:<LocalPhoneIcon className="iconPhone"/>,
-
-
-
-
-
-
 
 };
