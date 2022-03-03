@@ -14,58 +14,112 @@ import TextField from '@mui/material/TextField';
 import SearchIcon from '@mui/icons-material/Search';
 import InputAdornment from '@mui/material/InputAdornment';
 
+const size = {
+    mobileS: '320px',
+    mobileM: '375px',
+    mobileL: '425px',
+    tablet: '768px',
+    laptop: '1024px',
+    laptopL: '1440px',
+    desktop: '2560px'
+  }
+  
+  const device = {
+    mobileS: `(max-width: ${size.mobileS})`,
+    mobileM: `(min-width: ${size.mobileM})`,
+    mobileL: `(min-width: ${size.mobileL})`,
+    tablet: `(min-width: ${size.tablet})`,
+    laptop: `(min-width: ${size.laptop})`,
+    laptopL: `(min-width: ${size.laptopL})`,
+    desktop: `(min-width: ${size.desktop})`,
+    desktopL: `(min-width: ${size.desktop})`
+  };
 
+const Diiv=styled.div`
 
+`
 
 
 const Div = styled.div`
+margin-top:32px;
 background:white;
 box-shadow: -15px 0px 40px -1px rgba(14, 31, 53, 0.2);
 border-radius: 16px 0px 0px 16px;
->div>div>div>div>div>svg{
-    position:absolute;
-    margin-left: 12px;
-    margin-top:19px;
+
+div>div{
+    @media ${device.mobileS} {
+        margin-top:8px;
+    }  
+}
+div>div>.closeIcon{
+    @media ${device.mobileS} {
+        font-size:20px;
+        margin-top: 11px !important;
+    }       
 }
 
 
+>div>div>div>div>div>svg{
+    @media ${device.mobileS} {
+        font-size:17px;
+        margin-top:-40px;
+}
+position:absolute;
+margin-left: 12px;
+margin-top:19px;
+}
+
 
 >div>div>div>div>input{
+    @media ${device.mobileS} {
+        font-size:15px;
+        height: 0px;
+        margin-top:-30px;
+}
 background: #F6F8FA;
 border-radius: 5px;
 padding-left: 50px;
 margin-top:20px;
 margin-left:-20px;
-
 }
+
 >div>div>div>div>fieldset{
 border:none;
-
 border-radius: 5px;
-
 }
 
 >div>div>p{
+    @media ${device.mobileS} {
+    font-size: 15px;
+    margin-top:10px;
+}
 font-family: Nunito;
 font-style: normal;
 font-weight: bold;
-font-size: 25px;
+font-size: 20px;
 color: #124596;
 margin-top:21px;
-margin-left:20px;
+margin-left:10px;
 text-transform:none;
 :hover{
     background:none;
-    
 }
 }
 `
-
 const DivCards = styled.div`
 margin-top: 22px;
 border-bottom:1px solid #F4F6F9;
 height: 100%;
+margin-left:0px;
+margin-right:0px;
+
+
 .id{
+    @media ${device.mobileS} {
+    font-size: 11px;
+    margin-top:-15px;
+    line-height: 1px;
+}
 font-family: Nunito;
 font-style: normal;
 font-weight: 600;
@@ -74,6 +128,9 @@ line-height: 16px;
 color: #858C94;
 }
 .description{
+    @media ${device.mobileS} {
+    font-size: 13px;
+}
 font-family: Nunito;
 font-style: normal;
 font-weight: 600;
@@ -81,6 +138,10 @@ font-size: 18px;
 color: #09101D;
 }
 .alic{
+    @media ${device.mobileS} {
+    font-size: 12px;
+    margin-top:-10px;
+}
 font-family: Nunito;
 font-style: normal;
 font-weight: bold;
@@ -89,76 +150,107 @@ line-height: 16px;
 color: purple;
 }
 &&:hover{
-    background: #e8e3e2 ;
-    cursor:pointer;
+background: #e8e3e2 ;
+
+cursor:pointer;
 }
 `
-
 const StackButtons = styled(Stack)`
 &&{
-    display:flex;
-    justify-content:space-around;
-    flex-direction:row;
-    padding:5px;
+    @media ${device.mobileS}{
+        margin-top: 0rem !important;
+}
+margin-top: 2.0rem !important;  
+display:flex;
+justify-content:space-around;
+flex-direction:row;
+padding:5px;
 }
 >.aceptar{
-    font-family: Nunito;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 17px;
-    color: white;
-    line-height: 25px;
-    text-transform:none;
-    padding:10px;
-    width:30%;
-    :hover{
-        
-        
-        background:green;
-    }
+    @media ${device.mobileS}{
+     width:45%;
+     height:60%;
+     margin-top:10px;
+}    
+font-family: Nunito;
+font-style: normal;
+font-weight: bold;
+font-size: 17px;
+color: white;
+line-height: 25px;
+text-transform:none;
+padding:10px;
+width:30%;
+:hover{
+background:green;
+}
 }
 >.cancel{
-    font-family: Nunito;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 17px;
-    color: red;
-    line-height: 25px;
-    text-transform:none;
-    padding:10px;
-    width:30%;
-    :hover{
-        
-        
-        background:none;
-    }
+    @media ${device.mobileS}{
+     margin-top:10px;
+     width:45%;
+     height:60%;
+}    
+font-family: Nunito;
+font-style: normal;
+font-weight: bold;
+font-size: 17px;
+color: red;
+line-height: 25px;
+text-transform:none;
+padding:10px;
+width:30%;
+:hover{
+background:none;
+}
 }
 `
-
-const Div2=styled.div`
-
+const Div2 = styled.div`
 .active{
-    width:100%;
-    background: #e8e3e2 }
+    @media ${device.mobileS}{
+   height:-200px;
+}
+padding:0px;
+background: #e8e3e2;
+}
+.inactive{
+background: transparent; 
+padding:0px;
+
+}
+
 `
-
-const StackPagination = styled(Stack)``
-
+const StackPagination = styled(Stack)`
+.css-md9dl7-MuiButtonBase-root-MuiPaginationItem-root{
+    @media ${device.mobileS}{
+     font-size: 11px;
+     margin:-4px;
+}
+}
+ &&.mt-5{
+      @media ${device.mobileS}{
+     margin-top: 1rem !important;
+}}
+`
+/*-----------------*/
 
 export const SidebarR = ({ disabled, datos, ...props }) => {
 
     const [selected, setSelected] = React.useState(true);
-    const [selectedItem,setselecteditem]=React.useState();
+    const [selectedItem, setselecteditem] = React.useState();
 
     const [text, setText] = React.useState();
     const [filtrados, setFiltrado] = useState(datos);
     const [page, setPage] = useState(1);
-    const [rowsPerPage, setRowsPerPage] = React.useState(3);
+    const [rowsPerPage, setRowsPerPage]=React.useState(4)
+   
+    
 
     const handleChangePage = (event, newPage) => {
         setselecteditem();
         setPage(newPage);
     };
+
     const handleBuscador = (e) => {
         const cadena = e.target.value.toLowerCase();
         let tmpArray = [];
@@ -189,7 +281,7 @@ export const SidebarR = ({ disabled, datos, ...props }) => {
 
     const handleChange = (e) => {
         let valor = e;
-        console.log(e)
+        
         setSelected(false)
         return setText(`${valor.id} - ${valor.description} - ${valor.alic}`)
     }
@@ -206,36 +298,51 @@ export const SidebarR = ({ disabled, datos, ...props }) => {
         alert(text)
     }
 
+    const handleCerrar=()=>{
+        if(props.cerrar){
+            props.cerrar();
+        }
+    }
 
 
     const renderCards = () => {
-        let resultado = filtrados && filtrados.slice((page - 1) * rowsPerPage, page * rowsPerPage + rowsPerPage).map((data, i) => {
+        let resultado = filtrados && filtrados.slice((page -1) * rowsPerPage , page * rowsPerPage ).map((data, i) => {
 
-            return <div style={{height:"100%"}}>
+            return <Diiv>
 
-                <div className={selectedItem===i?"active container-fluid m-0":"container-fluid m-0"} key={i} sx={{ minWidth: "auto" }} onClick={() =>{setselecteditem(i);handleChange(data)}} >
-                    <DivCards className="row p-2 cards" style={{height:"100%"}} >
+                <div
+                    className={selectedItem === i ? "active  container-fluid " : "inactive container-fluid m-0 "}
+                    key={i}
+                    onClick={() => { setselecteditem(i); handleChange(data) }} >
 
-                        <Typography sx={{ mb: 1.5 }} component="div" className="id">
+                    <DivCards
+                        className="row p-2 cards">
+
+                        <Typography
+                            sx={{ mb: 1.5 }}
+                            className="id">
                             {data.id}
-
                         </Typography>
-                        <Typography sx={{ mb: 1.5 }} className="description" color="text.secondary">
+
+                        <Typography
+                            sx={{ mb: 1.5 }}
+                            className="description"
+                            color="text.secondary">
                             {data.description}
                         </Typography>
-                        <Typography variant="body2" className="alic">
+
+                        <Typography
+                            variant="body2"
+                            className="alic">
                             {data.alic}
                             <br />
-
                         </Typography>
+
                     </DivCards>
 
                 </div>
 
-            </div>
-
-
-
+            </Diiv>
         })
         return resultado;
     }
@@ -245,31 +352,20 @@ export const SidebarR = ({ disabled, datos, ...props }) => {
             {disabled === false ?
                 <Div className="container-fluid m-0" >
                     <div className="row ">
-
-                        <div className="col-12 d-flex" style={{borderBottom:"1px solid #F4F6F9"}}>
-
-
-                            <CloseIcon className="mt-4" sx={{ fontSize: 30 }} />
-
-
-                            {props.bActividad}
-
-
-
-
+                       <div className="col-12 d-flex" style={{ borderBottom: "1px solid #F4F6F9" }}>
+                           <CloseIcon className="mt-4 closeIcon" onClick={handleCerrar} sx={{ fontSize: 30 }} />
+                           {props.bActividad}
                         </div>
 
 
                         <div className="col">
 
                             <TextField
-
-                                
-                                fullWidth
+                               fullWidth
                                 placeholder='Buscar...'
                                 onChange={handleBuscador}
                                 InputProps={{
-                                    startAdornment: 
+                                    startAdornment:
                                         <InputAdornment position="start">
                                             <SearchIcon />
                                         </InputAdornment>
@@ -289,12 +385,12 @@ export const SidebarR = ({ disabled, datos, ...props }) => {
 
                         {selected === true ?
 
-                            <StackPagination className="mt-5" id="table" spacing={0}>
+                            <StackPagination className="mt-5 " id="table" spacing={0}>
 
                                 <Pagination
 
-                                    count={Math.ceil(filtrados.length / 4)}
-                                    size="large"
+                                    count={filtrados.length % rowsPerPage ? Math.floor(filtrados.length/rowsPerPage) + 1: Math.floor(filtrados.length/rowsPerPage) }
+                                    size="medium"
                                     page={page}
                                     color="primary"
                                     onChange={handleChangePage}

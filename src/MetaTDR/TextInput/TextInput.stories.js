@@ -36,7 +36,7 @@ Textiinput.args = {
 color:'',
 label:"label",
 disabled:false,
-background:false,
+background:"info",
 margin:true,
 description:true,
 datos:datos,

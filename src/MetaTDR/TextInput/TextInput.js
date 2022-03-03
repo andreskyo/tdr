@@ -171,10 +171,10 @@ export const TextInput = ({ icono, ...props }) => {
 
 
 
-                {/* <FormControl variant="standard">
+                <FormControl variant="standard">
                     <InputLabel shrink>Bootstrap</InputLabel>
                     <BootstrapInput  />
-                </FormControl> */}
+                </FormControl>
 
 
 
