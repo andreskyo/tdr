@@ -213,6 +213,6 @@ let actividadButton=()=>{
 SideBarr.args = {
     disabled:false,
     datos:datos,
-    bActividad:<p >Agregar Actividad</p>,
+    bActividad:<p className="tituloActividad">Agregar Actividad</p>,
     
 };

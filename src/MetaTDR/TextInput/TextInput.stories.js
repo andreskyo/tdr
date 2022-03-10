@@ -12,7 +12,7 @@ export default {
 
   argTypes: {
      color: {
-       options:['','primary','error','success','warning','info'],
+       options:['','success','warning','error','info'],
        control:{type:'radio'}
      },
   
@@ -32,13 +32,14 @@ const datos=[
 ]
 
 Textiinput.args = {
-
+compactSpaced:true,
+background:'info',
 color:'',
-label:"label",
 disabled:false,
-background:"info",
 margin:true,
 description:true,
+alert:true,
+label: "label" ,
 datos:datos,
 iconAlert:<ErrorOutlinedIcon></ErrorOutlinedIcon>,
 iconDelete:<ClearIcon className="iconDelete"></ClearIcon>,

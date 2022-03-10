@@ -12,41 +12,54 @@ import FormControl from "@mui/material/FormControl";
 
 
 const Div = styled.div`
+.label{
 
+font-family: Nunito;
+font-style: normal;
+font-weight: 600;
+font-size:15px;
+color: #09101D;
+opacity: 0.8;
+margin:0px 0px 0px 30px;
+line-height: 30px;
+}
 `;
 
 
-const TextFieldd = styled(TextField)`
+const TextFieldA = styled(TextField)`
+.MuiOutlinedInput-root {border-radius: 8px;}
+.iconDelete{
+  cursor:pointer;
+}
+`
 
 
->div{
-    border-radius:8px;
-}
-&&.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input{
-    border:0px;
-}
-&&.bg-primary{
-  border-radius:10px;
-  background: rgba(0.0, 0.0, 0.0, 0.0)
+    
+const TextFieldB = styled(TextField)`
+.MuiOutlinedInput-root {border-radius: 8px;}
+.iconDelete{
+  cursor:pointer;
 }
 &&.bg-error{
-  border-radius:10px;
-  
+  background-color:#FEEFEF!important;
+  border: 1px solid red;
+  border-radius:8px;
 }
 &&.bg-success{
-  border-radius:10px;
-  
+  border-radius:8px;
+  background-color:#EDF9F0 !important;
+  border: 1px solid green;
 }
 &&.bg-warning{
-  border-radius:10px;
-  
+border-radius:8px;
+  background-color:#FFF4EC !important;
+  border: 1px solid #B95000;
 }
 &&.bg-info{
-  border-radius:10px;
+    border:1px solid #2E5AAC;
+    border-radius:8px;
+    background-color:#EEF2FA !important;
   
-}
->div>div>.iconDelete{
-  cursor:pointer;
 }
 
 `
@@ -67,48 +80,25 @@ const Alertt = styled(Alert)`
 
 
 `
-const BootstrapInput = styled(InputBase)(({ theme }) => ({
-    "label + &": {
-      marginTop: 30
-    },
-    "& .MuiInputBase-input": {
-      borderRadius: 4,
-      
-      backgroundColor: "transparent",
-      border: "1px solid #ced4da",
-     
-      padding: "10px 12px",
-  
-      "&:focus": {
-        boxShadow: 'transparent',
-        borderColor: "blue"
-      }
-    }
-  }));
-
 /*----------------*/
 
-export const TextInput = ({ icono, ...props }) => {
+export const TextInput = ({ ...props }) => {
+
     const renderMsj = () => {
         let resultado = props.datos.map((res) => {
             return <>
-                <Alertt
+                {props.alert ? <Alertt
                     className={props.margin ? 'mt-2' : false}
                     iconMapping={{
-
                         success: props.iconAlert,
                         error: props.iconAlert,
                         info: props.iconAlert,
                         warning: props.iconAlert
                     }}
-                    severity={props.color}
-
-
-                >
+                    severity={props.color}>
                     {res.msj}
+                </Alertt> : null}
 
-
-                </Alertt>
 
                 <Alertt
                     className="description"
@@ -125,8 +115,6 @@ export const TextInput = ({ icono, ...props }) => {
 
     const [text, setText] = useState('')
 
-
-
     const handleInput = (e) => {
         const texto = e.target.value
 
@@ -142,45 +130,56 @@ export const TextInput = ({ icono, ...props }) => {
 
 
     return (
-        <Div className="container-fluid m-0">
-
-
-            <div className="row">
-
-                <TextFieldd
-
-                    label={props.label ? props.label : null}
-                    color={props.color}
-                    disabled={props.disabled}
-                    value={text}
-                    className={props.background ? `bg-${props.color}` : null}
-                    onChange={handleInput}
-                    InputProps={{
-
-                        startAdornment: <InputAdornment position="start" >{props.icon ? props.icon : null}</InputAdornment>,
-                        endAdornment: <InputAdornment position="start" onClick={handleSet}>{text.length > 0 ? props.iconDelete : null}</InputAdornment>
-                    }}
-                    variant="outlined" />
-
-                {props.color != '' ? renderMsj() : <Alertt
-                    className="description"
-                    icon={false}
-                    severity=''>
-                    {props.description}
-                </Alertt>}
-
-
-
-                <FormControl variant="standard">
-                    <InputLabel shrink>Bootstrap</InputLabel>
-                    <BootstrapInput  />
-                </FormControl>
+        <Div
+            className="container-fluid m-0">
 
 
 
 
+            {props.compactSpaced ?
+                <div className="row">
+                    
+                   <p className="label"> {props.label} </p>
+                   
 
-            </div>
+
+                    <TextFieldB
+                        label={false}
+                        InputLabelProps={{ shrink: false }}
+                        className={props.background ? `bg-${props.color}` : null}
+                        disabled={props.disabled}
+                        value={text}
+                        onChange={handleInput}
+                        InputProps={{
+
+                            startAdornment: <InputAdornment position="start" >{props.icon ? props.icon : null}</InputAdornment>,
+                            endAdornment: <InputAdornment position="start" onClick={handleSet}>{text.length > 0 ? props.iconDelete : null}</InputAdornment>
+                        }}
+                        variant="outlined" />
+                    {renderMsj()}
+                </div>
+                :
+                <div className="row">
+                    <TextFieldA
+                        label={props.label}
+                        color={props.color}
+                        disabled={props.disabled}
+                        value={text}
+                        onChange={handleInput}
+                        InputProps={{
+
+                            startAdornment: <InputAdornment position="start" >{props.icon ? props.icon : null}</InputAdornment>,
+                            endAdornment: <InputAdornment position="start" onClick={handleSet}>{text.length > 0 ? props.iconDelete : null}</InputAdornment>
+                        }}
+                        variant="outlined" />
+                    {renderMsj()}
+                </div>
+            }
+
+
+
+
+
 
         </Div>
     );

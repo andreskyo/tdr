@@ -23,8 +23,8 @@ const size = {
     laptopL: '1440px',
     desktop: '2560px'
   }
-  
-  const device = {
+
+const device = {
     mobileS: `(max-width: ${size.mobileS})`,
     mobileM: `(min-width: ${size.mobileM})`,
     mobileL: `(min-width: ${size.mobileL})`,
@@ -35,70 +35,61 @@ const size = {
     desktopL: `(min-width: ${size.desktop})`
   };
 
-const Diiv=styled.div`
-
-`
-
-
 const Div = styled.div`
-margin-top:32px;
+width:100%;
+height:100%;
+padding:0px 0px 0px 0px;
 background:white;
 box-shadow: -15px 0px 40px -1px rgba(14, 31, 53, 0.2);
 border-radius: 16px 0px 0px 16px;
 
-div>div{
+.closeIcon{
     @media ${device.mobileS} {
-        margin-top:8px;
+        font-size:25px;
+        margin-top: 15px !important;
     }  
+    margin-top: 20px !important;   
+    cursor:pointer;  
 }
-div>div>.closeIcon{
-    @media ${device.mobileS} {
-        font-size:20px;
-        margin-top: 11px !important;
-    }       
-}
-
-
->div>div>div>div>div>svg{
+.iconBuscar{
     @media ${device.mobileS} {
         font-size:17px;
-        margin-top:-40px;
+        margin-top:7px;
 }
 position:absolute;
-margin-left: 12px;
-margin-top:19px;
+margin-left: 30px;
+margin-top:10px;
 }
-
-
->div>div>div>div>input{
+input{
     @media ${device.mobileS} {
         font-size:15px;
         height: 0px;
-        margin-top:-30px;
-}
-background: #F6F8FA;
-border-radius: 5px;
-padding-left: 50px;
-margin-top:20px;
-margin-left:-20px;
+        
+        margin-top:10px;
 }
 
->div>div>div>div>fieldset{
+background: #F6F8FA;
+border-radius: 5px;
+margin:10px 20px 0px 0px;
+padding-left:50px;
+
+
+}
+fieldset{
 border:none;
 border-radius: 5px;
 }
-
->div>div>p{
+.tituloActividad{
     @media ${device.mobileS} {
     font-size: 15px;
-    margin-top:10px;
+    
 }
 font-family: Nunito;
 font-style: normal;
 font-weight: bold;
-font-size: 20px;
+font-size: 24px;
 color: #124596;
-margin-top:21px;
+margin-top:16px;
 margin-left:10px;
 text-transform:none;
 :hover{
@@ -107,17 +98,15 @@ text-transform:none;
 }
 `
 const DivCards = styled.div`
+
 margin-top: 22px;
 border-bottom:1px solid #F4F6F9;
 height: 100%;
 margin-left:0px;
 margin-right:0px;
-
-
 .id{
     @media ${device.mobileS} {
     font-size: 11px;
-    margin-top:-15px;
     line-height: 1px;
 }
 font-family: Nunito;
@@ -129,7 +118,7 @@ color: #858C94;
 }
 .description{
     @media ${device.mobileS} {
-    font-size: 13px;
+    font-size: 14px;
 }
 font-family: Nunito;
 font-style: normal;
@@ -151,7 +140,6 @@ color: purple;
 }
 &&:hover{
 background: #e8e3e2 ;
-
 cursor:pointer;
 }
 `
@@ -164,7 +152,7 @@ margin-top: 2.0rem !important;
 display:flex;
 justify-content:space-around;
 flex-direction:row;
-padding:5px;
+padding:40px;
 }
 >.aceptar{
     @media ${device.mobileS}{
@@ -207,18 +195,14 @@ background:none;
 `
 const Div2 = styled.div`
 .active{
-    @media ${device.mobileS}{
-   height:-200px;
-}
+    
 padding:0px;
 background: #e8e3e2;
 }
 .inactive{
 background: transparent; 
 padding:0px;
-
 }
-
 `
 const StackPagination = styled(Stack)`
 .css-md9dl7-MuiButtonBase-root-MuiPaginationItem-root{
@@ -242,10 +226,8 @@ export const SidebarR = ({ disabled, datos, ...props }) => {
     const [text, setText] = React.useState();
     const [filtrados, setFiltrado] = useState(datos);
     const [page, setPage] = useState(1);
-    const [rowsPerPage, setRowsPerPage]=React.useState(4)
+    const [rowsPerPage, setRowsPerPage]=React.useState(3)
    
-    
-
     const handleChangePage = (event, newPage) => {
         setselecteditem();
         setPage(newPage);
@@ -276,17 +258,11 @@ export const SidebarR = ({ disabled, datos, ...props }) => {
 
     }
 
-
-
-
     const handleChange = (e) => {
         let valor = e;
-        
         setSelected(false)
         return setText(`${valor.id} - ${valor.description} - ${valor.alic}`)
     }
-
-
 
     const handleChangeCancel = () => {
         setSelected(true)
@@ -308,15 +284,15 @@ export const SidebarR = ({ disabled, datos, ...props }) => {
     const renderCards = () => {
         let resultado = filtrados && filtrados.slice((page -1) * rowsPerPage , page * rowsPerPage ).map((data, i) => {
 
-            return <Diiv>
+            return <div>
 
                 <div
-                    className={selectedItem === i ? "active  container-fluid " : "inactive container-fluid m-0 "}
+                    className={selectedItem === i ? "active  container-fluid m-0" : "inactive container-fluid m-0"}
                     key={i}
                     onClick={() => { setselecteditem(i); handleChange(data) }} >
 
                     <DivCards
-                        className="row p-2 cards">
+                        className="row p-2 ">
 
                         <Typography
                             sx={{ mb: 1.5 }}
@@ -342,32 +318,41 @@ export const SidebarR = ({ disabled, datos, ...props }) => {
 
                 </div>
 
-            </Diiv>
+            </div>
         })
         return resultado;
     }
 
     return (
-        <>
+        <div>
             {disabled === false ?
-                <Div className="container-fluid m-0" >
-                    <div className="row ">
-                       <div className="col-12 d-flex" style={{ borderBottom: "1px solid #F4F6F9" }}>
-                           <CloseIcon className="mt-4 closeIcon" onClick={handleCerrar} sx={{ fontSize: 30 }} />
+                <Div 
+                className="container-fluid m-0 " >
+                    <div 
+                    className="row ">
+                       <div 
+                       className="col-12 d-flex " 
+                       style={{ borderBottom: "1px solid #F4F6F9" }}>
+                           <CloseIcon 
+                           className="mt-4 closeIcon" 
+                           onClick={handleCerrar} 
+                           sx={{ fontSize: 30 }} />
                            {props.bActividad}
                         </div>
 
 
-                        <div className="col">
+                        <div 
+                        className="col">
 
                             <TextField
+                               className='inputBuscar'
                                fullWidth
                                 placeholder='Buscar...'
                                 onChange={handleBuscador}
                                 InputProps={{
                                     startAdornment:
                                         <InputAdornment position="start">
-                                            <SearchIcon />
+                                            <SearchIcon className="iconBuscar"/>
                                         </InputAdornment>
                                     ,
                                 }}
@@ -377,7 +362,8 @@ export const SidebarR = ({ disabled, datos, ...props }) => {
 
 
 
-                    <Div2 className="row">
+                    <Div2 
+                    className="row">
 
                         {renderCards()}
                         <br />
@@ -385,7 +371,10 @@ export const SidebarR = ({ disabled, datos, ...props }) => {
 
                         {selected === true ?
 
-                            <StackPagination className="mt-5 " id="table" spacing={0}>
+                            <StackPagination 
+                            className="mt-5 " 
+                            id="table" 
+                            spacing={0}>
 
                                 <Pagination
 
@@ -401,12 +390,24 @@ export const SidebarR = ({ disabled, datos, ...props }) => {
 
                             :
 
-                            <StackButtons className="mt-5" spacing={0}>
-                                <Button onClick={handleChangeCancel} disableRipple variant="outlined" color="error" className="cancel">
+                            <StackButtons 
+                            className="mt-5" 
+                            spacing={0}>
+                                <Button 
+                                onClick={handleChangeCancel} 
+                                disableRipple 
+                                variant="outlined" 
+                                color="error" 
+                                className="cancel">
                                     Cancelar
                                 </Button>
 
-                                <Button onClick={handleChangeAceptar} disableRipple variant="contained" color="success" className="aceptar"  >
+                                <Button 
+                                onClick={handleChangeAceptar} 
+                                disableRipple 
+                                variant="contained" 
+                                color="success" 
+                                className="aceptar"  >
                                     Aceptar
                                 </Button>
 
@@ -421,7 +422,7 @@ export const SidebarR = ({ disabled, datos, ...props }) => {
                 : null}
 
 
-        </>
+        </div>
     )
 
 };
