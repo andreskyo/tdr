@@ -11,10 +11,7 @@ export default {
   component: TextInput,
 
   argTypes: {
-     color: {
-       options:['','success','warning','error','info'],
-       control:{type:'radio'}
-     },
+  
   
   },
 };
@@ -24,23 +21,16 @@ const Template = (args) => <TextInput{...args} />;
 
 export const Textiinput = Template.bind({});
 
-const datos=[
-  {
-   msj:"This is a  message",
-   description:"This is the description area"
-  }
-]
+
 
 Textiinput.args = {
-compactSpaced:true,
-background:'info',
-color:'',
+regex:/[A-Z]/,
+helperTextDescription: true ? "This is the description area" : null,
+text:'',
+errorMessage: 'This is an ERROR message',
+successMessage:'This is a SUCCESS message',
 disabled:false,
-margin:true,
-description:true,
-alert:true,
-label: "label" ,
-datos:datos,
+label: 'label' ,
 iconAlert:<ErrorOutlinedIcon></ErrorOutlinedIcon>,
 iconDelete:<ClearIcon className="iconDelete"></ClearIcon>,
 icon:<LocalPhoneIcon className="iconPhone"/>,

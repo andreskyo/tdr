@@ -60,8 +60,8 @@ let cerrar=()=>{
 UserIcon.args = {
   menu:menu,
   datosUsuario:datosUsuario,
-  iconCerrar:<img style={{width:"25px"}} src={Logout}/>,
-  cerrar:<Button disableRipple style={{textTransform:"none"}} onClick={cerrar}>Cerrar Sesión</Button>,
+  iconCerrar:<img  className="iconCerrar"style={{width:"25px"}} src={Logout}/>,
+  cerrar:<Button disableRipple className="cerrar" style={{textTransform:"none"}} onClick={cerrar}>Cerrar Sesión</Button>,
 
   
   

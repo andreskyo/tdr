@@ -1,25 +1,41 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from "styled-components";
-import Button from '@material-ui/core/Button'
-import Divider from '@material-ui/core/Divider'
+
+
+
+
+const DivIniciar = styled.div`
+.botonIniciar{
+  background:none;
+  border:none;
+  font-family: 'Nunito';
+ font-style: normal;
+font-weight: bold;
+font-size: 15px;
+line-height: 19px;
+:hover{
+  color:black;
+}
+}
+`
 
 
 const DivLogued = styled.div`
 background: #FFFFFF;
 box-shadow: 0px 1px 4px rgba(14, 31, 53, 0.12), 0px 4px 8px rgba(14, 31, 53, 0.08);
 border-radius: 8px;
->div{
+.divLogued{
   padding:4px 0px;
 }
->div>p{
-  font-family: Nunito;
+.texto{
+  font-family: 'Nunito';
   font-style: normal;
   font-weight: normal;
   color: #6D7580;
   font-size: 14px;
 }
->div>a{
+.link{
   font-size: 13px;
   font-family: Nunito;
   font-style: normal;
@@ -32,8 +48,8 @@ border-radius: 8px;
   
 }
 
->div>button{
-width:89%;
+.button{
+width:85%;
 text-transform:none;
 font-family: Nunito;
 font-style: normal;
@@ -41,7 +57,13 @@ font-weight: normal;
 font-size: 14px;
 font-feature-settings: 'ss07' on;
 color: #F4F6F9;
+background:#0072BB;
+:hover{
+  background:#53AAE0
 }
+}
+
+
 `
 
 
@@ -50,12 +72,20 @@ color: #F4F6F9;
 
 
 export const Logued = ({ onClick, ...props }) => {
+  const [selected, setSelected] = React.useState(false);
+
+  const abrir = () => {
+    selected ? setSelected(false) : setSelected(true)
+
+  }
+
+
   const renderLogued = () => {
     let resultado = props.datos.map((result) => {
 
       return <>
 
-        <div className="row">
+        <div className="row divLogued">
           {result.boton}
           {result.text}
           {result.link}
@@ -72,16 +102,24 @@ export const Logued = ({ onClick, ...props }) => {
 
   return (
 
+    <div className="container-fluid m-0 p-0">
 
-    <DivLogued>
+      <DivIniciar className="row-fluid col-12 m-0 text-center">
+        <button className="text-center botonIniciar" onClick={abrir}>{props.iconIniciar} Iniciar sesión</button>
 
-      {renderLogued()}
+      </DivIniciar>
+
+      {selected ?
+        <DivLogued className="row-fluid col-12 mt-2">
+
+          {renderLogued()}
 
 
-    </DivLogued>
+        </DivLogued>
+        : null}
 
-
-
+    </div>
+    
   );
 
 };

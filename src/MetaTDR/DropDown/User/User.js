@@ -12,26 +12,27 @@ background: #FFFFFF;
 box-shadow: 0px 1px 4px rgba(14, 31, 53, 0.12), 0px 4px 8px rgba(14, 31, 53, 0.08);
 border-radius: 8px;
 
->div>div>ul>li{
+.lista{
 margin-bottom:0px;
 border:none;
+:hover{
+    cursor:pointer;
+    background-color:rgba(19,69,150,0.04);
+    
+}
+}
+.linkLista{
 font-family: Nunito;
 font-style: normal;
 font-weight: normal;
 font-size: 16px;
-color: #6D7580;
-
-:hover{
-    cursor:pointer;
-    background:gray;
-    color:black;
+color: #858C94;
 }
-}
->div>div>ul>div{
 
+.divCerrar{
 margin:0px -18px;
 }
->div>div>ul>div>button{
+.cerrar{
 font-family: Nunito;
 font-style: normal;
 font-weight: normal;
@@ -53,7 +54,7 @@ export const User = ({ ...props }) => {
     let resultado = props.datosUsuario.map((result) => {
       return <>
         <p className="text-center" >{result.imagen}</p>
-        <p className="text-center" style={{fontWeight: "600"}}>{result.nombre}</p>
+        <p className="text-center" style={{ fontWeight: "600" }}>{result.nombre}</p>
         <p className="text-center">{result.id}</p>
         <p className="text-center">{result.situacion}</p>
       </>
@@ -64,7 +65,7 @@ export const User = ({ ...props }) => {
   const renderMenu = () => {
     let resultado = props.menu.map((result) => {
       return <>
-        <li class="list-group-item" onClick={result.accion}>{result.link}</li>
+        <li class="list-group-item lista" onClick={result.accion}><a href="" className="linkLista"> {result.link}</a></li>
 
       </>
 
@@ -75,16 +76,16 @@ export const User = ({ ...props }) => {
 
 
   return (
-    <Div className="container-flui m-0">
+    <Div className="container-fluid m-0">
 
       <div className="row ">
         <div className="col-6">{renderUsuario()}</div>
 
         <div className="col-6">
-        <ul class="list-group">
-          {renderMenu()}
-         <div>{props.iconCerrar}{props.cerrar}</div>
-        </ul>
+          <ul class="list-group">
+            {renderMenu()}
+            <div className="divCerrar">{props.iconCerrar}{props.cerrar}</div>
+          </ul>
         </div>
       </div>
 
