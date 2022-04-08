@@ -25,7 +25,7 @@ export const Textiinput = Template.bind({});
 
 Textiinput.args = {
 regex:/[A-Z]/,
-helperTextDescription: true ? "This is the description area" : null,
+helperTextDescription:  "This is the description area" ,
 text:'',
 errorMessage: 'This is an ERROR message',
 successMessage:'This is a SUCCESS message',

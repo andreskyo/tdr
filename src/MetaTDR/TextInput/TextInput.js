@@ -98,10 +98,7 @@ export const TextInput = ({ ...props }) => {
         const texto = e.target.value
         setInputValue(texto)
        
-    //   if(onChange){
-    //       onChange(e)
-          
-    //   }
+
 
         if (texto.length == 0) {
             setColor('error');
@@ -143,7 +140,7 @@ export const TextInput = ({ ...props }) => {
                     focused={focus}
                     disabled={props.disabled}
                     value={text}
-                    helperText={props.helperTextDescription}
+                    helperText={props.helperTextDescription ? props.helperTextDescription:null}
                     onChange={handleInput}
 
                     InputProps={{
