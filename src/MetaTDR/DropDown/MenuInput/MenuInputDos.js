@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 import Menu from "@mui/material/Menu";
-
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import IconButton from "@mui/material/IconButton";
 import Badge from "@mui/material/Badge";
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
@@ -67,7 +67,7 @@ height:100%;
 
 
 
-export const MenuInput = ({ ...props }) => {
+export const MenuInputDos = ({ ...props }) => {
     const [datos,setDatos]=React.useState(props.datosCards)
     
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -169,7 +169,7 @@ export const MenuInput = ({ ...props }) => {
                 >
                     
                     <Badge badgeContent={datos.filter(x=>x.leido===false).length} color="primary" >
-                        <NotificationsNoneIcon style={{ color: "black" }}></NotificationsNoneIcon>
+                        <MailOutlineIcon style={{ color: "black" }}></MailOutlineIcon>
                     </Badge>
                     
                 </IconButton>
@@ -208,21 +208,20 @@ export const MenuInput = ({ ...props }) => {
 
                     }
                     
-                    <div className="container-fluid" style={{ position: 'sticky', bottom: "0", margin: "auto", background: "white", width: "100%",padding:"10px" }}>
-
-                    <div className="text-center" >  {props.verNotificaciones} </div>
-                   
+                    <div className="container-fluid" style={{ position: 'fixed', top: "0", margin: "auto", background: "white", width: "100%",padding:"10px" }}>
+                     <div className="row-fluid d-flex">
+                    <div className=" col-10" > {props.iconImgMail}   {props.verNotificaciones}  </div>
+                    <div className=" col-2" style={{background:"#22AADE",width:"auto",height:30,borderRadius:8,color: "#FFFFFF",fontSize:12,padding:5,fontFamily:"Nunito"}}>  {datos.filter(x=>x.leido===false).length } nuevos</div>
+                    </div>
                         <ListItemText />
-                        
                     </div>
                     
                 </Menuu>
 
-                
+
 
             
         </React.Fragment >
-        
     )
 
 };
