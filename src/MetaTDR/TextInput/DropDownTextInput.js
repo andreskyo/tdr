@@ -1,11 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import { useState } from "react";
 import InputAdornment from '@mui/material/InputAdornment';
 import Alert from '@mui/material/Alert';
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
+import { ThreeGMobiledata } from "@mui/icons-material";
 
 
 
@@ -45,8 +47,8 @@ const Input = styled(TextField)`
 .MuiOutlinedInput-root {border-radius: 8px;}
 .iconDelete{
   cursor:pointer;
-  left:50px;
-  margin:10px;
+  margin-right:-50px;
+  
 }
 &&.bg-error{
   background-color:#FEEFEF!important;
@@ -76,70 +78,108 @@ border-radius:8px;
 
 /*----------------*/
 
-export const DropDownTextInput = ({ ...props }) => {
-    const [color, setColor] = useState('')
-    const [text, setText] = useState('')
 
-    const handleInput = (e) => {
-        const texto = e.target.value
-        
-      
-         if (props.regex.test(texto)) {
-            setText(texto)
-            setColor('error');
-            setFocus(true)
+
+export const DropDownTextInput = ({ ...props }) => {
+
+
+
+    const [text, setText] = useState(props.text)
+    const [color, setColor] = useState(props.color)
+    const [focus, setFocus] = useState(props.focus)
+
+
+    const handleInput = (e, value) => {
+        const texto = value.label;
+
+       if(props.onChange){
+           this.props.onChange(texto)
+       }
+       
+        if (!props.regex.test(texto)) {
+            if(texto.length>0){
+                setColor('error')
+                setFocus(true)
+            }else{
+               setColor('')
+               setFocus(true)
+            }
+           
 
         } else {
-            setText(texto)
             setColor('success');
             setFocus(true)
-
         }
-
         return setText(texto)
+    }
 
+    const handleTextField = (e) => {
+       const textField=e.target.value;
+
+
+
+       if(props.onChange){
+        this.props.onChange(textField)
+    }
+
+       if (!props.regex.test(textField)) {
+        if(textField.length>0){
+            setColor('error')
+            setFocus(true)
+        }else{
+           setColor('')
+           setFocus(true)
+        }   
+      
+
+    } else {
+        setColor('success');
+        setFocus(true)
+    }
+    return setText(textField)
+       
     }
 
     const handleSet = () => {
-
         setText('')
-
-
+        setColor('')
     }
-   
+
+
+
 
     return (
+
         <Div
             className="container-fluid m-0">
 
-            <div className="row">
+            <Autocomplete
+                disableClearable
+                fullWidth
+                onChange={handleInput}
+                value={text}
+                disabled={props.disabled}
+                options={props.datos}
+                renderInput={(params) =>
+                    <Input
+                        {...params}
+                        helperText={props.helperDescription ? props.helperTextDescription : null}
+                        InputProps={{
+                            ...params.InputProps,
+                            startAdornment: <InputAdornment position="start" >{props.iconCalendario ? props.iconCalendario : null}</InputAdornment>,
+                            endAdornment: <InputAdornment onClick={handleSet} position="start" >{text.length > 0 ? props.iconDelete : null}</InputAdornment>
+                        }}
 
-                <Input
-                    select
-                    disabled={props.disabled}
-                    label={props.label}
-                    color={color}
-                    value={text}
-                    variant="outlined"
-                    onChange={handleInput}
-                    helperText={props.helperText}
-                    focused={focus}
-                    InputProps={{
+                        value={text}
+                        color={color}
+                        focused={focus}
+                        label={props.label}
+                        InputLabelProps={{ shrink: props.label }}
+                        onChange={handleTextField}
+                    />}
 
-                        startAdornment: <InputAdornment position="start" >{props.iconCalendario ? props.iconCalendario : null}</InputAdornment>,
-                        endAdornment: <InputAdornment position="end" onClick={handleSet}>{text.length > 0 ? props.iconDelete : null}</InputAdornment>
-                    }} >
-
-                    {props.datos.map((option) => (
-
-                        <MenuItem style={{ "min-width": "1648px" }} key={option.value} value={option.value}>
-                            {option.label} {option.value}
-
-                        </MenuItem>
-
-                    ))}
-
-                </Input>
+            />
+            {props.alert ? (color === "error" && props.errorMessage.length > 0) || (color === "success" && props.successMessage.length > 0) ?
                 <AlertMensaje
                     iconMapping={{
                         success: props.iconAlert,
@@ -147,19 +187,20 @@ export const DropDownTextInput = ({ ...props }) => {
                         info: props.iconAlert,
                         warning: props.iconAlert
                     }}
-                    classname=""
+
                     severity={color}>
-                        
-                        {color==="error" ? props.errorMessage: color==="success" ? props.successMessage : null  }
+
+                    {color === "error" && props.errorMessage.length > 0 ? props.errorMessage : color === "success" && props.successMessage.length > 0 ? props.successMessage : null}
                 </AlertMensaje>
-            </div>
-
-
+                : null : false}
 
 
 
 
 
         </Div>
+
+
+
     );
 };

@@ -24,12 +24,14 @@ export const Textiinput = Template.bind({});
 
 
 Textiinput.args = {
+disabled:false,
+alert:true,
+helperText:true,
 regex:/[A-Z]/,
 helperTextDescription:  "This is the description area" ,
 text:'',
 errorMessage: 'This is an ERROR message',
 successMessage:'This is a SUCCESS message',
-disabled:false,
 label: 'label' ,
 iconAlert:<ErrorOutlinedIcon></ErrorOutlinedIcon>,
 iconDelete:<ClearIcon className="iconDelete"></ClearIcon>,

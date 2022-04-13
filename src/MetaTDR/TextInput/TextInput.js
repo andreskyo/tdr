@@ -34,7 +34,7 @@ line-height: 30px;
 
 
 
-const Input= styled(TextField)`
+const Input = styled(TextField)`
 .MuiOutlinedInput-root {border-radius: 8px;}
 .iconDelete{
   cursor:pointer;
@@ -87,21 +87,17 @@ const AlertMensaje = styled(Alert)`
 /*----------------*/
 
 export const TextInput = ({ ...props }) => {
-
-
     const [color, setColor] = useState('')
-    const [focus, setFocus] = useState(false)
-    const [inputValue,setInputValue]=useState()
-    const [text, setText] = useState('')
+    const [focus, setFocus] = useState(props.focus)
+    const [text, setText] = useState(props.text)
 
     const handleInput = (e) => {
         const texto = e.target.value
-        setInputValue(texto)
-       
-
-
+        if(props.onChange){
+            this.props.onChange(texto)
+        }
         if (texto.length == 0) {
-            setColor('error');
+            setColor('');
             setFocus(true)
 
         }
@@ -119,10 +115,9 @@ export const TextInput = ({ ...props }) => {
 
     }
     const handleSet = () => {
-
         setText('')
         setColor('')
-        setFocus()
+
 
     }
 
@@ -136,31 +131,37 @@ export const TextInput = ({ ...props }) => {
 
                 <Input
                     label={props.label}
+                    InputLabelProps={{ shrink: props.label }}
                     color={color}
                     focused={focus}
                     disabled={props.disabled}
                     value={text}
-                    helperText={props.helperTextDescription ? props.helperTextDescription:null}
+                    helperText={props.helperText ? props.helperText : null}
                     onChange={handleInput}
 
                     InputProps={{
-                        // className: classse.input, pattern: "[a-z]{1,15}",
+
                         startAdornment: <InputAdornment position="start" >{props.icon ? props.icon : null}</InputAdornment>,
                         endAdornment: <InputAdornment position="start" onClick={handleSet}>{text.length > 0 ? props.iconDelete : null}</InputAdornment>
                     }}
                     variant="outlined" />
-                <AlertMensaje
-                    iconMapping={{
-                        success: props.iconAlert,
-                        error: props.iconAlert,
-                        info: props.iconAlert,
-                        warning: props.iconAlert
-                    }}
-                    classname=""
-                    severity={color}>
-                        
-                        {color==="error" ? props.errorMessage: color==="success" ? props.successMessage : null  }
-                </AlertMensaje>
+
+                {props.alert ? (color === "error" && props.errorMessage.length > 0) || (color === "success" && props.successMessage.length > 0) ?
+                    <AlertMensaje
+                        iconMapping={{
+                            success: props.iconAlert,
+                            error: props.iconAlert,
+                            info: props.iconAlert,
+                            warning: props.iconAlert
+                        }}
+                        classname=""
+                        severity={color}>
+
+                        {color === "error" && props.errorMessage.length > 0 ? props.errorMessage : color === "success" && props.successMessage.length > 0 ? props.successMessage : null}
+                    </AlertMensaje>
+                    : null : null}
+
+
             </div>
 
 
