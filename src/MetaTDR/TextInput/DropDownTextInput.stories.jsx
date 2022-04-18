@@ -12,11 +12,7 @@ export default {
   component: DropDownTextInput,
 
   argTypes: {
-    //  color: {
-    //    options:['','success','warning','error','info'],
-    //    control:{type:'radio'}
-    //  },
-  
+
   },
 };
 

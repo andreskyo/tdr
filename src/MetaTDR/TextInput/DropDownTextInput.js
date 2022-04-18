@@ -1,17 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import MenuItem from '@mui/material/MenuItem';
 import { useState } from "react";
 import InputAdornment from '@mui/material/InputAdornment';
 import Alert from '@mui/material/Alert';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
-import { ThreeGMobiledata } from "@mui/icons-material";
-
-
-
-
 
 
 const AlertMensaje = styled(Alert)`
@@ -38,28 +32,7 @@ const Input = styled(TextField)`
   margin-right:-50px;
   
 }
-&&.bg-error{
-  background-color:#FEEFEF!important;
-  border: 1px solid red;
-  border-radius:8px;
-}
 
-&&.bg-success{
-  border-radius:8px;
-  background-color:#EDF9F0 !important;
-  border: 1px solid green;
-}
-&&.bg-warning{
-border-radius:8px;
-  background-color:#FFF4EC !important;
-  border: 1px solid #B95000;
-}
-&&.bg-info{
-    border:1px solid #2E5AAC;
-    border-radius:8px;
-    background-color:#EEF2FA !important;
-  
-}
 
 `
 

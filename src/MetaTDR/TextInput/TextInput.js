@@ -7,60 +7,12 @@ import InputAdornment from '@mui/material/InputAdornment';
 import Alert from '@mui/material/Alert';
 
 
-import InputBase from "@mui/material/InputBase";
-import InputLabel from "@mui/material/InputLabel";
-import FormControl from "@mui/material/FormControl";
-
-
-
-
-
-const Div = styled.div`
-.label{
-
-font-family: Nunito;
-font-style: normal;
-font-weight: 600;
-font-size:15px;
-color: #09101D;
-opacity: 0.8;
-margin:0px 0px 0px 30px;
-line-height: 30px;
-}
-`;
-
-
-
-
-
-
 const Input = styled(TextField)`
 .MuiOutlinedInput-root {border-radius: 8px;}
 .iconDelete{
   cursor:pointer;
 }
-&&.bg-error{
-  background-color:#FEEFEF!important;
-  border: 1px solid red;
-  border-radius:8px;
-}
 
-&&.bg-success{
-  border-radius:8px;
-  background-color:#EDF9F0 !important;
-  border: 1px solid green;
-}
-&&.bg-warning{
-border-radius:8px;
-  background-color:#FFF4EC !important;
-  border: 1px solid #B95000;
-}
-&&.bg-info{
-    border:1px solid #2E5AAC;
-    border-radius:8px;
-    background-color:#EEF2FA !important;
-  
-}
 
 `
 
@@ -93,7 +45,7 @@ export const TextInput = ({ ...props }) => {
 
     const handleInput = (e) => {
         const texto = e.target.value
-        if(props.onChange){
+        if (props.onChange) {
             this.props.onChange(texto)
         }
         if (texto.length == 0) {
@@ -124,14 +76,14 @@ export const TextInput = ({ ...props }) => {
 
 
     return (
-        <Div
-            className="container-fluid m-0">
+        <>
 
-            <div className="row">
+         
 
                 <Input
                     label={props.label}
                     InputLabelProps={{ shrink: props.label }}
+                    fullWidth
                     color={color}
                     focused={focus}
                     disabled={props.disabled}
@@ -162,14 +114,6 @@ export const TextInput = ({ ...props }) => {
                     : null : null}
 
 
-            </div>
-
-
-
-
-
-
-
-        </Div>
+        </>
     );
 };
