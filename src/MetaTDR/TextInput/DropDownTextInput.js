@@ -12,19 +12,7 @@ import { ThreeGMobiledata } from "@mui/icons-material";
 
 
 
-const Div = styled.div`
-.label{
 
-font-family: Nunito;
-font-style: normal;
-font-weight: 600;
-font-size:15px;
-color: #09101D;
-opacity: 0.8;
-margin:0px 0px 0px 30px;
-line-height: 30px;
-}
-`;
 
 const AlertMensaje = styled(Alert)`
 &&.description{
@@ -150,8 +138,8 @@ export const DropDownTextInput = ({ ...props }) => {
 
     return (
 
-        <Div
-            className="container-fluid m-0">
+        <>
+            
 
             <Autocomplete
                 disableClearable
@@ -198,7 +186,7 @@ export const DropDownTextInput = ({ ...props }) => {
 
 
 
-        </Div>
+</>
 
 
 
