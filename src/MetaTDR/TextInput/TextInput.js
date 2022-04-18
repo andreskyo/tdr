@@ -88,7 +88,7 @@ export const TextInput = ({ ...props }) => {
                     focused={focus}
                     disabled={props.disabled}
                     value={text}
-                    helperText={props.helperText ? props.helperText : null}
+                    
                     onChange={handleInput}
 
                     InputProps={{
@@ -97,7 +97,7 @@ export const TextInput = ({ ...props }) => {
                         endAdornment: <InputAdornment position="start" onClick={handleSet}>{text.length > 0 ? props.iconDelete : null}</InputAdornment>
                     }}
                     variant="outlined" />
-
+                
                 {props.alert ? (color === "error" && props.errorMessage.length > 0) || (color === "success" && props.successMessage.length > 0) ?
                     <AlertMensaje
                         iconMapping={{
@@ -112,6 +112,7 @@ export const TextInput = ({ ...props }) => {
                         {color === "error" && props.errorMessage.length > 0 ? props.errorMessage : color === "success" && props.successMessage.length > 0 ? props.successMessage : null}
                     </AlertMensaje>
                     : null : null}
+                    {props.helperText ? props.helperTextDescription : null}
 
 
         </>

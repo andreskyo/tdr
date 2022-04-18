@@ -124,7 +124,7 @@ export const DropDownTextInput = ({ ...props }) => {
                 renderInput={(params) =>
                     <Input
                         {...params}
-                        helperText={props.helperDescription ? props.helperTextDescription : null}
+                        
                         InputProps={{
                             ...params.InputProps,
                             startAdornment: <InputAdornment position="start" >{props.iconCalendario ? props.iconCalendario : null}</InputAdornment>,
@@ -154,7 +154,7 @@ export const DropDownTextInput = ({ ...props }) => {
                     {color === "error" && props.errorMessage.length > 0 ? props.errorMessage : color === "success" && props.successMessage.length > 0 ? props.successMessage : null}
                 </AlertMensaje>
                 : null : false}
-
+             {props.helperDescription ? props.helperTextDescription : null}
 
 
 

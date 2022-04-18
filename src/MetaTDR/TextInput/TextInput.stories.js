@@ -1,9 +1,9 @@
 import React from 'react';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import ClearIcon from '@mui/icons-material/Clear';
-import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import ErrorOutlinedIcon from '@mui/icons-material/ErrorOutlined';
 import { TextInput } from "./TextInput";
+import Typography from '@mui/material/Typography';
 
 
 export default {
@@ -28,7 +28,7 @@ disabled:false,
 alert:true,
 helperText:true,
 regex:/[A-Z]/,
-helperTextDescription:  "This is the description area" ,
+helperTextDescription: <Typography variant="span" style={{marginLeft:"10px"}}>This is the description area</Typography> ,
 text:'',
 errorMessage: 'This is an ERROR message',
 successMessage:'This is a SUCCESS message',

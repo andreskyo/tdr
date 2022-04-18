@@ -1,10 +1,8 @@
 import React from 'react';
-import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import ClearIcon from '@mui/icons-material/Clear';
-import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
-import ErrorOutlinedIcon from '@mui/icons-material/ErrorOutlined';
 import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
 import { DropDownTextInput } from "./DropDownTextInput";
+import Typography from '@mui/material/Typography';
 
 
 export default {
@@ -52,11 +50,11 @@ label:'',
 regex:/[A-Z]/,
 focus:false,
 disabled:false,
-alert:true,
+alert:false,
 helperDescription:false,
-helperTextDescription:'Description',
 errorMessage: 'This is an ERROR message',
 successMessage:'This is a SUCCESS message',
+helperTextDescription: <Typography variant="span" style={{marginLeft:"10px"}}>This is the description area</Typography>,
 iconCalendario:<CalendarTodayOutlinedIcon></CalendarTodayOutlinedIcon>, 
 iconDelete:<ClearIcon className="iconDelete"></ClearIcon>,
 datos:datos,

@@ -26,9 +26,14 @@ const labelArray=[
 ]
 
 
+
+
 Stepperrr.args = {
+  
  labelArray:labelArray,
- activeStep:0
+ activeStep:0,
+ vertical:true
+ 
  
 
 
