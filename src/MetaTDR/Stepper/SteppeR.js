@@ -100,6 +100,9 @@ export const SteppeR = ({ ...props }) => {
   const [activeStep, setActiveStep] = React.useState(-1);
 
   const handleStep = (step) => () => {
+    if (props.onChange) {
+      props.onChange(step)
+  }
     setActiveStep(step);
   };
 
