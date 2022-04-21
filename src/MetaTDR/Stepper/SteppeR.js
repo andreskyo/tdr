@@ -5,10 +5,8 @@ import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import StepContent from '@mui/material/StepContent';
 import StepConnector, { stepConnectorClasses } from '@mui/material/StepConnector';
-import Box from '@material-ui/core/Box';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import Paper from '@mui/material/Paper';
+
 
 
 /*-------------------StepHorizontal--------------*/
@@ -79,120 +77,121 @@ const QontoConnectorVertical = styled(StepConnector)(({ theme }) => ({
   [`&.${stepConnectorClasses.active}`]: {
     [`& .${stepConnectorClasses.line}`]: {
       borderColor: '#124596',
-      
+
     },
   },
   [`&.${stepConnectorClasses.completed}`]: {
-    
+
     [`& .${stepConnectorClasses.line}`]: {
       borderColor: '#124596',
-      
-      
+
+
     },
   },
-  
-  
+
+
 }));
 
 export const SteppeR = ({ ...props }) => {
 
-/*----------StepHorizontal----------------------*/
+  /*----------StepHorizontal----------------------*/
   const [activeStep, setActiveStep] = React.useState(-1);
 
   const handleStep = (step) => () => {
     if (props.onChange) {
       props.onChange(step)
-  }
+    }
     setActiveStep(step);
   };
 
-  useEffect(() => {
-
-    if (activeStep >= 0) {
-      alert(`Step ${activeStep + 1}`)
-    }
-  }, [activeStep])
+  
 
   useEffect(() => {
+    if(props.labelArray.length<1){
+      props.alert()
+     }
 
     if (props.activeStep && props.activeStep !== '') {
       setActiveStep(props.activeStep)
     }
 
   })
-  { props.labelArray == '' ? alert("no hay datos") : '' }
+  
 
-/*-------------StepVertical--------------------------*/
 
-const [activeStepp, setActiveStepp] = React.useState(0);
+  /*-------------StepVertical--------------------------*/
 
- const handleStepp = (step) => () => {
-  if (props.onChange) {
-    props.onChange(step)
-}
+  const [activeStepp, setActiveStepp] = React.useState(0);
+
+  const handleStepp = (step) => () => {
+    if (props.onChange) {
+      props.onChange(step)
+    }
     setActiveStepp(step);
-    
+
   };
 
 
-
-
-
   useEffect(() => {
+   if(props.labelArray.length<1){
+    props.alert()
+   }
 
     if (props.activeStepp && props.activeStepp !== '') {
       setActiveStepp(props.activeStepp)
     }
 
   })
-  { props.labelArray == '' ? alert("no hay datos") : '' }
+  
 
-return (
+  
+
+  return (
 
     <>
-     {props.horizontal ?
-     <StepperHorizontal
-            
-            orientation='horizontal'
-            activeStep={activeStep}
-            alternativeLabel
-            connector={<QontoConnectorHorizontal/>}
-          >
-            {props.labelArray.map((step, index) => (
-              <Step
-                key={index}
-              >
-                <StepLabel
-                  id="colorr"
-                  onClick={handleStep(index)} >
-                  {step.label}
-                </StepLabel>
-              </Step>
-            ))}
-          </StepperHorizontal>
-   :
+      {props.horizontal ?
+        <StepperHorizontal
 
-      <StepperVertical 
-      connector={<QontoConnectorVertical />}
-      activeStep={activeStepp} 
-      orientation="vertical">
-        {props.labelArray.map((step, index) => (
-          <Step key={step.label}>
-            <StepLabel
-             onClick={handleStepp(index)}
+          orientation='horizontal'
+          activeStep={activeStep}
+          alternativeLabel
+          connector={<QontoConnectorHorizontal />}
+        >
+          {props.labelArray.map((step, index) => (
+            <Step
+              key={index}
             >
-              {step.label}
-            </StepLabel>
-            <StepContent>
-              <Typography>{step.description}</Typography>
-          
-            </StepContent>
-          </Step>
-        ))}
-      </StepperVertical>
-      
-    }
-      
+              <StepLabel
+                id="colorr"
+                onClick={handleStep(index)} >
+                {step.label}
+              </StepLabel>
+            </Step>
+          ))}
+        </StepperHorizontal>
+        :
+
+        <StepperVertical
+          connector={<QontoConnectorVertical />}
+          activeStep={activeStepp}
+          orientation="vertical">
+          {props.labelArray.map((step, index) => (
+            <Step key={step.label}>
+              <StepLabel
+                onClick={handleStepp(index)}
+              >
+                {step.label}
+              </StepLabel>
+              <StepContent>
+                <Typography>{step.description}</Typography>
+
+              </StepContent>
+            </Step>
+          ))}
+        </StepperVertical>
+
+      }
+
     </>
 
   );
