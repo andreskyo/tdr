@@ -39,37 +39,52 @@ const AlertMensaje = styled(Alert)`
 /*----------------*/
 
 export const TextInput = ({ ...props }) => {
-    const [color, setColor] = useState('')
-    const [focus, setFocus] = useState(props.focus)
     const [text, setText] = useState(props.text)
+    const [color, setColor] = useState('')
+    const [focus,setFocus]=useState()
+    
 
-    const handleInput = (e) => {
+     const handleInput = (e) => {
         const texto = e.target.value
+
         if (props.onChange) {
             this.props.onChange(texto)
         }
-        if (texto.length == 0) {
-            setColor('');
-            setFocus(true)
+     
 
-        }
-        else if (!props.regex.test(texto)) {
-            setColor('error');
-            setFocus(true)
+        if (!props.regex.test(texto)) {
+            if (texto.length > 0) {
+                setFocus(true)
+                setColor('error')
+                
+               
+                
+
+            } else {
+                setFocus(false)
+                setColor('')
+
+                
+            }
+
 
         } else {
             setColor('success');
-            setFocus(true)
+            
 
         }
-
         return setText(texto)
 
     }
     const handleSet = () => {
         setText('')
         setColor('')
-
+        setFocus(false)
+        
+        
+       
+        
+        
 
     }
 
@@ -85,6 +100,7 @@ export const TextInput = ({ ...props }) => {
                     InputLabelProps={{ shrink: props.label }}
                     fullWidth
                     color={color}
+                    
                     focused={focus}
                     disabled={props.disabled}
                     value={text}

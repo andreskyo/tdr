@@ -45,13 +45,13 @@ const datos = [
 
 
 DropDownTextInputt.args = {
-text:'',    
-label:'',
-regex:/[A-Z]/,
-focus:false,
 disabled:false,
 alert:false,
 helperDescription:false,
+autoFocus:false,
+text:'',    
+label:'',
+regex:/[A-Z]/,
 errorMessage: 'This is an ERROR message',
 successMessage:'This is a SUCCESS message',
 helperTextDescription: <Typography variant="span" style={{marginLeft:"10px"}}>This is the description area</Typography>,

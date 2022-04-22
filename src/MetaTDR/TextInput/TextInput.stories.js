@@ -27,6 +27,7 @@ Textiinput.args = {
 disabled:false,
 alert:true,
 helperText:true,
+autoFocus:false,
 regex:/[A-Z]/,
 helperTextDescription: <Typography variant="span" style={{marginLeft:"10px",fontSize:"10px"}}>This is the description area</Typography> ,
 text:'',

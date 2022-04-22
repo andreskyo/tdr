@@ -42,68 +42,67 @@ const Input = styled(TextField)`
 
 
 export const DropDownTextInput = ({ ...props }) => {
-
-
-
     const [text, setText] = useState(props.text)
-    const [color, setColor] = useState(props.color)
-    const [focus, setFocus] = useState(props.focus)
+    const [color, setColor] = useState('')
+    const [focus,setFocus]=useState()
+    
 
 
     const handleInput = (e, value) => {
         const texto = value.label;
 
-       if(props.onChange){
-           this.props.onChange(texto)
-       }
-       
+        if (props.onChange) {
+            this.props.onChange(texto)
+        }
+
         if (!props.regex.test(texto)) {
-            if(texto.length>0){
+            if (texto.length > 0) {
                 setColor('error')
-                setFocus(true)
-            }else{
-               setColor('')
-               setFocus(true)
+                
+            } else {
+                setColor('')
+                
             }
-           
+
 
         } else {
             setColor('success');
-            setFocus(true)
+            
         }
         return setText(texto)
     }
 
     const handleTextField = (e) => {
-       const textField=e.target.value;
+        const textField = e.target.value;
+
+        if (props.onChange) {
+            this.props.onChange(textField)
+        }
+
+        if (!props.regex.test(textField)) {
+            if (textField.length > 0) {
+                setFocus(true)
+                setColor('error')
+
+            } else {
+                setFocus(false)
+                setColor('')
+
+            }
 
 
+        } else {
+            setColor('success');
 
-       if(props.onChange){
-        this.props.onChange(textField)
-    }
+        }
+        return setText(textField)
 
-       if (!props.regex.test(textField)) {
-        if(textField.length>0){
-            setColor('error')
-            setFocus(true)
-        }else{
-           setColor('')
-           setFocus(true)
-        }   
-      
-
-    } else {
-        setColor('success');
-        setFocus(true)
-    }
-    return setText(textField)
-       
     }
 
     const handleSet = () => {
         setText('')
         setColor('')
+        setFocus(false)
     }
 
 
@@ -112,19 +111,20 @@ export const DropDownTextInput = ({ ...props }) => {
     return (
 
         <>
-            
+
 
             <Autocomplete
                 disableClearable
                 fullWidth
                 onChange={handleInput}
                 value={text}
+                
                 disabled={props.disabled}
                 options={props.datos}
                 renderInput={(params) =>
                     <Input
                         {...params}
-                        
+
                         InputProps={{
                             ...params.InputProps,
                             startAdornment: <InputAdornment position="start" >{props.iconCalendario ? props.iconCalendario : null}</InputAdornment>,
@@ -154,12 +154,12 @@ export const DropDownTextInput = ({ ...props }) => {
                     {color === "error" && props.errorMessage.length > 0 ? props.errorMessage : color === "success" && props.successMessage.length > 0 ? props.successMessage : null}
                 </AlertMensaje>
                 : null : false}
-             {props.helperDescription ? props.helperTextDescription : null}
+            {props.helperDescription ? props.helperTextDescription : null}
 
 
 
 
-</>
+        </>
 
 
 
