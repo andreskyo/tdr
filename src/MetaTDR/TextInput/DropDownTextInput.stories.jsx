@@ -48,7 +48,6 @@ DropDownTextInputt.args = {
 disabled:false,
 alert:false,
 helperDescription:false,
-autoFocus:false,
 text:'',    
 label:'',
 regex:/[A-Z]/,

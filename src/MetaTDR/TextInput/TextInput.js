@@ -5,6 +5,7 @@ import TextField from '@mui/material/TextField';
 import { useState } from "react";
 import InputAdornment from '@mui/material/InputAdornment';
 import Alert from '@mui/material/Alert';
+import InputLabel from '@mui/material/InputLabel';
 
 
 const Input = styled(TextField)`
@@ -32,103 +33,116 @@ const AlertMensaje = styled(Alert)`
 
 
 `
-
+const InputLabelSpaced=styled(InputLabel)`
+&&{font-family: 'Nunito';
+font-style: normal;
+font-weight: 600;
+font-size: 20px;
+line-height: 20px;
+left:10px;
+color:#09101D;
+}
+`
 
 
 
 /*----------------*/
 
 export const TextInput = ({ ...props }) => {
+    const [color, setColor] = useState('primary')
+
     const [text, setText] = useState(props.text)
-    const [color, setColor] = useState('')
-    const [focus,setFocus]=useState(false)
-    
 
-     const handleInput = (e) => {
+    const handleInput = (e) => {
         const texto = e.target.value
-
         if (props.onChange) {
             this.props.onChange(texto)
         }
-     
 
-        if (!props.regex.test(texto)) {
-            if (texto.length > 0) {
-                setFocus(true)
-                setColor('error')
-                
-               
-                
 
-            } else {
-                setFocus(false)
-                setColor('')
-
-                
-            }
-
+        if (texto.length === 0) {
+            setColor('');
+        }
+        else if (!props.regex.test(texto)) {
+            setColor('error');
 
         } else {
             setColor('success');
-            
-
         }
+
         return setText(texto)
 
     }
     const handleSet = () => {
         setText('')
         setColor('')
-        setFocus(false)
-        
-        
-       
-        
-        
-
     }
-
-
 
     return (
         <>
 
-         
 
-                <Input
-                    label={props.label}
-                    InputLabelProps={{ shrink: props.label }}
-                    fullWidth
-                    color={color}
-                    
-                    focused={focus}
-                    disabled={props.disabled}
-                    value={text}
-                    
-                    onChange={handleInput}
+            {props.compact ?
+                <>
+                    <Input
+                        label={props.label}
+                        InputLabelProps={{ shrink: props.label }}
+                        fullWidth
+                        color={color}
+                        autoFocus={false}
+                        disabled={props.disabled}
+                        value={text}
 
-                    InputProps={{
+                        onChange={handleInput}
 
-                        startAdornment: <InputAdornment position="start" >{props.icon ? props.icon : null}</InputAdornment>,
-                        endAdornment: <InputAdornment position="start" onClick={handleSet}>{text.length > 0 ? props.iconDelete : null}</InputAdornment>
-                    }}
-                    variant="outlined" />
-                
-                {props.alert ? (color === "error" && props.errorMessage.length > 0) || (color === "success" && props.successMessage.length > 0) ?
-                    <AlertMensaje
-                        iconMapping={{
-                            success: props.iconAlert,
-                            error: props.iconAlert,
-                            info: props.iconAlert,
-                            warning: props.iconAlert
+                        InputProps={{
+
+                            startAdornment: <InputAdornment position="start" >{props.icon ? props.icon : null}</InputAdornment>,
+                            endAdornment: <InputAdornment position="start" onClick={handleSet}>{text.length > 0 ? props.iconDelete : null}</InputAdornment>
                         }}
-                        classname=""
-                        severity={color}>
+                        variant="outlined" />
+                </>
+                :
+                <>
+                    <InputLabelSpaced shrink >
+                        {props.labelSpaced}
+                    </InputLabelSpaced>
+                    <Input
+                        label={false}
+                        InputLabelProps={{ shrink: false }}
+                        fullWidth
+                        color={color}
+                        autoFocus={false}
+                        disabled={props.disabled}
+                        value={text}
 
-                        {color === "error" && props.errorMessage.length > 0 ? props.errorMessage : color === "success" && props.successMessage.length > 0 ? props.successMessage : null}
-                    </AlertMensaje>
-                    : null : null}
-                    {props.helperText ? props.helperTextDescription : null}
+                        onChange={handleInput}
+
+                        InputProps={{
+
+                            startAdornment: <InputAdornment position="start" >{props.icon ? props.icon : null}</InputAdornment>,
+                            endAdornment: <InputAdornment position="start" onClick={handleSet}>{text.length > 0 ? props.iconDelete : null}</InputAdornment>
+                        }}
+                        variant="outlined" />
+
+                </>
+            }
+
+            {props.alert ? (color === "error" && props.errorMessage.length > 0) || (color === "success" && props.successMessage.length > 0) ?
+                <AlertMensaje
+                    iconMapping={{
+                        success: props.iconAlert,
+                        error: props.iconAlert,
+                        info: props.iconAlert,
+                        warning: props.iconAlert
+                    }}
+                    classname=""
+                    severity={color}>
+
+                    {color === "error" && props.errorMessage.length > 0 ? props.errorMessage : color === "success" && props.successMessage.length > 0 ? props.successMessage : null}
+                </AlertMensaje>
+                : null : null}
+            {props.helperText ? props.helperTextDescription : null}
 
 
         </>

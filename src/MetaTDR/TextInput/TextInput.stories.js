@@ -24,16 +24,17 @@ export const Textiinput = Template.bind({});
 
 
 Textiinput.args = {
+compact:false,
 disabled:false,
-alert:true,
-helperText:true,
-autoFocus:false,
+alert:false,
+helperText:false,
 regex:/[A-Z]/,
 helperTextDescription: <Typography variant="span" style={{marginLeft:"10px",fontSize:"10px"}}>This is the description area</Typography> ,
 text:'',
 errorMessage: 'This is an ERROR message',
 successMessage:'This is a SUCCESS message',
 label: 'label' ,
+labelSpaced:'label',
 iconAlert:<ErrorOutlinedIcon></ErrorOutlinedIcon>,
 iconDelete:<ClearIcon className="iconDelete"></ClearIcon>,
 icon:<LocalPhoneIcon className="iconPhone"/>,
