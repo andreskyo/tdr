@@ -41,7 +41,7 @@ const AlertMensaje = styled(Alert)`
 export const TextInput = ({ ...props }) => {
     const [text, setText] = useState(props.text)
     const [color, setColor] = useState('')
-    const [focus,setFocus]=useState()
+    const [focus,setFocus]=useState(false)
     
 
      const handleInput = (e) => {
