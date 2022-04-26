@@ -1,10 +1,8 @@
 import React from 'react'
-import CircleIcon from "@mui/icons-material/Circle";
-import Tooltip from "./Tooltip.stories";
+
 
 const Planes = (props) => {
 
-  console.log(props.vencimiento)
   const renderPlanes = () => {
     let resultado = props.data.value.map((res, i) => {
       return <>

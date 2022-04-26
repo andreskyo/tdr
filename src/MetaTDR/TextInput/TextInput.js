@@ -33,7 +33,7 @@ const AlertMensaje = styled(Alert)`
 
 
 `
-const InputLabelSpaced=styled(InputLabel)`
+const InputLabelSpaced = styled(InputLabel)`
 &&{font-family: 'Nunito';
 font-style: normal;
 font-weight: 600;
@@ -49,9 +49,9 @@ color:#09101D;
 /*----------------*/
 
 export const TextInput = ({ ...props }) => {
-    const [color, setColor] = useState('primary')
-
-    const [text, setText] = useState(props.text)
+    const [color, setColor] = useState('')
+    const [focused, setFocused] = useState()
+    const [text, setText] = useState('')
 
     const handleInput = (e) => {
         const texto = e.target.value
@@ -61,21 +61,36 @@ export const TextInput = ({ ...props }) => {
 
 
         if (texto.length === 0) {
-            setColor('');
-        }
-        else if (!props.regex.test(texto)) {
-            setColor('error');
+            setColor('')
+            setFocused()
 
+        }
+
+        if (!props.regex.test(texto)) {
+            if (texto.length > 0) {
+                setColor('error');
+                setFocused(true)
+            }
         } else {
             setColor('success');
-        }
+            setFocused(true)
 
+        }
+        
         return setText(texto)
+
 
     }
     const handleSet = () => {
+
         setText('')
         setColor('')
+        setFocused()
+        
+        
+
+
+
     }
 
     return (
@@ -88,10 +103,11 @@ export const TextInput = ({ ...props }) => {
                         label={props.label}
                         InputLabelProps={{ shrink: props.label }}
                         fullWidth
-                        color={color}
-                        autoFocus={false}
-                        disabled={props.disabled}
                         value={text}
+                        color={color}
+                        focused={focused}
+                        disabled={props.disabled}
+
 
                         onChange={handleInput}
 
@@ -112,7 +128,7 @@ export const TextInput = ({ ...props }) => {
                         InputLabelProps={{ shrink: false }}
                         fullWidth
                         color={color}
-                        autoFocus={false}
+                        focused={focused}
                         disabled={props.disabled}
                         value={text}
 

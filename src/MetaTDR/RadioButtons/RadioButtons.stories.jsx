@@ -8,13 +8,15 @@ export default {
      },
 };
 const Template = (args) => <RadioButtons {...args} />;
-export const RbuttonSelected = Template.bind({});
+export const RadioButton = Template.bind({});
 
 
-RbuttonSelected.args = {
+RadioButton.args = {
  
- disableed:false,
- selected:false
+ disabled:false,
+ value:"radio button",
+ onChange:(a)=>{console.log(a)},
+ 
   
 };
 

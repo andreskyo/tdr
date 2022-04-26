@@ -13,7 +13,6 @@ import Typography from '@mui/material/Typography';
 
 
 const StepperHorizontal = styled(Stepper)`
-
 .css-g5ymu1-MuiSvgIcon-root-MuiStepIcon-root.Mui-active {
   color: #124596;
 }
@@ -48,14 +47,12 @@ const QontoConnectorHorizontal = styled(StepConnector)(({ theme }) => ({
 /*-----------------StepVertical-----------------------*/
 
 const StepperVertical = styled(Stepper)`
-
 .css-g5ymu1-MuiSvgIcon-root-MuiStepIcon-root.Mui-active {
   color: #124596;
 }
 .css-g5ymu1-MuiSvgIcon-root-MuiStepIcon-root.Mui-completed{
   color: #124596;
 } 
-
 .css-8t49rw-MuiStepConnector-line{
     display: block;
     border-color: #bdbdbd;
@@ -70,8 +67,6 @@ const StepperVertical = styled(Stepper)`
   margin-top: -8px;
   
 }
-
-
 `
 const QontoConnectorVertical = styled(StepConnector)(({ theme }) => ({
   [`&.${stepConnectorClasses.active}`]: {
@@ -95,11 +90,11 @@ const QontoConnectorVertical = styled(StepConnector)(({ theme }) => ({
 export const SteppeR = ({ ...props }) => {
 
   /*----------StepHorizontal----------------------*/
-  const [activeStep, setActiveStep] = React.useState(-1);
+  const [activeStep, setActiveStep] = React.useState(0);
 
-  const handleStep = (step) => () => {
+  const handleStep = (step,e) => () => {
     if (props.onChange) {
-      props.onChange(step)
+      props.onChange(e[step])
     }
     setActiveStep(step);
   };
@@ -123,9 +118,9 @@ export const SteppeR = ({ ...props }) => {
 
   const [activeStepp, setActiveStepp] = React.useState(0);
 
-  const handleStepp = (step) => () => {
+  const handleStepp = (step,e) => () => {
     if (props.onChange) {
-      props.onChange(step)
+      props.onChange(e[step])
     }
     setActiveStepp(step);
 
@@ -157,13 +152,13 @@ export const SteppeR = ({ ...props }) => {
           alternativeLabel
           connector={<QontoConnectorHorizontal />}
         >
-          {props.labelArray.map((step, index) => (
+          {props.labelArray.map((step, index,e) => (
             <Step
               key={index}
             >
               <StepLabel
                 id="colorr"
-                onClick={handleStep(index)} >
+                onClick={handleStep(index,e)} >
                 {step.label}
               </StepLabel>
             </Step>
@@ -175,10 +170,10 @@ export const SteppeR = ({ ...props }) => {
           connector={<QontoConnectorVertical />}
           activeStep={activeStepp}
           orientation="vertical">
-          {props.labelArray.map((step, index) => (
+          {props.labelArray.map((step, index,e) => (
             <Step key={step.label}>
               <StepLabel
-                onClick={handleStepp(index)}
+                onClick={handleStepp(index,e)}
               >
                 {step.label}
               </StepLabel>
@@ -196,4 +191,3 @@ export const SteppeR = ({ ...props }) => {
 
   );
 }
-

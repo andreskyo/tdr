@@ -44,7 +44,7 @@ const Input = styled(TextField)`
 export const DropDownTextInput = ({ ...props }) => {
 
 
-
+    const [focused,setFocused]=useState()
     const [text, setText] = useState(props.text)
     const [color, setColor] = useState(props.color)
   
@@ -60,6 +60,7 @@ export const DropDownTextInput = ({ ...props }) => {
         if (!props.regex.test(texto)) {
             if(texto.length>0){
                 setColor('error')
+                
                 
             }else{
                setColor('')
@@ -83,27 +84,32 @@ export const DropDownTextInput = ({ ...props }) => {
         this.props.onChange(textField)
     }
 
-       if (!props.regex.test(textField)) {
-        if(textField.length>0){
-            setColor('error')
-            
-        }else{
-           setColor('')
-           
-        }   
-      
+    if (textField.length === 0) {
+        setColor('')
+        setFocused()
 
+    }
+
+    if (!props.regex.test(textField)) {
+        if (textField.length > 0) {
+            setColor('error');
+            setFocused(true)
+        }
     } else {
         setColor('success');
-        
+        setFocused(true)
+
     }
+    
     return setText(textField)
-       
-    }
+
+
+}
 
     const handleSet = () => {
         setText('')
         setColor('')
+        setFocused()
     }
 
 
@@ -133,7 +139,7 @@ export const DropDownTextInput = ({ ...props }) => {
 
                         value={text}
                         color={color}
-                        autoFocus={false}
+                        focused={focused}
                         label={props.label}
                         InputLabelProps={{ shrink: props.label }}
                         onChange={handleTextField}

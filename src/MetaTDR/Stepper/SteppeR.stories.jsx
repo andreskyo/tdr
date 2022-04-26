@@ -33,6 +33,6 @@ Step.args = {
  horizontal:false, 
  labelArray:labelArray,
  activeStep:0,
- onChange:(a)=>{alert(a)},
- alert:()=>{alert("no hay datos")}
+ 
+ onChange:(a)=>{console.log(a)},
  };

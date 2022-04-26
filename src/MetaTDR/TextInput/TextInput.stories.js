@@ -24,7 +24,7 @@ export const Textiinput = Template.bind({});
 
 
 Textiinput.args = {
-compact:false,
+compact:true,
 disabled:false,
 alert:false,
 helperText:false,
