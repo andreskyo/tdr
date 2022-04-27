@@ -12,7 +12,7 @@ export const RadioButton = Template.bind({});
 
 
 RadioButton.args = {
- 
+ selected:false,
  disabled:false,
  value:"radio button",
  onChange:(a)=>{console.log(a)},

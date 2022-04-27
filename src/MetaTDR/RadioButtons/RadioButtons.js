@@ -1,4 +1,4 @@
-import React from 'react';
+import {React,useState} from 'react';
 import PropTypes from 'prop-types';
 import styled from "styled-components";
 import Radio from '@mui/material/Radio';
@@ -26,14 +26,20 @@ const BpIcon = styled("span")(({ theme }) => ({
     },
   
   });
-export const RadioButtons = ({ ...props}) => {
 
+  
+export const RadioButtons = ({ ...props}) => {
+const [selected,setSelected]=useState(props.selected)
 
     const handleClick = (e) => {
+     
+
         if (props.onChange) {
-            props.onChange(e.target)
+            props.onChange(!selected)
         }
        
+        setSelected(!selected)
+
       };
 
 
@@ -41,10 +47,11 @@ export const RadioButtons = ({ ...props}) => {
         <>
 
             <Radio 
+            selected={props.selected}
             disabled={props.disabled} 
-            onClick={handleClick}
-            checkedIcon={<BpCheckedIcon />}
-            value={props.value}
+            // onClick={handleClick}
+            // checkedIcon={<BpCheckedIcon />}
+            // value={props.value}
             />
             
 
