@@ -22,7 +22,7 @@ const size = {
     laptop: '1024px',
     laptopL: '1440px',
     desktop: '2560px'
-  }
+}
 
 const device = {
     mobileS: `(max-width: ${size.mobileS})`,
@@ -33,7 +33,7 @@ const device = {
     laptopL: `(min-width: ${size.laptopL})`,
     desktop: `(min-width: ${size.desktop})`,
     desktopL: `(min-width: ${size.desktop})`
-  };
+};
 
 const Div = styled.div`
 width:100%;
@@ -226,11 +226,12 @@ export const SidebarR = ({ disabled, datos, ...props }) => {
     const [text, setText] = React.useState();
     const [filtrados, setFiltrado] = useState(datos);
     const [page, setPage] = useState(1);
-    const [rowsPerPage, setRowsPerPage]=React.useState(3)
-   
+    const [rowsPerPage, setRowsPerPage] = React.useState(3)
+
     const handleChangePage = (event, newPage) => {
         setselecteditem();
         setPage(newPage);
+        console.log(newPage)
     };
 
     const handleBuscador = (e) => {
@@ -274,15 +275,15 @@ export const SidebarR = ({ disabled, datos, ...props }) => {
         alert(text)
     }
 
-    const handleCerrar=()=>{
-        if(props.cerrar){
+    const handleCerrar = () => {
+        if (props.cerrar) {
             props.cerrar();
         }
     }
 
 
     const renderCards = () => {
-        let resultado = filtrados && filtrados.slice((page -1) * rowsPerPage , page * rowsPerPage ).map((data, i) => {
+        let resultado = filtrados && filtrados.slice((page - 1) * rowsPerPage, page * rowsPerPage).map((data, i) => {
 
             return <div>
 
@@ -326,33 +327,33 @@ export const SidebarR = ({ disabled, datos, ...props }) => {
     return (
         <div>
             {disabled === false ?
-                <Div 
-                className="container-fluid m-0 " >
-                    <div 
-                    className="row ">
-                       <div 
-                       className="col-12 d-flex " 
-                       style={{ borderBottom: "1px solid #F4F6F9" }}>
-                           <CloseIcon 
-                           className="mt-4 closeIcon" 
-                           onClick={handleCerrar} 
-                           sx={{ fontSize: 30 }} />
-                           {props.bActividad}
+                <Div
+                    className="container-fluid m-0 " >
+                    <div
+                        className="row ">
+                        <div
+                            className="col-12 d-flex "
+                            style={{ borderBottom: "1px solid #F4F6F9" }}>
+                            <CloseIcon
+                                className="mt-4 closeIcon"
+                                onClick={handleCerrar}
+                                sx={{ fontSize: 30 }} />
+                            {props.bActividad}
                         </div>
 
 
-                        <div 
-                        className="col">
+                        <div
+                            className="col">
 
                             <TextField
-                               className='inputBuscar'
-                               fullWidth
+                                className='inputBuscar'
+                                fullWidth
                                 placeholder='Buscar...'
                                 onChange={handleBuscador}
                                 InputProps={{
                                     startAdornment:
                                         <InputAdornment position="start">
-                                            <SearchIcon className="iconBuscar"/>
+                                            <SearchIcon className="iconBuscar" />
                                         </InputAdornment>
                                     ,
                                 }}
@@ -362,8 +363,8 @@ export const SidebarR = ({ disabled, datos, ...props }) => {
 
 
 
-                    <Div2 
-                    className="row">
+                    <Div2
+                        className="row">
 
                         {renderCards()}
                         <br />
@@ -371,14 +372,14 @@ export const SidebarR = ({ disabled, datos, ...props }) => {
 
                         {selected === true ?
 
-                            <StackPagination 
-                            className="mt-5 " 
-                            id="table" 
-                            spacing={0}>
+                            <StackPagination
+                                className="mt-5"
+                                id="table"
+                                spacing={0}>
 
                                 <Pagination
 
-                                    count={filtrados.length % rowsPerPage ? Math.floor(filtrados.length/rowsPerPage) + 1: Math.floor(filtrados.length/rowsPerPage) }
+                                    count={filtrados.length % rowsPerPage ? Math.floor(filtrados.length / rowsPerPage) + 1 : Math.floor(filtrados.length / rowsPerPage)}
                                     size="medium"
                                     page={page}
                                     color="primary"
@@ -390,24 +391,24 @@ export const SidebarR = ({ disabled, datos, ...props }) => {
 
                             :
 
-                            <StackButtons 
-                            className="mt-5" 
-                            spacing={0}>
-                                <Button 
-                                onClick={handleChangeCancel} 
-                                disableRipple 
-                                variant="outlined" 
-                                color="error" 
-                                className="cancel">
+                            <StackButtons
+                                className="mt-5"
+                                spacing={0}>
+                                <Button
+                                    onClick={handleChangeCancel}
+                                    disableRipple
+                                    variant="outlined"
+                                    color="error"
+                                    className="cancel">
                                     Cancelar
                                 </Button>
 
-                                <Button 
-                                onClick={handleChangeAceptar} 
-                                disableRipple 
-                                variant="contained" 
-                                color="success" 
-                                className="aceptar"  >
+                                <Button
+                                    onClick={handleChangeAceptar}
+                                    disableRipple
+                                    variant="contained"
+                                    color="success"
+                                    className="aceptar"  >
                                     Aceptar
                                 </Button>
 

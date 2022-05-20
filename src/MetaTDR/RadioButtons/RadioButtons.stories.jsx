@@ -38,11 +38,7 @@ const dataButtonText=[{
   label: '1 ervicios de orgaasdasdasdasdnsdfsdfsdfizaciones y órganos extraterritoriales.',
 
 },
-{
-  value: 'd',
-  label: '1 Servicios deasdasdasdasdsad organsdfsdfsdfizaciones y órganos extraterritoriales.',
 
-}
 
 ]
 

@@ -15,8 +15,8 @@ export default {
     size: {
       options:['large','medium','small'],
       control:{type:'radio'}
-    },
-  
+    }
+ 
   
     
   },
@@ -39,6 +39,7 @@ return alert('hola mundo')
 Buttonss.args = {
   text:"Large Button",
   size:'large',
+  component:'span',
   primary:true,
   disabled:false,
   outlined:false,

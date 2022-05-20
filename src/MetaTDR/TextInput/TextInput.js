@@ -6,6 +6,7 @@ import { useState } from "react";
 import InputAdornment from '@mui/material/InputAdornment';
 import Alert from '@mui/material/Alert';
 import InputLabel from '@mui/material/InputLabel';
+import Button from '@mui/material/Button';
 
 
 const Input = styled(TextField)`
@@ -56,7 +57,7 @@ export const TextInput = ({ ...props }) => {
     const handleInput = (e) => {
         const texto = e.target.value
         if (props.onChange) {
-            this.props.onChange(texto)
+            props.onChange(texto)
         }
 
 
@@ -113,8 +114,8 @@ export const TextInput = ({ ...props }) => {
 
                         InputProps={{
 
-                            startAdornment: <InputAdornment position="start" >{props.icon ? props.icon : null}</InputAdornment>,
-                            endAdornment: <InputAdornment position="start" onClick={handleSet}>{text.length > 0 ? props.iconDelete : null}</InputAdornment>
+                            startAdornment: <InputAdornment position="start"></InputAdornment>,
+                            endAdornment: <InputAdornment position="end" onClick={handleSet}>{text.length > 0 ? props.iconDelete : null}</InputAdornment>
                         }}
                         variant="outlined" />
                 </>

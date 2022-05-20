@@ -1,6 +1,7 @@
 import React from 'react';
-import Button from '@mui/material/Button';
 import { Alerts } from "./Alerts";
+import CheckCircleOutlineRoundedIcon from '@mui/icons-material/CheckCircleOutlineRounded';
+import Close from './Img/Close.png'
 
 
 export default {
@@ -12,22 +13,27 @@ export default {
 };
 
 
-const DatosNnotification=[{
+const datosAlert={
     
     title:` Successfully applied!`,
     label:"Malesuada tellus tincidunt fringilla enim, id mauris. Id etiam nibh suscipit aliquam dolor. Nunc sit nunc aliquet justo, facilisi leo. Nulla a eget tincidunt integer orci.",
-    button:<Button disableRipple onClick={()=>{alert("learn more")}}>Learn More</Button>
-    
-  }]
+    button:"Learn More"    
+  }
 
 
 const Template = (args) => <Alerts {...args} />;
-export const Alertss = Template.bind({});
+export const Alert = Template.bind({});
 
 
 
-Alertss.args = {
-    DatosNnotification:DatosNnotification,
+Alert.args = {
+    datosAlert:datosAlert,
+    button:true,
+    icon:true,
+    iconSuccess:<CheckCircleOutlineRoundedIcon fontSize="large" className="icon mt-3 "/>,
+    iconClose:<img src={Close}/>,
+    onClick: () => { alert("Button") }
+    
     
     
 };
