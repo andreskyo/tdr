@@ -70,6 +70,7 @@ const CardPerfil = (props) => {
         <IconButton 
         className="icons" 
         key={i}
+        onClick={res.onClick}
         >
           {res.icon}
         </IconButton>
@@ -132,10 +133,12 @@ const CardPerfil = (props) => {
         style={{ display: "inline-block", textAlign: "center" }}>
 
           <Buttons
+            onClick={props.datosPerfil.onClickMessage}
             primary
             outlined
             text="Message" />
           <Buttons
+          onClick={props.datosPerfil.onClickConnect}
             primary
             text="Connect" />
         </CardActions>

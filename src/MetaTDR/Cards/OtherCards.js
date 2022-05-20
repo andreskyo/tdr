@@ -21,16 +21,17 @@ export const OtherCards = ({ ...props }) => {
             {props.cardVencimiento ? <CardVencimiento
                 datosVencimiento={props.datosVencimiento} /> : null}
 
-            {props.cardCalendar ? <CardCalendar /> : null}
+            {props.cardCalendar ? <CardCalendar 
+                datosCalendar={props.datosCalendar}/> : null}
 
             {props.cardPerfiles ? <CardPerfiles
                 datosPerfiles={props.datosPerfiles} /> : null}
 
-                {props.cardAcceso ? <CardAcceso
+            {props.cardAcceso ? <CardAcceso
                 datosAcceso={props.datosAcceso}/> : null}
 
-                <CardDailyStacks
-                datosDailyStack={props.datosDailyStack}/>
+                {/* <CardDailyStacks
+                datosDailyStack={props.datosDailyStack}/> */}
 
         </>
     )

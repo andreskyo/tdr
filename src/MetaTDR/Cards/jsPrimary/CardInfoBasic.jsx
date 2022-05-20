@@ -47,6 +47,7 @@ const CardInfoBasic = (props) => {
             disableRipple
             aria-label="settings">
             <MoreVertIcon
+              onClick={props.datosCardInfoBasic.handleClickSetting}
               disableRipple
               style={{ marginTop: "-5px" }}
               />

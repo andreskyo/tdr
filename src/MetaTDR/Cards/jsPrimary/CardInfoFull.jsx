@@ -88,6 +88,7 @@ const CardInfoFull = (props) => {
                         >
                         <MoreVertIcon
                             style={{ marginTop: "2px" }}
+                            onClick={props.datosCardInfoFull.handleClickSetting}
                             disableRipple/>
                     </IconButton>
                 }
@@ -114,7 +115,7 @@ const CardInfoFull = (props) => {
 
                 <Buttons
                     text={props.datosCardInfoFull.buttonDetalle}
-                    onClick={props.datosCardInfoFull.onClick}
+                    onClick={props.datosCardInfoFull.handleClickDetalle}
                     line />
             </CardContentInfo>
 

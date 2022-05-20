@@ -87,6 +87,7 @@ const CardPerfiles = (props) => {
             <Buttons
               primary
               outlined
+              onClick={res.onClick}
               text={res.button} />
           </CardActions>
 

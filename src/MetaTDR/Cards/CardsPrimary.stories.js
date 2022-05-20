@@ -25,13 +25,15 @@ const datosCardInfoFull = {
     monto: "$1.512.739",
     incumplidas: "54 DDJJ incumplidos",
     buttonDetalle: "Ver detalle",
-    onClick: () => alert("detalle"),
+    handleClickDetalle: () => {alert("detalle")},
+    handleClickSetting: ()=> {alert("setting")}
 }
 
 const datosCardInfoBasic = {
     descripcion: "Agentes de Retención de IIBB",
     incumplidas: "Período - Octubre",
-    icon: <TodayIcon />
+    icon: <TodayIcon />,
+    handleClickSetting: ()=> {alert("setting")}
 }
 
 const datosCardInput = {
@@ -66,7 +68,7 @@ const datosCardImg = {
     subtitulo: "13/10/2021",
     descripcion: "Write an amazing description in this dedicated card section. Each word counts.",
     buttonVerMas: "Ver más",
-    onClick: () => alert("ver mas"),
+    onClick: () => {alert("ver mas")},
 }
 
 const datosCardStats = {

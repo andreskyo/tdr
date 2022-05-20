@@ -25,13 +25,21 @@ const datosPerfil = {
   name: "Neel Deshmukh",
   job: "Fullstack Developer @Sky",
   labelTags: "PRO",
+  onClickMessage:()=>{alert("message")},
+  onClickConnect:()=>{alert("connect")},
   icons: [
-    { icon: <GitHubIcon /> },
-    { icon: <LinkedInIcon /> },
-    { icon: <InstagramIcon /> },
-    { icon: <FacebookIcon /> },
-    { icon: <LinkedInIcon /> },
-    { icon: <SportsBasketballIcon /> },]
+    { icon: <GitHubIcon />,
+      onClick:()=>{alert("icon")} },
+    { icon: <LinkedInIcon />,
+    onClick:()=>{alert("icon")} },
+    { icon: <InstagramIcon />,
+    onClick:()=>{alert("icon")} },
+    { icon: <FacebookIcon />,
+    onClick:()=>{alert("icon")} },
+    { icon: <LinkedInIcon />,
+    onClick:()=>{alert("icon")} },
+    { icon: <SportsBasketballIcon />,
+    onClick:()=>{alert("icon")} } ,]
 }
 
 const datosVencimiento = {
@@ -45,25 +53,29 @@ const datosPerfiles = [{
   icon: Usuario,
   name: "Neel Deshmukhaa",
   job: "Frontend Dev @Stripe",
-  button: "Message"
+  button: "Message",
+  onClick:()=>{alert("Message")}
 },
 {
   icon: Usuario,
   name: "Neel Deshmukh ",
   job: "Frontend Dev @Stripe",
-  button: "Message"
+  button: "Message",
+  onClick:()=>{alert("Message")}
 },
 {
   icon: Usuario,
   name: "Neel Deshmukh ",
   job: "Frontend Dev @Stripe",
-  button: "Message"
+  button: "Message",
+  onClick:()=>{alert("Message")}
 },
 {
   icon: Usuario,
   name: "Neel Deshmukh",
   job: "Frontend Dev @Stripe",
-  button: "Message"
+  button: "Message",
+  onClick:()=>{alert("Message")}
 }
 ]
 
@@ -72,6 +84,11 @@ const datosAcceso = {
   name: "Drishti Ratan",
   job: "Fashion Designer @Clover ",
   button: "PRIMARY",
+
+}
+
+const datosCalendar = {
+ onChange:(a)=>{console.log(a)}
 
 }
 
@@ -87,7 +104,6 @@ const datosDailyStack = [
   {
     iconTags:<div className="d-flex" style={{textAlign:"center"}}><GitHubIcon /><p>Design Team Standup</p></div>,
     horaTags:"08:00 - 11:00",
-    
     tagColor:"warning",
     hora: "9:00",
 
@@ -118,5 +134,7 @@ OtherCard.args = {
   datosVencimiento: datosVencimiento,
   datosPerfiles: datosPerfiles,
   datosAcceso: datosAcceso,
-  datosDailyStack: datosDailyStack
+  datosDailyStack: datosDailyStack,
+  datosCalendar:datosCalendar
+  
 };

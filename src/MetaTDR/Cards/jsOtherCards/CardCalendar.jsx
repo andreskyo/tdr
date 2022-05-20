@@ -26,8 +26,16 @@ const ComponentCalendar = styled(Card)`
 
 `
 
-const CardCalendar = () => {
+const CardCalendar = (props) => {
   const [date, setDate] = React.useState(new Date());
+
+  const handleDate=(newDate)=>{
+    if (props.datosCalendar.onChange) {
+      props.datosCalendar.onChange(newDate)
+    }
+    setDate(newDate)
+    
+  }
   return (
     <ComponentCalendar>
 
@@ -37,7 +45,7 @@ const CardCalendar = () => {
             <CalendarPicker 
             
             date={date} 
-            onChange={(newDate) => setDate(newDate)} />
+            onChange={handleDate} />
           
 
 
