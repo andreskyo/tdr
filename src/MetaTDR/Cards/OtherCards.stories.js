@@ -84,6 +84,7 @@ const datosPerfiles = [{
 
 const datosAcceso = {
   avatar: <NotificationsNoneIcon fontSize="large" />,
+  onClick:()=>{alert("button")},
   name: "Drishti Ratan",
   job: "Fashion Designer @Clover ",
   button: "PRIMARY",

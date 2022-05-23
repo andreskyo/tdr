@@ -5,9 +5,7 @@ import CardHeader from '@mui/material/CardHeader';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import Avatar from '@mui/material/Avatar';
-import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import Chip from '@mui/material/Chip';
 import { Buttons } from '../../Buttons/Butttons/Buttons'
 
 
@@ -53,17 +51,20 @@ const CardComponentAcceso = styled(Card)`
 const CardAcceso = (props) => {
     return (
         <CardComponentAcceso>
-            <CardHeader
 
+            {props.datosAcceso.avatar ?  
+            <CardHeader
+              
                 avatar={
                     <Avatar
                         className="avatar"
                         alt="Remy Sharp"
                         sx={{ width: 80, height: 80 }}
                     
-                    >{props.datosAcceso.avatar ? props.datosAcceso.avatar : null}</Avatar>
+                    > {props.datosAcceso.avatar}</Avatar>
                 }
-            />
+            />: null }
+
             <CardContent className="row p-2 cardContent">
                 <Typography
                     className="name"
@@ -82,11 +83,12 @@ const CardAcceso = (props) => {
                         contained
                         primary
                         outlined
-                        
+                        onClick={props.datosAcceso.onClick}
                         text={props.datosAcceso.button} />
                 </CardActions>
 
             </CardContent>
+
         </CardComponentAcceso>
     )
 }
