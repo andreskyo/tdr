@@ -139,7 +139,12 @@ const datosSetting = {
   }
   
 
+const datosList={
+    id:"00990000",
+    servicios:"Servicios de organizaciones y órganos extraterritoriales",
+    alic:"Alic.: 1.5"
 
+}
 
 
 const Template = (args) => <CardsPrimary {...args} />;
@@ -166,6 +171,7 @@ CardPrimary.args = {
     datosCardText: datosCardText,
     datosVencimiento: datosVencimiento,
     datosProgress: datosProgress,
-    datosSetting: datosSetting
+    datosSetting: datosSetting,
+    datosList:datosList
 
 };

@@ -9,6 +9,7 @@ import CardText from './jsPrimary/CardText';
 import CardVencimiento from './jsPrimary/CardVencimiento';
 import CardProgress from './jsPrimary/CardProgress';
 import CardSetting from './jsPrimary/CardSetting'
+import CardList from './jsPrimary/CardList'
 import CardHLImg from './jsPrimary/CardHLImg';
 
 
@@ -47,6 +48,8 @@ export const CardsPrimary = ({ ...props }) => {
                 <CardSetting
                     datosSetting={props.datosSetting} /> : null}
 
+                    <CardList
+                    datosList={props.datosList}/>
 
         </>
     )

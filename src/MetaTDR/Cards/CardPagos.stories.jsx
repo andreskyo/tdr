@@ -47,7 +47,7 @@ const datosPagoDesktop={
 const Template = (args) => <CardPagos {...args} />;
 export const CardsPago = Template.bind({});
 
-export const CardPagoDos= Template.bind({})
+
 
 
 CardsPago.args = {
