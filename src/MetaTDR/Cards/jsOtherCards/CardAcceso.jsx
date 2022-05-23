@@ -81,6 +81,7 @@ const CardAcceso = (props) => {
                     <Buttons
                         contained
                         primary
+                        outlined
                         
                         text={props.datosAcceso.button} />
                 </CardActions>

@@ -14,12 +14,9 @@ const CardComponentPerfiles = styled(Card)`
     box-shadow: 0px 0px 2px rgba(14, 31, 53, 0.12), 0px 1px 4px rgba(14, 31, 53, 0.06);
     border-radius: 16px;
     flex-wrap: Wrap;
-  
-    
   } 
   .avatar{
     margin-top:-30px;
-    
   }
   .yzFfc.yzFfc {
     width:150px;
@@ -27,14 +24,12 @@ const CardComponentPerfiles = styled(Card)`
     color: #06B6D4;
     border: 1px solid #67E8F9;
     border-radius: 8px;
-    
   }
   .name{
-   font-family: 'SF UI Text';
-   font-style: normal;
-   font-weight: 600;
-   color: #272727;
-   
+    font-family: 'SF UI Text';
+    font-style: normal;
+    font-weight: 600;
+    color: #272727;
   }
   .job{
     font-family: 'SF UI Text';
@@ -43,7 +38,7 @@ const CardComponentPerfiles = styled(Card)`
     color: #272727;
   }
  .row{
-   margin-left:-30px;
+    margin-left:-30px;
  }
 
 `
@@ -59,13 +54,13 @@ const CardPerfiles = (props) => {
 
 
         <CardHeader
-          
+
           avatar={
             <Avatar
               className="avatar"
               alt="Remy Sharp"
               src={res.icon}
-              sx={{ width: 75, height: 75,marginTop:-1.5 }}
+              sx={{ width: 75, height: 75, marginTop: -1.5 }}
             />
           }
         />

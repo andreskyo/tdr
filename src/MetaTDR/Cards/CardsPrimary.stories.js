@@ -3,8 +3,10 @@ import { CardsPrimary } from "./CardsPrimary";
 import { Buttons } from '../Buttons/Butttons/Buttons';
 import { Typography } from '@mui/material';
 import RoundeCardImg from './img/RoundeCardImg.png';
+import Google from './img/Google.png';
 import TodayIcon from '@mui/icons-material/Today';
 import CloudDownloadOutlinedIcon from '@mui/icons-material/CloudDownloadOutlined';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import Chip from '@mui/material/Chip';
 import Button from '@mui/material/Button';
 
@@ -25,15 +27,15 @@ const datosCardInfoFull = {
     monto: "$1.512.739",
     incumplidas: "54 DDJJ incumplidos",
     buttonDetalle: "Ver detalle",
-    handleClickDetalle: () => {alert("detalle")},
-    handleClickSetting: ()=> {alert("setting")}
+    handleClickDetalle: () => { alert("detalle") },
+    handleClickSetting: () => { alert("setting") }
 }
 
 const datosCardInfoBasic = {
     descripcion: "Agentes de Retención de IIBB",
     incumplidas: "Período - Octubre",
     icon: <TodayIcon />,
-    handleClickSetting: ()=> {alert("setting")}
+    handleClickSetting: () => { alert("setting") }
 }
 
 const datosCardInput = {
@@ -68,7 +70,7 @@ const datosCardImg = {
     subtitulo: "13/10/2021",
     descripcion: "Write an amazing description in this dedicated card section. Each word counts.",
     buttonVerMas: "Ver más",
-    onClick: () => {alert("ver mas")},
+    onClick: () => { alert("ver mas") },
 }
 
 const datosCardStats = {
@@ -91,6 +93,52 @@ const datosVencimiento = {
     vencimientos: <Typography className="text-center"><p className="vencimiento">Inmobiliario Urbano Edificado: Cuota 1 y Anual Inmobiliario Urbano Edificado: Cuota 1 y Anual</p></Typography>
 }
 
+const datosProgress = {
+    icon: <img src={Google} />,
+    onClick: () => { alert("setting") },
+    title: "Headline",
+    value: "25",
+    maxValue: "50",
+}
+
+{
+    button: <Button
+     className="button"
+     disableRipple
+     endIcon={<ArrowForwardIosIcon
+         onClick={() => (alert("hola"))} />}>
+     Action
+ </Button>}
+
+const datosSetting = {
+  titulo:"Headline",
+  sub:"Write text here and switch everything.",
+    
+    buttons: [
+        { button: <Button
+            className="button"
+            disableRipple
+            endIcon={<ArrowForwardIosIcon
+                onClick={() => (alert("hola"))} />}>
+            Action
+        </Button> },
+        { button: <Button
+            className="button"
+            disableRipple
+            endIcon={<ArrowForwardIosIcon
+                onClick={() => (alert("hola"))} />}>
+            Action
+        </Button> },
+        { button: <Button
+            className="button"
+            disableRipple
+            endIcon={<ArrowForwardIosIcon
+                onClick={() => (alert("hola"))} />}>
+            Action
+        </Button> },]
+  }
+  
+
 
 
 
@@ -101,13 +149,15 @@ export const CardPrimary = Template.bind({});
 
 
 CardPrimary.args = {
-    cardInfoFull:false,
-    cardInfoBasic:false,
-    cardInput:false,
-    cardImg:false,
-    cardStats:false,
-    cardText:false,
-    cardVencimiento:false,
+    cardInfoFull: false,
+    cardInfoBasic: false,
+    cardInput: false,
+    cardImg: false,
+    cardStats: false,
+    cardText: false,
+    cardVencimiento: false,
+    cardProgress: false,
+    cardSetting:false,
     datosCardInfoFull: datosCardInfoFull,
     datosCardInfoBasic: datosCardInfoBasic,
     datosCardInput: datosCardInput,
@@ -115,5 +165,7 @@ CardPrimary.args = {
     datosCardStats: datosCardStats,
     datosCardText: datosCardText,
     datosVencimiento: datosVencimiento,
-    
+    datosProgress: datosProgress,
+    datosSetting: datosSetting
+
 };

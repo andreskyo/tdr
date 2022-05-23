@@ -90,7 +90,7 @@ const CardPerfil = (props) => {
             className="text-center"
             alt="Remy Sharp"
             src={props.datosPerfil.avatar}
-            sx={{ width: 90, height: 90, marginLeft: 2.5 }}
+            sx={{ width: 90, height: 90 }}
           />
         }
       />

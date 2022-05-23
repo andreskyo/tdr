@@ -8,6 +8,9 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import SportsBasketballIcon from '@mui/icons-material/SportsBasketball';
 import TodayIcon from '@mui/icons-material/Today';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
+import CodeIcon from '@mui/icons-material/Code';
+import LayersIcon from '@mui/icons-material/Layers';
+import LightIcon from '@mui/icons-material/Light';
 import { Buttons } from '../Buttons/Butttons/Buttons'
 
 
@@ -94,7 +97,7 @@ const datosCalendar = {
 
 const datosDailyStack = [
   {
-    iconTags:<p><GitHubIcon />Design Team Standup</p>,
+    iconTags:<p><LayersIcon className="icon"/>Design Team Standup</p>,
     horaTags:"08:00 - 11:00",
     tagColor:"primary",
     hora: "9:00",
@@ -102,7 +105,7 @@ const datosDailyStack = [
 
   },
   {
-    iconTags:<div className="d-flex" style={{textAlign:"center"}}><GitHubIcon /><p>Design Team Standup</p></div>,
+    iconTags:<p><CodeIcon className="icon"/>Design Team Standup</p>,
     horaTags:"08:00 - 11:00",
     tagColor:"warning",
     hora: "9:00",
@@ -110,13 +113,11 @@ const datosDailyStack = [
 
   },
   {
-    iconTags:<p style={{textAlign:"center"}}><GitHubIcon />Design Team Standup</p>,
+    iconTags:<p><LightIcon className="icon"/>Design Team Standup</p>,
     horaTags:"08:00 - 11:00",
-    tagColor:"primary",
+    tagColor:"error",
     hora: "9:00",
-
-
-  }
+   }
 ]
 
 const Template = (args) => <OtherCards {...args} />;
@@ -130,6 +131,8 @@ OtherCard.args = {
   cardVencimiento: false,
   cardCalendar: false,
   cardPerfiles: false,
+  cardAcceso:false,
+  cardDailyStacks:false,
   datosPerfil: datosPerfil,
   datosVencimiento: datosVencimiento,
   datosPerfiles: datosPerfiles,

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from "styled-components";
 import Button from '@material-ui/core/Button';
 import AddIcon from '@mui/icons-material/Add';
-import AccessAlarmIcon from '@mui/icons-material/AccessAlarm';
+
 
 
 
@@ -104,11 +104,12 @@ export const Buttons = ({ outlined, ...props }) => {
           color={"error"}
           disabled={props.disabled}
         >
-          {props.alarmIcon 
+          {props.icons
           ?
             <ButtonLinee
               disableRipple
-              startIcon={<AccessAlarmIcon />}>
+              startIcon={props.icon}
+          >
               {props.text}
             </ButtonLinee >
           : props.text}

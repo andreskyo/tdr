@@ -30,8 +30,8 @@ export const OtherCards = ({ ...props }) => {
             {props.cardAcceso ? <CardAcceso
                 datosAcceso={props.datosAcceso}/> : null}
 
-                {/* <CardDailyStacks
-                datosDailyStack={props.datosDailyStack}/> */}
+            {props.cardDailyStacks ? <CardDailyStacks
+                datosDailyStack={props.datosDailyStack}/> : null}
 
         </>
     )

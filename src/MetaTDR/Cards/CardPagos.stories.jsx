@@ -3,7 +3,8 @@ import React from 'react';
 import { CardPagos } from "./CardPagos";
 import MercadoPago from './img/MercadoPago.png';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-
+import CreditCardIcon from '@mui/icons-material/CreditCard';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 
 
 export default {
@@ -33,14 +34,28 @@ const datosPagosGateWay={
 
 }
 
+const datosPagoDesktop={
+  icon:<CreditCardIcon className="icon"/>,
+  titulo:"Online",
+  precio:"$ 12.44714",
+  descuento:"Incluye 5% de descuento",
+  descuentoA:"Incluye 5% de descuento",
+  iconB:<InfoOutlinedIcon className="iconB"/>
+
+}
+
 const Template = (args) => <CardPagos {...args} />;
 export const CardsPago = Template.bind({});
 
-
+export const CardPagoDos= Template.bind({})
 
 
 CardsPago.args = {
+    cardPagosMobile:false,
+    cardPagosGateWayMobile:false,
+    cardPagosDesktop:false,
     datosPagosMobile:datosPagosMobile,
-    datosPagosGateWay:datosPagosGateWay
+    datosPagosGateWay:datosPagosGateWay,
+    datosPagoDesktop:datosPagoDesktop
   
 };

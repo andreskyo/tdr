@@ -1,6 +1,6 @@
 import React from 'react';
 import AddIcon from '@mui/icons-material/Add';
-
+import AccessAlarmIcon from '@mui/icons-material/AccessAlarm';
 import { Buttons } from "./Buttons";
 
 
@@ -40,11 +40,12 @@ Buttonss.args = {
   text:"Large Button",
   size:'large',
   component:'span',
+  icon:<AccessAlarmIcon/>,
   primary:true,
   disabled:false,
   outlined:false,
   addIcon:false,
-  alarmIcon:false,
+  icons:false,
   line:false,
   onClick:alertt,
 };
