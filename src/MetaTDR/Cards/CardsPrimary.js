@@ -43,13 +43,14 @@ export const CardsPrimary = ({ ...props }) => {
 
             {props.cardProgress ? <CardProgress
                 datosProgress={props.datosProgress} /> : null}
-                
+
             {props.cardSetting ?
                 <CardSetting
                     datosSetting={props.datosSetting} /> : null}
+            {props.cardList ?
+                <CardList
+                    datosList={props.datosList} /> : null}
 
-                    <CardList
-                    datosList={props.datosList}/>
 
         </>
     )

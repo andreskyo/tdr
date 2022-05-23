@@ -163,6 +163,7 @@ CardPrimary.args = {
     cardVencimiento: false,
     cardProgress: false,
     cardSetting:false,
+    cardList:false,
     datosCardInfoFull: datosCardInfoFull,
     datosCardInfoBasic: datosCardInfoBasic,
     datosCardInput: datosCardInput,
