@@ -61,7 +61,7 @@ const CardAcceso = (props) => {
                         alt="Remy Sharp"
                         sx={{ width: 80, height: 80 }}
                     
-                    >{props.datosAcceso.avatar}</Avatar>
+                    >{props.datosAcceso.avatar ? props.datosAcceso.avatar : null}</Avatar>
                 }
             />
             <CardContent className="row p-2 cardContent">
