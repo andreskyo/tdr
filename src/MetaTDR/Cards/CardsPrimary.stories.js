@@ -1,13 +1,13 @@
 import React from 'react';
 import { CardsPrimary } from "./CardsPrimary";
-import { Buttons } from '../Buttons/Butttons/Buttons';
-import { Typography } from '@mui/material';
 import RoundeCardImg from './img/RoundeCardImg.png';
 import Google from './img/Google.png';
+import Smile from './img/Smile.png';
 import TodayIcon from '@mui/icons-material/Today';
 import CloudDownloadOutlinedIcon from '@mui/icons-material/CloudDownloadOutlined';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import Chip from '@mui/material/Chip';
+import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
+import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
 import Button from '@mui/material/Button';
 
 
@@ -22,93 +22,75 @@ export default {
 
 
 const datosCardInfoFull = {
-    descripcion: "Percepciones - Monto a pagar",
-    tagsMora: <Chip className="chipCard" label="En mora" color="error" />,
-    monto: "$1.512.739",
-    incumplidas: "54 DDJJ incumplidos",
-    buttonDetalle: "Ver detalle",
-    handleClickDetalle: () => { alert("detalle") },
+    titulo: "Percepciones - Monto a pagar",
+    sub: "$1.512.739",
+    tag:"En mora" ,
+    descripcion: "54 DDJJ incumplidos",
+    button: "Ver detalle",
+    handleClickButton: () => { alert("detalle") },
     handleClickSetting: () => { alert("setting") }
 }
 
+
+
 const datosCardInfoBasic = {
-    descripcion: "Agentes de Retención de IIBB",
-    incumplidas: "Período - Octubre",
+    titulo: "Agentes de Retención de IIBB",
+    sub: "Período - Octubre",
     icon: <TodayIcon />,
     handleClickSetting: () => { alert("setting") }
 }
 
 const datosCardInput = {
-    descripcion: "Headline",
-    incumplidas: "Paste your text here and use it.",
-
-    buttonUpload:
-        <Button
-            className="ButonSubirArchivo"
-            disableRipple
-            primary
-            endIcon={<CloudDownloadOutlinedIcon />}
-            variant="outlined"
-            onClick={() => alert("Subir archivo")}
-        >Subir Archivo
-        </Button>,
-
-    ButtonInput:
-        <Buttons
-            primary
-            size="large"
-            text="Button"
-            variant="contained"
-            component="span" />
-
+    titulo: <p className="titulo">Headline<span className="spanTitulo">Label</span></p>,
+    sub: "Paste your text here and use it.",
+    handleClickButton:() => {alert("Subir archivo")},
+    icon:<CloudDownloadOutlinedIcon />,
+    button:"Subir Archivo",
+    buttonInput:"Button"
 }
 
 const datosCardImg = {
-    img: <img src={RoundeCardImg} className="img-fluid" />,
+    img: RoundeCardImg,
     titulo: "Percepciones - Monto a pagar",
-    iconText: <TodayIcon className="icont" />,
-    subtitulo: "13/10/2021",
+    iconSub: <TodayIcon className="icont" />,
+    sub: "13/10/2021",
     descripcion: "Write an amazing description in this dedicated card section. Each word counts.",
-    buttonVerMas: "Ver más",
+    button: "Ver más",
     onClick: () => { alert("ver mas") },
 }
 
 const datosCardStats = {
     titulo: "Headline",
-    avatarImg: <TodayIcon />,
-    descripcion: "Lorem impsum dolor",
+    sub: "Lorem impsum dolor",
+    icon: <DirectionsCarIcon/>,
     button: "Mas informacion",
     onClick: () => alert("Mas informacion"),
 }
 
 const datosCardText = {
-    agente: <Typography><p className="title">Agente:</p> <p className="sub">Juan Martínez</p></Typography>,
-    cuit: <Typography><p className="title">Cuit:</p> <p className="sub">20-32456876</p></Typography>,
-    establecimiento: <Typography><p className="title">Establecimiento:</p> <p className="sub">000</p></Typography>
-
+    tituloA:"Agente",
+    descripcionA:"Juan Martínez",
+    tituloB: "CUIT",
+    descripcionB:"20-32456876",
+    tituloC: "Establecimiento",
+    descripcionC:"000",
 }
 
 const datosVencimiento = {
-    fecha: <Typography className="text-center"><p className="title m-0">22</p> <p className="sub">Febrero</p></Typography>,
-    vencimientos: <Typography className="text-center"><p className="vencimiento">Inmobiliario Urbano Edificado: Cuota 1 y Anual Inmobiliario Urbano Edificado: Cuota 1 y Anual</p></Typography>
+    titulo: "22",
+    sub:"Febrero",
+    descripcion: "Inmobiliario Urbano Edificado: Cuota 1 y Anual"
 }
 
 const datosProgress = {
-    icon: <img src={Google} />,
+    icon:Google,
     onClick: () => { alert("setting") },
-    title: "Headline",
-    value: "25",
+    titulo: "Headline",
+    value: "25.5",
     maxValue: "50",
 }
 
-{
-    button: <Button
-     className="button"
-     disableRipple
-     endIcon={<ArrowForwardIosIcon
-         onClick={() => (alert("hola"))} />}>
-     Action
- </Button>}
+
 
 const datosSetting = {
   titulo:"Headline",
@@ -140,13 +122,27 @@ const datosSetting = {
   
 
 const datosList={
-    id:"00990000",
-    servicios:"Servicios de organizaciones y órganos extraterritoriales",
-    alic:"Alic.: 1.5"
+    titulo:"00990000",
+    descripcion:"Servicios de organizaciones y órganos extraterritoriales",
+    sub:"Alic.: 1.5"
 
 }
 
+const datosInfo={
+    icon:Smile,
+    titulo:"Headline label",
+    handleClickSetting:() => {(alert("setting"))}
+}
 
+const datosStatsImg={
+    icon:<EmojiEmotionsIcon/>,
+    titulo:"Headline",
+    sub:"000.000.000",
+    subB:"boost everything",
+    tagLabel:"+ 100%",
+    
+
+}
 const Template = (args) => <CardsPrimary {...args} />;
 export const CardPrimary = Template.bind({});
 
@@ -164,6 +160,8 @@ CardPrimary.args = {
     cardProgress: false,
     cardSetting:false,
     cardList:false,
+    cardInfo:false,
+    cardStatsImg:false,
     datosCardInfoFull: datosCardInfoFull,
     datosCardInfoBasic: datosCardInfoBasic,
     datosCardInput: datosCardInput,
@@ -173,6 +171,8 @@ CardPrimary.args = {
     datosVencimiento: datosVencimiento,
     datosProgress: datosProgress,
     datosSetting: datosSetting,
-    datosList:datosList
+    datosList:datosList,
+    datosInfo:datosInfo,
+    datosStatsImg:datosStatsImg
 
 };

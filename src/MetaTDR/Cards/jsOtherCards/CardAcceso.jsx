@@ -16,34 +16,44 @@ const CardComponentAcceso = styled(Card)`
        border-radius: 16px;
        display:flex;
   } 
-  .kCWNvr.kCWNvr{
+  .yzFfc.yzFfc{
        margin-left:5px;
-       width: 88px;
-       height: 37px;
+       border: 1px solid #124596;
+       border-radius: 8px;
+       text-transform:none ;
+       :hover{
+           background:#124596;
+           color:white;
+       }
   }
 
-  .avatar{
-       margin-top:-10px;
+  .icon{
+       
        background:white;
        color:#78716C;
        border: 1.14341px solid #78716C;
+       
   } 
-  .name{
+
+  .css-i4bv87-MuiSvgIcon-root{
+      font-size:40px;
+  }
+  .titulo{
        font-family: 'SF UI Text';
        font-style: normal;
        font-weight: 600;
        color: #272727;
        margin-top: 20px;
   }
-  .job{
+  .descripcion{
        font-family: 'SF UI Text';
        font-style: normal;
        font-weight: 400;
        color: #272727;
   }
   .cardContent{
-      margin-left:-30px;
-      color:red;
+      
+      margin-left:-20px;
   }
  
 `
@@ -52,30 +62,34 @@ const CardAcceso = (props) => {
     return (
         <CardComponentAcceso>
 
-            {props.datosAcceso.avatar ?  
+
             <CardHeader
               
                 avatar={
+                    props.datosAcceso.icon ?
                     <Avatar
-                        className="avatar"
+                        className="icon"
                         alt="Remy Sharp"
-                        sx={{ width: 80, height: 80 }}
+                        sx={{ width:80, height: 80 }}
                     
-                    > {props.datosAcceso.avatar}</Avatar>
+                    > {props.datosAcceso.icon}</Avatar>
+                    :null
                 }
-            />: null }
+            />
+      
 
+      
             <CardContent className="row p-2 cardContent">
                 <Typography
-                    className="name"
+                    className="titulo"
                 >
-                    {props.datosAcceso.name}
+                    {props.datosAcceso.titulo}
                 </Typography>
 
                 <Typography
-                    className="job"
+                    className="descripcion"
                 >
-                    {props.datosAcceso.job}
+                    {props.datosAcceso.descripcion}
                 </Typography>
 
                 <CardActions>

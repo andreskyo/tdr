@@ -16,11 +16,12 @@ const CardComponentProgress = styled(Card)`
     box-shadow: 0px 0px 2px rgba(14, 31, 53, 0.12), 0px 1px 4px rgba(14, 31, 53, 0.06);
     border-radius: 16px;
  }
- .avatar{
+ .icon{
     background: #F4F6F9;
     border-radius: 10px;
  }
- .title{
+
+ .titulo{
     font-family: 'SF UI Text';
     font-style: normal;
     font-weight: bold;
@@ -61,11 +62,15 @@ const CardProgress = (props) => {
 
             <CardHeader
                 avatar={
+                    props.datosProgress.icon ?
                     <Avatar
-                        className="avatar "
+
+                        className="icon"
                         variant="square">
-                        {props.datosProgress.icon}
+                        <img src={props.datosProgress.icon} />
+                        
                     </Avatar>
+                    :null
                 }
                 action={
                     <IconButton
@@ -81,8 +86,8 @@ const CardProgress = (props) => {
             />
             <CardContent>
 
-                <Typography className="title">
-                    {props.datosProgress.title}
+                <Typography className="titulo">
+                    {props.datosProgress.titulo}
                 </Typography>
 
                 <>

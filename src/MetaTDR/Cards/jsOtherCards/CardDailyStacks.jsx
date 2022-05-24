@@ -19,7 +19,7 @@ const ComponentCardDaily = styled(Card)`
      height: auto;
      text-align:center;
    }
-   .hora{
+   .titulo{
      font-family: 'SF UI Text';
      font-style: normal;
      font-weight: 500;
@@ -55,16 +55,16 @@ const CardDailyStacks = (props) => {
                 <CardContent className="d-flex">
 
                     <Typography
-                        className="hora"
+                        className="titulo"
                     >
-                        {res.hora}
+                        {res.titulo}
                     </Typography>
 
                     <Chip
                         className="tag d-block "
                         color={res.tagColor}
-                        icon={res.iconTags}
-                        label="08:00 - 13:00"
+                        icon={res.icon}
+                        label={res.descripcion}
                     />
                 </CardContent>
             </>

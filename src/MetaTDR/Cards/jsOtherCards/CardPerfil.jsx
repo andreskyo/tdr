@@ -33,7 +33,7 @@ const CardComponentPerfil = styled(Card)`
     color: #A9A9A9;
     padding:6px;
   }
-  .name{
+  .titulo{
    font-family: 'SF UI Text';
    font-style: normal;
    font-weight: 600;
@@ -42,7 +42,7 @@ const CardComponentPerfil = styled(Card)`
    color: #272727;
    margin-top: 20px;
   }
-  .job{
+  .descripcion{
     font-family: 'SF UI Text';
     font-style: normal;
     font-weight: 400;
@@ -69,6 +69,7 @@ const CardPerfil = (props) => {
       return <>
         <IconButton 
         className="icons" 
+        disableRipple
         key={i}
         onClick={res.onClick}
         >
@@ -81,17 +82,19 @@ const CardPerfil = (props) => {
     return resultado
   }
   return (
-    <CardComponentPerfil className="container-fluid text-center" >
+    <CardComponentPerfil className="text-center" >
 
       <CardHeader
         style={{ display: "inline-block", textAlign: "center" }}
         avatar={
+          props.datosPerfil.icon ?
           <Avatar
             className="text-center"
             alt="Remy Sharp"
-            src={props.datosPerfil.avatar}
-            sx={{ width: 90, height: 90 }}
+            src={props.datosPerfil.icon}
+            sx={{ width: 90, height: 90,marginLeft:"15px" }}
           />
+          :null
         }
       />
 
@@ -105,18 +108,18 @@ const CardPerfil = (props) => {
          />
 
         <Typography 
-        className="name"
+        className="titulo"
         >
 
-        {props.datosPerfil.name}
+        {props.datosPerfil.title}
 
         </Typography>
 
         <Typography 
-        className="job"
+        className="descripcion"
         >
 
-        {props.datosPerfil.job}
+        {props.datosPerfil.descripcion}
 
         </Typography>
 

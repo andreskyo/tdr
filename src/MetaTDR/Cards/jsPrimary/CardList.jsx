@@ -12,28 +12,30 @@ const CardComponentList = styled(Card)`
     border-radius: 16px;
 }
 
-.id{
-    padding:2px;
-    font-family: 'SF UI Text';
-    font-style: normal;
-    font-weight: 500;
-    color: #78716C;
+.titulo{
+   font-family: 'SF UI Text';
+   font-style: normal;
+   font-weight: 500;
+   font-size: 13px;
+   color: #78716C;
+   padding:2px;
 }
 
-.servicios{
-    padding:2px;
+.descripcion{
     font-family: 'SF UI Text';
     font-style: normal;
     font-weight: 500;
-    font-size: 12px;
+    font-size: 14px;
     color: #27272A;
+    padding:2px;
 }
 
-.alic{
+.sub{
     padding:2px;
     font-family: 'SF UI Text';
     font-style: normal;
     font-weight: 400;
+    font-size: 13px;
     color: #8B5CF6;
 }
 `
@@ -44,16 +46,16 @@ const CardList = (props) => {
 
             <CardContent>
 
-                <Typography className="id">
-                    {props.datosList.id}
+                <Typography className="titulo">
+                    {props.datosList.titulo}
                 </Typography>
 
-                <Typography className="servicios">
-                    {props.datosList.servicios}
+                <Typography className="descripcion">
+                    {props.datosList.descripcion}
                 </Typography>
 
-                <Typography className="alic">
-                    {props.datosList.alic}
+                <Typography className="sub">
+                    {props.datosList.sub}
                 </Typography>
 
             </CardContent>

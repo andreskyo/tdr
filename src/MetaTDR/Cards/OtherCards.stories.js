@@ -24,9 +24,9 @@ export default {
 };
 
 const datosPerfil = {
-  avatar: Usuario,
-  name: "Neel Deshmukh",
-  job: "Fullstack Developer @Sky",
+  icon: Usuario,
+  title: "Neel Deshmukh",
+  descripcion: "Fullstack Developer @Sky",
   labelTags: "PRO",
   onClickMessage:()=>{alert("message")},
   onClickConnect:()=>{alert("connect")},
@@ -46,47 +46,47 @@ const datosPerfil = {
 }
 
 const datosVencimiento = {
-  fecha: "17 de octubre",
-  job: "Fullstack Developer @Sky",
+  titulo: "17 de octubre",
+  descripcion: "Fullstack Developer @Sky",
   icon: <TodayIcon />
 }
 
 
 const datosPerfiles = [{
   icon: Usuario,
-  name: "Neel Deshmukhaa",
-  job: "Frontend Dev @Stripe",
+  titulo: "Neel Deshmukhaa",
+  descripcion: "Frontend Dev @Stripe",
   button: "Message",
   onClick:()=>{alert("Message")}
 },
 {
   icon: Usuario,
-  name: "Neel Deshmukh ",
-  job: "Frontend Dev @Stripe",
+  titulo: "Neel Deshmukh ",
+  descripcion: "Frontend Dev @Stripe",
   button: "Message",
   onClick:()=>{alert("Message")}
 },
 {
   icon: Usuario,
-  name: "Neel Deshmukh ",
-  job: "Frontend Dev @Stripe",
+  titulo: "Neel Deshmukh ",
+  descripcion: "Frontend Dev @Stripe",
   button: "Message",
   onClick:()=>{alert("Message")}
 },
 {
   icon: Usuario,
-  name: "Neel Deshmukh",
-  job: "Frontend Dev @Stripe",
+  titulo: "Neel Deshmukh",
+  descripcion: "Frontend Dev @Stripe",
   button: "Message",
   onClick:()=>{alert("Message")}
 }
 ]
 
 const datosAcceso = {
-  avatar: <NotificationsNoneIcon fontSize="large" />,
+  icon: <NotificationsNoneIcon/>, 
   onClick:()=>{alert("button")},
-  name: "Drishti Ratan",
-  job: "Fashion Designer @Clover ",
+  titulo: "Drishti Ratan",
+  descripcion: "Fashion Designer @Clover ",
   button: "PRIMARY",
 
 }
@@ -98,26 +98,26 @@ const datosCalendar = {
 
 const datosDailyStack = [
   {
-    iconTags:<p><LayersIcon className="icon"/>Design Team Standup</p>,
-    horaTags:"08:00 - 11:00",
+    icon:<p><LayersIcon className="icon"/>Design Team Standup</p>,
+    descripcion:"08:00 - 11:00",
     tagColor:"primary",
-    hora: "9:00",
+    titulo: "9:00",
 
 
   },
   {
-    iconTags:<p><CodeIcon className="icon"/>Design Team Standup</p>,
-    horaTags:"08:00 - 11:00",
+    icon:<p><CodeIcon className="icon"/>Design Team Standup</p>,
+    descripcion:"08:00 - 11:00",
     tagColor:"warning",
-    hora: "9:00",
+    titulo: "9:00",
 
 
   },
   {
-    iconTags:<p><LightIcon className="icon"/>Design Team Standup</p>,
-    horaTags:"08:00 - 11:00",
+    icon:<p><LightIcon className="icon"/>Design Team Standup</p>,
+    descripcion:"08:00 - 11:00",
     tagColor:"error",
-    hora: "9:00",
+    titulo: "9:00",
    }
 ]
 

@@ -11,6 +11,8 @@ import CardProgress from './jsPrimary/CardProgress';
 import CardSetting from './jsPrimary/CardSetting'
 import CardList from './jsPrimary/CardList'
 import CardHLImg from './jsPrimary/CardHLImg';
+import CardInfo from './jsPrimary/CardInfo';
+import CardStatsImg from './jsPrimary/CardStatsImg'
 
 
 
@@ -47,13 +49,21 @@ export const CardsPrimary = ({ ...props }) => {
             {props.cardSetting ?
                 <CardSetting
                     datosSetting={props.datosSetting} /> : null}
+
             {props.cardList ?
                 <CardList
                     datosList={props.datosList} /> : null}
 
+            {props.cardInfo ?
+                <CardInfo
+                    datosInfo={props.datosInfo} />
 
+                : null}
 
-
+            {props.cardStatsImg ?
+                <CardStatsImg
+                    datosStatsImg={props.datosStatsImg} />
+                : null}
         </>
     )
 

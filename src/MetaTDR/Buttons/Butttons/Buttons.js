@@ -116,6 +116,7 @@ export const Buttons = ({ outlined, ...props }) => {
         </ButtonLinee>
         :
         <Buttonn
+          
           onClick={() => props.onClick()}
           component={props.component}
           disableRipple

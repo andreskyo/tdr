@@ -12,7 +12,7 @@ const CardComponentVencimiento = styled(Card)`
     box-shadow: 0px 0px 2px rgba(14, 31, 53, 0.12), 0px 1px 4px rgba(14, 31, 53, 0.06);
     border-radius: 16px;
 }
-.avatar{
+.icon{
     margin:20px auto;
     background: #F1F5F9;
     color:#27272A;
@@ -22,7 +22,7 @@ const CardComponentVencimiento = styled(Card)`
     font-size:50px;
 }
 
-.fecha{
+.titulo{
     margin-top:20px;
     font-family: 'SF UI Text';
     font-style: normal;
@@ -33,7 +33,7 @@ const CardComponentVencimiento = styled(Card)`
     color: #124596;
 }
 
-.job{
+.descripcion{
     font-family: 'SF UI Text';
     font-style: normal;
     font-weight: 400;
@@ -48,28 +48,28 @@ const CardVencimiento = (props) => {
     return (
         <CardComponentVencimiento className="container-fluid m-0">
 
-
-            <Avatar
-                className="avatar"
-                alt="Remy Sharp"
-                sx={{ width: 80, height: 80, marginLeft: 2.5 }}>
-                {props.datosVencimiento.icon}
-            </Avatar>
-
+            {props.datosVencimiento.icon ?
+                <Avatar
+                    className="icon"
+                    alt="Remy Sharp"
+                    sx={{ width: 80, height: 80, marginLeft: 2.5 }}>
+                    {props.datosVencimiento.icon}
+                </Avatar>
+                : null}
 
             <Typography
-                className="fecha">
-                {props.datosVencimiento.fecha}
+                className="titulo">
+                {props.datosVencimiento.titulo}
             </Typography>
 
 
             <Divider />
 
 
-            <Typography 
-               className="job">
+            <Typography
+                className="descripcion">
 
-                {props.datosVencimiento.job}
+                {props.datosVencimiento.descripcion}
 
             </Typography>
 

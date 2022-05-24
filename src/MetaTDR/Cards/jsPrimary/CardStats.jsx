@@ -3,8 +3,6 @@ import styled from "styled-components";
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import Avatar from '@mui/material/Avatar';
-import IconButton from '@mui/material/IconButton';
-import { grey } from '@mui/material/colors';
 import { Buttons } from '../../Buttons/Butttons/Buttons';
 
 const CardComponentStats = styled(Card)`
@@ -14,8 +12,13 @@ const CardComponentStats = styled(Card)`
     border-radius: 16px;
 }
 
-.css-zcfty8-MuiAvatar-root{
-    margin-top:20px;
+.icon{
+    margin-top:0px;
+    width: 50px;
+    height: 50px;
+    background: #E2E8F0;
+    color:#27272A;
+    margin-right:10px;
 }
 
 .css-1qvr50w-MuiTypography-root {
@@ -39,6 +42,7 @@ const CardComponentStats = styled(Card)`
     font-weight: 600;
     color: #0077E6;
 }    
+
 .css-sgoict-MuiCardHeader-action{
     margin-top:15px;
     
@@ -48,27 +52,30 @@ const CardComponentStats = styled(Card)`
 
 const CardStats = (props) => {
     return (
-        <CardComponentStats className="container-fluid  m-0">
+        <CardComponentStats >
 
             <CardHeader
 
                 action={
-
-                    <Avatar sx={{ background: "#E2E8F0", color:"#27272A" }} aria-label="recipe">
-                        {props.datosCardStats.avatarImg}
-                    </Avatar>
+                    props.datosCardStats.icon ?
+                        <Avatar
+                            className="icon"
+                            aria-label="recipe">
+                            {props.datosCardStats.icon}
+                        </Avatar>
+                        : null
 
                 }
                 title={props.datosCardStats.titulo}
                 subheader={
                     <>
-                    
-                            {props.datosCardStats.descripcion}
-                            
-                        <br/>
-                            
+
+                        {props.datosCardStats.sub}
+
+                        <br />
+
                         <Buttons
-                            
+
                             onClick={props.datosCardStats.onClick}
                             className="button"
                             primary
@@ -77,8 +84,8 @@ const CardStats = (props) => {
                     </>
                 }
 
-/>
-   
+            />
+
 
 
         </CardComponentStats >

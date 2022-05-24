@@ -15,7 +15,7 @@ const CardComponentPerfiles = styled(Card)`
     border-radius: 16px;
     flex-wrap: Wrap;
   } 
-  .avatar{
+  .icon{
     margin-top:-30px;
   }
   .yzFfc.yzFfc {
@@ -25,13 +25,13 @@ const CardComponentPerfiles = styled(Card)`
     border: 1px solid #67E8F9;
     border-radius: 8px;
   }
-  .name{
+  .titulo{
     font-family: 'SF UI Text';
     font-style: normal;
     font-weight: 600;
     color: #272727;
   }
-  .job{
+  .descripcion{
     font-family: 'SF UI Text';
     font-style: normal;
     font-weight: 400;
@@ -56,26 +56,29 @@ const CardPerfiles = (props) => {
         <CardHeader
 
           avatar={
+            res.icon ?
             <Avatar
-              className="avatar"
+              className="icon"
               alt="Remy Sharp"
               src={res.icon}
               sx={{ width: 75, height: 75, marginTop: -1.5 }}
+              
             />
+            :null
           }
         />
 
         <CardContent className="row  ">
           <Typography
-            className="name"
+            className="titulo"
           >
-            {res.name}
+            {res.titulo}
           </Typography>
 
           <Typography
-            className="job"
+            className="descripcion"
           >
-            {res.job}
+            {res.descripcion}
           </Typography>
 
           <CardActions>

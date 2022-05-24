@@ -14,15 +14,22 @@ const CardComponentSetting = styled(Card)`
 .css-1qvr50w-MuiTypography-root {
     font-family: 'SF UI Text';
     font-style: normal;
-    font-weight: 500;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 150%;
     color: #27272A;
+    margin-left:5px;
+
 }
 .css-nrdprl-MuiTypography-root{
     font-family: 'SF UI Text';
     font-style: normal;
     font-weight: 400;
+    font-size: 13px;
     color: #78716C;
+    margin-left:5px;
 }
+
 .button{
     width:100%;
     display:flex;

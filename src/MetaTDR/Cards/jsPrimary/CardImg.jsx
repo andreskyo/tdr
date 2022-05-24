@@ -36,6 +36,7 @@ const CardContentImg = styled(Card)`
     color: #27272A;
 }
   .yzFfc.yzFfc {
+    font-family: 'SF UI Text';
     font-style: normal;
     font-weight: bold;
     margin-left:20px;
@@ -44,17 +45,18 @@ const CardContentImg = styled(Card)`
     align-items: center;
     padding: 8px 16px;
     width: 95px;
-  }
+    color: #124596;
+}
 `
 
 const CardImg = (props) => {
     return (
-        <CardContentImg
-            className="container-fluid ">
+        <CardContentImg>
             <CardMedia
-                className="row col-12 m-0  img mt-2">
+            className="row" style={{width:"99%",margin:"auto",marginTop:"10px"}}>
                 
-                {props.datosCardImg.img}
+                
+             {props.datosCardImg.img ? <img style={{margin:"auto"}} src={props.datosCardImg.img}/> : null}
 
             </CardMedia>
 
@@ -73,8 +75,8 @@ const CardImg = (props) => {
                     className="col-12 mt-3 subtitulo"
                     variant="body2"
                     color="text.secondary">
-                    {props.datosCardImg.iconText}
-                    {props.datosCardImg.subtitulo}
+                    {props.datosCardImg.iconSub}
+                    {props.datosCardImg.sub ? props.datosCardImg.sub : null}
 
                 </Typography>
                 <Typography
@@ -91,7 +93,7 @@ const CardImg = (props) => {
                 <Buttons
                     medium
                     onClick={props.datosCardImg.onClick}
-                    text={props.datosCardImg.buttonVerMas}
+                    text={props.datosCardImg.button}
                     primary
                     outlined />
 
