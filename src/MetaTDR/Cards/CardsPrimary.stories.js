@@ -191,7 +191,7 @@ CardPrimary.args = {
     cardSetting: false,
     cardList: false,
     cardInfo: false,
-    cardStatsImg: false,
+    cardStatsImg:false,
     datosCardInfoFull: datosCardInfoFull,
     datosCardInfoBasic: datosCardInfoBasic,
     datosCardInput: datosCardInput,

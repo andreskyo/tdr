@@ -28,9 +28,19 @@ const datosPerfil = {
   title: "Neel Deshmukh",
   descripcion: "Fullstack Developer @Sky",
   labelTags: "PRO",
-  onClickMessage:()=>{alert("message")},
-  onClickConnect:()=>{alert("connect")},
-  icons: [
+  buttonMessage : <Buttons
+  className="buttonMessage"
+  onClick={() => (alert("message"))}
+  primary
+  outlined
+  text="Message" />,
+  buttonConnect:<Buttons
+  className="buttonConnect"
+  onClick={() => (alert("message"))}
+  primary
+  text="Connect" />,
+
+icons: [
     { icon: <GitHubIcon />,
       onClick:()=>{alert("icon")} },
     { icon: <LinkedInIcon />,
@@ -56,38 +66,59 @@ const datosPerfiles = [{
   icon: Usuario,
   titulo: "Neel Deshmukhaa",
   descripcion: "Frontend Dev @Stripe",
-  button: "Message",
-  onClick:()=>{alert("Message")}
+  button: <Buttons
+  className="button"
+  primary
+  outlined
+  onClick={() => (alert("message"))}
+  text="Message" />
+  
 },
 {
   icon: Usuario,
   titulo: "Neel Deshmukh ",
   descripcion: "Frontend Dev @Stripe",
-  button: "Message",
-  onClick:()=>{alert("Message")}
+  button: <Buttons
+  className="button"
+  primary
+  outlined
+  onClick={() => (alert("message"))}
+  text="Message" />
 },
 {
   icon: Usuario,
   titulo: "Neel Deshmukh ",
   descripcion: "Frontend Dev @Stripe",
-  button: "Message",
-  onClick:()=>{alert("Message")}
+  button: <Buttons
+  className="button"
+  primary
+  outlined
+  onClick={() => (alert("message"))}
+  text="Message" />
 },
 {
   icon: Usuario,
   titulo: "Neel Deshmukh",
   descripcion: "Frontend Dev @Stripe",
-  button: "Message",
-  onClick:()=>{alert("Message")}
+  button: <Buttons
+  className="button"
+  primary
+  outlined
+  onClick={() => (alert("message"))}
+  text="Message" />
 }
 ]
 
 const datosAcceso = {
   icon: <NotificationsNoneIcon/>, 
-  onClick:()=>{alert("button")},
   titulo: "Drishti Ratan",
   descripcion: "Fashion Designer @Clover ",
-  button: "PRIMARY",
+  button: <Buttons
+  className="button"
+  primary
+  outlined
+  onClick={() => (alert("Primary"))}
+  text="Primary" />
 
 }
 
@@ -128,7 +159,7 @@ export const OtherCard = Template.bind({});
 
 
 OtherCard.args = {
-  cardPerfil: false,
+  cardPerfil: true,
   cardVencimiento: false,
   cardCalendar: false,
   cardPerfiles: false,

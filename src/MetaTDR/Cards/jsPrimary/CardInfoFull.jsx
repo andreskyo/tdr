@@ -143,10 +143,9 @@ const CardInfoFull = (props) => {
                     :
                     null}
 
-                {props.datosCardInfoFull.button ?
-                    props.datosCardInfoFull.button
-                    :
-                    null}
+                <div className="container-button">
+                    {props.datosCardInfoFull.button ? props.datosCardInfoFull.button:null}
+                </div>
             </CardContentInfo>
 
         </CardComponentInfo>

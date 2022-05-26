@@ -57,21 +57,24 @@ const CardVencimiento = (props) => {
                 </Avatar>
                 : null}
 
-            <Typography
-                className="titulo">
-                {props.datosVencimiento.titulo}
-            </Typography>
+            {props.datosVencimiento.titulo ?
+                <Typography
+                    className="titulo">
+                    {props.datosVencimiento.titulo}
+                </Typography>
 
+                : null}
 
             <Divider />
 
+            {props.datosVencimiento.descripcion ?
+                <Typography
+                    className="descripcion">
 
-            <Typography
-                className="descripcion">
+                    {props.datosVencimiento.descripcion}
 
-                {props.datosVencimiento.descripcion}
-
-            </Typography>
+                </Typography>
+                : null}
 
 
         </CardComponentVencimiento>

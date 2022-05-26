@@ -66,17 +66,17 @@ const PagoDesktop = (props) => {
     <CardComponentPagoDesktop>
          <CardHeader
                className="header"
-               title={<>{props.datosPagoDesktop.icon ? props.datosPagoDesktop.icon : null }{props.datosPagoDesktop.titulo}</>}
+               title={<>{props.datosPagoDesktop.icon ? props.datosPagoDesktop.icon : null }{props.datosPagoDesktop.titulo ? props.datosPagoDesktop.titulo : null}</>}
 
             />
-            
+            {props.datosPagoDesktop.sub || props.datosPagoDesktop.descripcion || props.datosPagoDesktop.descripcionB || props.datosPagoDesktop.iconB ?
             <CardContent className="cardContent">
                 <Typography className="sub">{props.datosPagoDesktop.sub}</Typography>
                 <Typography className="descripcion">{props.datosPagoDesktop.descripcion}</Typography>
                 <Typography className="descripcionB">{props.datosPagoDesktop.descripcionB}</Typography>
                 <Typography className="iconB">{props.datosPagoDesktop.iconB}</Typography>
             </CardContent>
-
+        :null}
         </CardComponentPagoDesktop>
   )
 }

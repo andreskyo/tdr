@@ -74,7 +74,7 @@ const CardStats = (props) => {
 
                         <br />
 
-                        {props.datosCardStats.sub ? props.datosCardStats.button: null}
+                        {props.datosCardStats.sub ? <div className="container-button">{props.datosCardStats.button}</div>: null}
                     </>
                 }
 

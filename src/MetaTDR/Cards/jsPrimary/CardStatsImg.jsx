@@ -24,6 +24,9 @@ const CardComponentStatImg = styled(Card)`
     padding:0px;
 
 }
+.css-185gdzj-MuiCardHeader-root{
+    height:auto ;
+}
 .css-1qvr50w-MuiTypography-root{
     font-family: 'SF UI Text';
     font-style: normal;
@@ -65,7 +68,7 @@ const CardComponentStatImg = styled(Card)`
 const CardStatsImg = (props) => {
     return (
         <CardComponentStatImg >
-
+{props.datosStatsImg.titulo || props.datosStatsImg.sub || props.datosStatsImg.icon ?
             <CardHeader
 
                 action={
@@ -75,14 +78,16 @@ const CardStatsImg = (props) => {
                             aria-label="recipe">
                             {props.datosStatsImg.icon}
                         </Avatar>
+
                         : null
-
                 }
-                title={props.datosStatsImg.titulo ? props.datosStatsImg.titulo : null}
+                
+                title = {props.datosStatsImg.titulo ? props.datosStatsImg.titulo : null}
                 subheader={props.datosStatsImg.sub ? props.datosStatsImg.sub : null}
-
+            
             />
-
+        :null}
+        
             <CardContent className="cardContent">
 
                 {props.datosStatsImg.tagLabel ?

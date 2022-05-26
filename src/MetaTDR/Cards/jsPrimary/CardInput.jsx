@@ -31,6 +31,15 @@ const CardComponentInput = styled(Card)`
     font-size: 12px;
     color: #0077E6;
     margin-left:10px;
+
+    :hover{
+        color: #0077E6; 
+        border: 1px solid #4AA9FF;
+    }
+    :active{
+        color: #0077E6; 
+        border: 1px solid #4AA9FF;
+    }
  
 }
 
@@ -95,9 +104,7 @@ const CardInput = (props) => {
                     <>
                         {props.datosCardInput.sub ? props.datosCardInput.sub : null}
 
-                        {props.datosCardInput.button ?
-
-                            props.datosCardInput.button
+                        {props.datosCardInput.button ? <div className="container-button">{props.datosCardInput.button}</div>
 
                             : null}
                     </>}
@@ -117,6 +124,7 @@ const CardInput = (props) => {
 
                                 <label htmlFor="contained-button-file">
                                     <Input accept="image/*" id="contained-button-file" multiple type="file" />
+                                    <div className="container-button">
                                     <Button
                                         disableRipple
                                         className="buttonInput"
@@ -125,6 +133,7 @@ const CardInput = (props) => {
                                         component="span" >
                                         {props.datosCardInput.input}
                                     </Button>
+                                    </div>
                                 </label>
                             </InputAdornment>
                     }}>

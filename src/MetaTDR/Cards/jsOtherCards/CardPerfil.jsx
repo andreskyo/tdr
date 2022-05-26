@@ -18,16 +18,40 @@ const CardComponentPerfil = styled(Card)`
     box-shadow: 0px 0px 2px rgba(14, 31, 53, 0.12), 0px 1px 4px rgba(14, 31, 53, 0.06);
     border-radius: 16px;
   } 
-  .yzFfc.yzFfc {
+  .buttonMessage {
     border: 1px solid #67E8F9;
     border-radius: 8px;
     color: #06B6D4;
+    margin-right:10px;
+    width: 101px;
+    height: 40px;
+    :hover{
+      color: #06B6D4;
+      border: 1px solid #67E8F9;
+    }
+    :active{
+      color: #06B6D4;
+      border: 1px solid #67E8F9;
+    }
+   
   }  
-  .kCWNvr.kCWNvr {
+  .buttonConnect {
     border: 1px solid #06B6D4;
     border-radius: 8px;
     background:#06B6D4;
     color: #FFFFFF;
+    width: 101px;
+    height: 40px;
+    :hover{
+      background:#06B6D4;
+      border: 1px solid #06B6D4;
+      color: #FFFFFF;
+    }
+    :active{
+      background:#06B6D4;
+      border: 1px solid #06B6D4;
+      color: #FFFFFF;
+    }
   }
   .icons{
     color: #A9A9A9;
@@ -63,18 +87,20 @@ const CardComponentPerfil = styled(Card)`
 const CardPerfil = (props) => {
 
   const renderIcons = () => {
-    
+
     let resultado = props.datosPerfil.icons.map((res, i) => {
-      
+
       return <>
-        <IconButton 
-        className="icons" 
-        disableRipple
-        key={i}
-        onClick={res.onClick}
-        >
-          {res.icon}
-        </IconButton>
+        {res.icon ?
+          <IconButton
+            className="icons"
+            disableRipple
+            key={i}
+            onClick={res.onClick}
+          >
+            {res.icon}
+          </IconButton>
+          : null}
       </>
 
     })
@@ -87,67 +113,75 @@ const CardPerfil = (props) => {
       <CardHeader
         style={{ display: "inline-block", textAlign: "center" }}
         avatar={
+
           props.datosPerfil.icon ?
-          <Avatar
-            className="text-center"
-            alt="Remy Sharp"
-            src={props.datosPerfil.icon}
-            sx={{ width: 90, height: 90,marginLeft:"15px" }}
-          />
-          :null
+            <Avatar
+              className="text-center"
+              alt="Remy Sharp"
+              src={props.datosPerfil.icon}
+              sx={{ width: 90, height: 90, marginLeft: "15px" }}
+            />
+            : null
         }
       />
+      {props.datosPerfil.labelTags || props.datosPerfil.title || props.datosPerfil.descripcion || props.datosPerfil.buttonMessage || props.datosPerfil.buttonConnect ?
+        <CardContent>
 
-       <CardContent>
-        
-        <Chip
-        className="tag"
-        variant="outlined" 
-        label={props.datosPerfil.labelTags}
-        color="primary" 
-         />
+          {props.datosPerfil.labelTags ?
+            <Chip
+              className="tag"
+              variant="outlined"
+              label={props.datosPerfil.labelTags ? props.datosPerfil.labelTags : null}
+              color="primary"
+            />
+            : null}
 
-        <Typography 
-        className="titulo"
-        >
+          {props.datosPerfil.title ?
+            <Typography
+              className="titulo"
+            >
 
-        {props.datosPerfil.title}
+              {props.datosPerfil.title}
 
-        </Typography>
+            </Typography>
+            : null}
 
-        <Typography 
-        className="descripcion"
-        >
+          {props.datosPerfil.descripcion ?
+            <Typography
+              className="descripcion"
+            >
 
-        {props.datosPerfil.descripcion}
+              {props.datosPerfil.descripcion}
 
-        </Typography>
+            </Typography>
+            : null}
 
-        <CardActions 
-        disableSpacing 
-        style={{ display: "block", textAlign: "center" }}>
+          <CardActions
+            disableSpacing
+            style={{ display: "block", textAlign: "center" }}>
 
-        {renderIcons()}
+            {renderIcons()}
 
-        </CardActions>
+          </CardActions>
 
-        <CardActions 
-        className="m-auto" 
-        style={{ display: "inline-block", textAlign: "center" }}>
+          {props.datosPerfil.buttonMessage || props.datosPerfil.buttonConnect ?
 
-          <Buttons
-            onClick={props.datosPerfil.onClickMessage}
-            primary
-            outlined
-            text="Message" />
-          <Buttons
-          onClick={props.datosPerfil.onClickConnect}
-            primary
-            text="Connect" />
-        </CardActions>
+            <CardActions
+              className="d-flex"
+              style={{ justifyContent: "space-around" }}>
 
-      </CardContent>
+              < div className="container-button ">
+                {props.datosPerfil.buttonMessage ? props.datosPerfil.buttonMessage : null}
 
+
+                {props.datosPerfil.buttonConnect ? props.datosPerfil.buttonConnect : null}
+              </div>
+            </CardActions>
+
+            : null}
+
+        </CardContent>
+        : null}
 
     </CardComponentPerfil>
 

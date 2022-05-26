@@ -5,7 +5,7 @@ import CardHeader from '@mui/material/CardHeader';
 import IconButton from '@mui/material/IconButton';
 
 
-const CardComponentMobile= styled(Card)`
+const CardComponentMobile = styled(Card)`
 &&
 {
    background: #FFFFFF;
@@ -46,27 +46,30 @@ const CardComponentMobile= styled(Card)`
 
 `
 
-const PagoMobile= (props) => {
+const PagoMobile = (props) => {
     return (
         <CardComponentMobile>
-            <CardHeader
-                avatar={
-                    props.datosPagosMobile.icon ?
-
-                    <IconButton>
-                        
-                        <img src={props.datosPagosMobile.icon} alt="" />
-                        
-                    </IconButton>
-
-                    :null
-                }
-
-                title={props.datosPagosMobile.titulo}
-                subheader={props.datosPagosMobile.descripcion}
-            />
 
 
+            {props.datosPagosMobile.titulo || props.datosPagosMobile.icon || props.datosPagosMobile.descripcion ?
+                <CardHeader
+                    avatar={
+                        props.datosPagosMobile.icon ?
+
+                            <IconButton>
+
+                                <img src={props.datosPagosMobile.icon} alt="" />
+
+                            </IconButton>
+
+                            : null
+                    }
+
+                    title={props.datosPagosMobile.titulo}
+                    subheader={props.datosPagosMobile.descripcion}
+                />
+
+                : null}
         </CardComponentMobile>
     )
 }

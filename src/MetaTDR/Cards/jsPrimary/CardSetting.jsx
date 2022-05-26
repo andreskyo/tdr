@@ -49,7 +49,7 @@ const CardSetting = (props) => {
     const render = () => {
         let resultado = props.datosSetting.buttonss.map((res, i) => {
             return <>
-                {res.button ? res.button : null}
+                {res.button ? <div className="container-button">{res.button}</div> : null}
             </>
 
 
@@ -60,23 +60,25 @@ const CardSetting = (props) => {
 
     return (
         <CardComponentSetting >
-            <CardHeader
+            {props.datosSetting.titulo || props.datosSetting.sub ?
+                <CardHeader
 
 
-                title={props.datosSetting.titulo ? props.datosSetting.titulo : null}
-                subheader={props.datosSetting.sub ? props.datosSetting.sub : null}
+                    title={props.datosSetting.titulo ? props.datosSetting.titulo : null}
+                    subheader={props.datosSetting.sub ? props.datosSetting.sub : null}
 
 
 
-            />
-           
-            
-                <CardContent>
+                />
 
-                    {render()}
-
-                </CardContent>
+                : null}
                 
+            <CardContent>
+
+                {render()}
+
+            </CardContent>
+
 
         </CardComponentSetting>
     )

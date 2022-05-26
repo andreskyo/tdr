@@ -137,3 +137,5 @@ export const Buttons = ({ outlined, ...props }) => {
   );
 
 };
+
+export default Buttons 

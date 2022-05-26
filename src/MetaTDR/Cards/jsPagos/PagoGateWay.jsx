@@ -60,28 +60,29 @@ const PagoGateWay = (props) => {
             <CardHeader
                 avatar={
                     props.datosPagosGateWay.icon ?
-                    <IconButton
-                        onClick={props.datosPagosGateWay.onClick}
-                        className="p-0"
-                        disableRipple>
+                        <IconButton
+                            onClick={props.datosPagosGateWay.onClick}
+                            className="p-0"
+                            disableRipple>
 
 
-                        {props.datosPagosGateWay.icon}
+                            {props.datosPagosGateWay.icon}
 
-                    </IconButton>
-                    : null
+                        </IconButton>
+                        : null
                 }
 
                 title={props.datosPagosGateWay.titulo}
 
             />
-            <CardContent>
-                <Typography className="sub">{props.datosPagosGateWay.sub}</Typography>
-                <Typography className="subB">{props.datosPagosGateWay.subB}</Typography>
-                <Typography className="descripcion">{props.datosPagosGateWay.descripcion}</Typography>
-                <Typography className="descripcionB">{props.datosPagosGateWay.descripcionB}</Typography>
-            </CardContent>
-
+            {props.datosPagosGateWay.sub || props.datosPagosGateWay.subB || props.datosPagosGateWay.descripcion || props.datosPagosGateWay.descripcionB ?
+                <CardContent>
+                    {props.datosPagosGateWay.sub ? <Typography className="sub">{props.datosPagosGateWay.sub}</Typography> : null}
+                    {props.datosPagosGateWay.subB ? <Typography className="subB">{props.datosPagosGateWay.subB}</Typography> : null}
+                    {props.datosPagosGateWay.subB ? <Typography className="descripcion">{props.datosPagosGateWay.descripcion}</Typography> : null}
+                    {props.datosPagosGateWay.descripcionB ? <Typography className="descripcionB">{props.datosPagosGateWay.descripcionB}</Typography> : null}
+                </CardContent>
+                : null}
         </CardComponentGateWay>
     )
 }

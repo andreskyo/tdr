@@ -39,13 +39,21 @@ const CardContentImg = styled(Card)`
     font-family: 'SF UI Text';
     font-style: normal;
     font-weight: bold;
-    margin-left:20px;
+    margin-left:5px;
     border: 1px solid #124596;
     border-radius: 8px;
     align-items: center;
     padding: 8px 16px;
     width: 95px;
     color: #124596;
+  :hover{
+    border: 1px solid #124596;
+    color: #124596;
+  }
+  :active{
+    border: 1px solid #124596;
+    color: #124596;
+  }
 }
 `
 
@@ -73,16 +81,17 @@ const CardImg = (props) => {
                     </Typography>
                     : null}
 
+                {props.datosCardImg.sub || props.datosCardImg.iconSub ?
+                    <Typography
+                        className="col-12 mt-3 subtitulo"
+                        variant="body2"
+                        color="text.secondary">
 
-                <Typography
-                    className="col-12 mt-3 subtitulo"
-                    variant="body2"
-                    color="text.secondary">
+                        {props.datosCardImg.iconSub ? props.datosCardImg.iconSub : null}
+                        {props.datosCardImg.sub ? props.datosCardImg.sub : null}
+                    </Typography>
 
-                    {props.datosCardImg.iconSub ? props.datosCardImg.iconSub : null}
-                    {props.datosCardImg.sub ? props.datosCardImg.sub : null}
-                </Typography>
-
+                    : null}
 
                 {props.datosCardImg.descripcion ?
 
@@ -94,13 +103,14 @@ const CardImg = (props) => {
                     </Typography>
 
                     : null}
+
             </CardContent>
             {props.datosCardImg.button ?
                 <CardActions
                     className="row button col-12">
-
-                    {props.datosCardImg.button}
-
+                    <div className="container-button">
+                        {props.datosCardImg.button}
+                    </div>
                 </CardActions>
                 : null}
         </CardContentImg>

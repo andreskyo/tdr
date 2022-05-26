@@ -69,3 +69,5 @@ export const CardsPrimary = ({ ...props }) => {
 
 
 };
+
+export default CardsPrimary

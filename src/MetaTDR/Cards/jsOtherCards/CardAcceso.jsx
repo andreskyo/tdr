@@ -16,7 +16,7 @@ const CardComponentAcceso = styled(Card)`
        border-radius: 16px;
        display:flex;
   } 
-  .yzFfc.yzFfc{
+  .button{
        margin-left:5px;
        border: 1px solid #124596;
        border-radius: 8px;
@@ -51,10 +51,7 @@ const CardComponentAcceso = styled(Card)`
        font-weight: 400;
        color: #272727;
   }
-  .cardContent{
-      
-      margin-left:-20px;
-  }
+ 
  
 `
 
@@ -62,45 +59,43 @@ const CardAcceso = (props) => {
     return (
         <CardComponentAcceso>
 
+            {props.datosAcceso.icon ?
+                <CardHeader
+                    avatar={
+                        props.datosAcceso.icon ?
+                            <Avatar
+                                className="icon"
+                                alt="Remy Sharp"
+                                sx={{ width: 80, height: 80 }}
 
-            <CardHeader
-              
-                avatar={
-                    props.datosAcceso.icon ?
-                    <Avatar
-                        className="icon"
-                        alt="Remy Sharp"
-                        sx={{ width:80, height: 80 }}
-                    
-                    > {props.datosAcceso.icon}</Avatar>
-                    :null
-                }
-            />
-      
+                            > {props.datosAcceso.icon}</Avatar>
+                            : null
+                    }
+                />
+                : null}
 
-      
             <CardContent className="row p-2 cardContent">
-                <Typography
-                    className="titulo"
-                >
-                    {props.datosAcceso.titulo}
-                </Typography>
-
-                <Typography
-                    className="descripcion"
-                >
-                    {props.datosAcceso.descripcion}
-                </Typography>
-
-                <CardActions>
-                    <Buttons
-                        contained
-                        primary
-                        outlined
-                        onClick={props.datosAcceso.onClick}
-                        text={props.datosAcceso.button} />
-                </CardActions>
-
+                {props.datosAcceso.titulo ?
+                    <Typography
+                        className="titulo"
+                    >
+                        {props.datosAcceso.titulo}
+                    </Typography>
+                    : null}
+                {props.datosAcceso.descripcion ?
+                    <Typography
+                        className="descripcion"
+                    >
+                        {props.datosAcceso.descripcion}
+                    </Typography>
+                    : null}
+                {props.datosAcceso.button ?
+                    <CardActions>
+                        <div className="container-button">
+                            {props.datosAcceso.button}
+                        </div>
+                    </CardActions>
+                    : null}
             </CardContent>
 
         </CardComponentAcceso>
