@@ -57,7 +57,7 @@ const datosCardInput = {
 
 const datosCardImg = {
     img: RoundeCardImg,
-    titulo: "Percepciones - Monto a pagar",
+    titulo: "Headline",
     iconSub: <TodayIcon className="icont" />,
     sub: "13/10/2021",
     descripcion: "Write an amazing description in this dedicated card section. Each word counts.",
@@ -183,7 +183,7 @@ CardPrimary.args = {
     cardInfoFull: false,
     cardInfoBasic: false,
     cardInput: false,
-    cardImg: false,
+    cardImg: true,
     cardStats: false,
     cardText: false,
     cardVencimiento: false,

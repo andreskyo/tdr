@@ -35,6 +35,7 @@ export const OtherCards = ({ ...props }) => {
 
         </>
     )
-
-
+    
 };
+
+export default OtherCards

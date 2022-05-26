@@ -19,7 +19,7 @@ const CardContentImg = styled(Card)`
     font-style: normal;
     font-weight: 500;
     line-height: 150%;
-    color: #27272A;
+    color: black;
 
 }
 .icont{
@@ -30,10 +30,11 @@ const CardContentImg = styled(Card)`
     color: #78716C;
 }
 .descripcion{
+    font-family: 'SF UI Text';
     font-style: normal;
     font-weight: 400;
     line-height: 150%;
-    color: #27272A;
+    color:black;
 }
   .boton {
     font-family: 'SF UI Text';
