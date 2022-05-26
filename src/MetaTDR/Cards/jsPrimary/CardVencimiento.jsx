@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from "styled-components";
 import Card from '@mui/material/Card';
-import Divider from '@mui/material/Divider';
 import { Typography } from '@mui/material';
 
 const CardComponentVencimiento = styled(Card)`
@@ -50,32 +49,37 @@ const CardVencimiento = (props) => {
 
     return (
         <CardComponentVencimiento>
+            {props.datosVencimiento.titulo ?
+                <Typography className="text-center titulo">
 
-            <Typography className="text-center titulo">
+                    {props.datosVencimiento.titulo}
 
-                {props.datosVencimiento.titulo}
+                </Typography>
 
-            </Typography>
+                : null}
 
-            <Typography className="text-center sub">
+            {props.datosVencimiento.sub ?
+                <Typography className="text-center sub">
 
-                {props.datosVencimiento.sub}
+                    {props.datosVencimiento.sub}
 
-            </Typography>
+                </Typography>
 
-          
+                : null}
 
-            <Divider variant="middle" />
-               
-            
+            {props.datosVencimiento.divider ? props.datosVencimiento.divider : null}
 
-            <Typography className="text-start descripcion">
+            {props.datosVencimiento.descripcion ?
 
-                {props.datosVencimiento.descripcion}
-               
-            </Typography>
+                <Typography className="text-start descripcion">
 
-            
+                    {props.datosVencimiento.descripcion}
+
+                </Typography>
+
+                : null}
+
+
         </CardComponentVencimiento>
     )
 }

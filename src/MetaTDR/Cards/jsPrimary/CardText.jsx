@@ -42,43 +42,56 @@ const CardText = (props) => {
     return (
         <CardComponentText >
 
-            <Typography className="titulo">
+            {props.datosCardText.tituloA ?
+                <Typography className="titulo">
 
-                {props.datosCardText.tituloA}
+                    {props.datosCardText.tituloA}
 
-            </Typography>
+                </Typography>
+                : null}
 
-            <Typography className="descripcion">
+            {props.datosCardText.descripcionA ?
 
-                {props.datosCardText.descripcionA}
+                <Typography className="descripcion">
 
-            </Typography>
+                    {props.datosCardText.descripcionA}
 
-            <Typography className="titulo">
+                </Typography>
 
-                {props.datosCardText.tituloB}
+                : null}
 
-            </Typography>
+            {props.datosCardText.tituloB ?
+                <Typography className="titulo">
 
+                    {props.datosCardText.tituloB}
 
-            <Typography className="descripcion">
+                </Typography>
 
-                {props.datosCardText.descripcionB}
+                : null}
 
-            </Typography>
+            {props.datosCardText.descripcionB ?
+                <Typography className="descripcion">
 
-            <Typography className="titulo">
+                    {props.datosCardText.descripcionB}
 
-                {props.datosCardText.tituloC}
+                </Typography>
+                : null}
 
-            </Typography>
+            {props.datosCardText.tituloC ?
+                <Typography className="titulo">
 
+                    {props.datosCardText.tituloC}
 
-            <Typography className="descripcion">
+                </Typography>
 
-                {props.datosCardText.descripcionC}
+                : null}
+            {props.datosCardText.tituloC ?
+                <Typography className="descripcion">
 
-            </Typography>
+                    {props.datosCardText.descripcionC}
+
+                </Typography>
+                : null}
 
 
         </CardComponentText>

@@ -18,7 +18,7 @@ const CardComponentInput = styled(Card)`
    border-radius: 14px;
 }
 
-.ButonSubirArchivo{
+.boton{
     width: 141px;
     height: 37px;
     opacity: 0.8;
@@ -31,7 +31,9 @@ const CardComponentInput = styled(Card)`
     font-size: 12px;
     color: #0077E6;
     margin-left:10px;
+ 
 }
+
 .titulo {
     font-family: 'SF UI Text';
     font-style: normal;
@@ -88,20 +90,16 @@ const CardInput = (props) => {
             <CardHeader
 
 
-                title={<>{props.datosCardInput.titulo}</>}
+                title={props.datosCardInput.titulo ? <>{props.datosCardInput.titulo}</> : null}
                 subheader={
                     <>
-                        {props.datosCardInput.sub}
-                        <Button
-                            className="ButonSubirArchivo"
-                            onClick={props.datosCardInput.handleClickButton}
-                            disableRipple
-                            primary
-                            endIcon={props.datosCardInput.icon ? props.datosCardInput.icon : null}
-                            variant="outlined">
-                            {props.datosCardInput.button}
-                        </Button>
+                        {props.datosCardInput.sub ? props.datosCardInput.sub : null}
 
+                        {props.datosCardInput.button ?
+
+                            props.datosCardInput.button
+
+                            : null}
                     </>}
 
             />
@@ -125,7 +123,7 @@ const CardInput = (props) => {
                                         size="large"
                                         variant="contained"
                                         component="span" >
-                                        {props.datosCardInput.buttonInput}
+                                        {props.datosCardInput.input}
                                     </Button>
                                 </label>
                             </InputAdornment>

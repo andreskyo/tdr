@@ -35,7 +35,7 @@ const CardContentImg = styled(Card)`
     line-height: 150%;
     color: #27272A;
 }
-  .yzFfc.yzFfc {
+  .boton {
     font-family: 'SF UI Text';
     font-style: normal;
     font-weight: bold;
@@ -53,51 +53,56 @@ const CardImg = (props) => {
     return (
         <CardContentImg>
             <CardMedia
-            className="row" style={{width:"99%",margin:"auto",marginTop:"10px"}}>
-                
-                
-             {props.datosCardImg.img ? <img style={{margin:"auto"}} src={props.datosCardImg.img}/> : null}
+                className="row" style={{ width: "99%", margin: "auto", marginTop: "10px" }}>
+
+
+                {props.datosCardImg.img ? <img style={{ margin: "auto" }} src={props.datosCardImg.img} /> : null}
 
             </CardMedia>
 
             <CardContent
                 className="row">
 
-                <Typography
-                    className="col-12 m-0 titulo"
-                    gutterBottom
-                    variant="h5"
-                    component="div">
-                    {props.datosCardImg.titulo}
-                </Typography>
+                {props.datosCardImg.titulo ?
+                    <Typography
+                        className="col-12 m-0 titulo"
+                        gutterBottom
+                        variant="h5"
+                        component="div">
+                        {props.datosCardImg.titulo}
+                    </Typography>
+                    : null}
+
 
                 <Typography
                     className="col-12 mt-3 subtitulo"
                     variant="body2"
                     color="text.secondary">
-                    {props.datosCardImg.iconSub}
+
+                    {props.datosCardImg.iconSub ? props.datosCardImg.iconSub : null}
                     {props.datosCardImg.sub ? props.datosCardImg.sub : null}
-
                 </Typography>
-                <Typography
-                    className="col-12 mt-3 descripcion"
-                    variant="body2">
 
-                    {props.datosCardImg.descripcion}
-                </Typography>
+
+                {props.datosCardImg.descripcion ?
+
+                    <Typography
+                        className="col-12 mt-3 descripcion"
+                        variant="body2">
+
+                        {props.datosCardImg.descripcion}
+                    </Typography>
+
+                    : null}
             </CardContent>
+            {props.datosCardImg.button ?
+                <CardActions
+                    className="row button col-12">
 
-            <CardActions
-                className="row button col-12">
+                    {props.datosCardImg.button}
 
-                <Buttons
-                    medium
-                    onClick={props.datosCardImg.onClick}
-                    text={props.datosCardImg.button}
-                    primary
-                    outlined />
-
-            </CardActions>
+                </CardActions>
+                : null}
         </CardContentImg>
     )
 }

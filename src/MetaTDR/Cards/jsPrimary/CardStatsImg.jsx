@@ -78,21 +78,26 @@ const CardStatsImg = (props) => {
                         : null
 
                 }
-                title={props.datosStatsImg.titulo}
-                subheader={props.datosStatsImg.sub}
+                title={props.datosStatsImg.titulo ? props.datosStatsImg.titulo : null}
+                subheader={props.datosStatsImg.sub ? props.datosStatsImg.sub : null}
 
             />
 
             <CardContent className="cardContent">
-                <Chip
-                    className="tag"
-                    color="success"
-                    label={props.datosStatsImg.tagLabel} />
 
-                <Typography
-                    className="subB">
-                    {props.datosStatsImg.subB}
-                </Typography>
+                {props.datosStatsImg.tagLabel ?
+                    <Chip
+                        className="tag"
+                        color="success"
+                        label={props.datosStatsImg.tagLabel} />
+                    : null}
+
+                {props.datosStatsImg.subB ?
+                    <Typography
+                        className="subB">
+                        {props.datosStatsImg.subB}
+                    </Typography>
+                    : null}
 
             </CardContent>
 

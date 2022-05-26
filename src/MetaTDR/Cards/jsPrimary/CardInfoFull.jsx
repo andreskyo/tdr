@@ -5,9 +5,8 @@ import CardHeader from '@mui/material/CardHeader';
 import CardContent from '@mui/material/CardContent';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Chip from '@mui/material/Chip';
-import { Buttons } from '../../Buttons/Butttons/Buttons';
+
 
 
 
@@ -73,7 +72,7 @@ const CardContentInfo = styled(CardContent)`
    color: #78716C;
 }
 
-.fCCzJv.fCCzJv{
+.boton{
     margin-left:-7px;
     font-family: 'Nunito';
     font-style: normal;
@@ -94,51 +93,60 @@ const CardInfoFull = (props) => {
             <CardHeader className="cardHeader"
 
                 action={
+                    props.datosCardInfoFull ?
+                        <IconButton
+                            disableRipple
+                            aria-label="settings"
+                        >
 
-                    <IconButton
-                        disableRipple
-                        aria-label="settings"
-                    >
-                        <MoreVertIcon
+                            {props.datosCardInfoFull.iconSetting}
 
-                            onClick={props.datosCardInfoFull.handleClickSetting}
-                            disableRipple />
-                    </IconButton>
+                        </IconButton>
+                        : null
                 }
                 title={
-                    <>
-                        {props.datosCardInfoFull.titulo}
 
-                        <Chip
-                            className="tag"
-                            label={props.datosCardInfoFull.tag}
-                            color="error" />
-                    </>}
+                    <>
+                        {props.datosCardInfoFull.titulo ? props.datosCardInfoFull.titulo : null}
+
+                        {props.datosCardInfoFull.tag ?
+                            <Chip
+                                className="tag"
+                                label={props.datosCardInfoFull.tag}
+                                color="error" />
+                            : null}
+                    </>
+
+                }
 
 
 
             />
             <CardContentInfo>
 
+                {props.datosCardInfoFull.sub ?
+                    <Typography
+                        className="sub"
+                        variant="h5"
+                        component="div">
+                        {props.datosCardInfoFull.sub}
+                    </Typography>
+                    :
+                    null}
 
-                <Typography
-                    className="sub"
-                    variant="h5"
-                    component="div">
-                    {props.datosCardInfoFull.sub}
-                </Typography>
+                {props.datosCardInfoFull.sub ?
+                    <Typography
+                        className="descripcion"
+                        color="text.secondary">
+                        {props.datosCardInfoFull.descripcion}
+                    </Typography>
+                    :
+                    null}
 
-                <Typography
-                    className="descripcion"
-                    color="text.secondary">
-                    {props.datosCardInfoFull.descripcion}
-                </Typography>
-
-                <Buttons
-                    
-                    text={props.datosCardInfoFull.button}
-                    onClick={props.datosCardInfoFull.handleClickButton}
-                    line />
+                {props.datosCardInfoFull.button ?
+                    props.datosCardInfoFull.button
+                    :
+                    null}
             </CardContentInfo>
 
         </CardComponentInfo>

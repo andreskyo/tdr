@@ -47,9 +47,9 @@ const CardComponentSetting = styled(Card)`
 
 const CardSetting = (props) => {
     const render = () => {
-        let resultado = props.datosSetting.buttons.map((res, i) => {
+        let resultado = props.datosSetting.buttonss.map((res, i) => {
             return <>
-                {res.button}
+                {res.button ? res.button : null}
             </>
 
 
@@ -63,17 +63,20 @@ const CardSetting = (props) => {
             <CardHeader
 
 
-                title={props.datosSetting.titulo}
-                subheader={props.datosSetting.sub}
+                title={props.datosSetting.titulo ? props.datosSetting.titulo : null}
+                subheader={props.datosSetting.sub ? props.datosSetting.sub : null}
 
 
 
             />
-            <CardContent>
+           
+            
+                <CardContent>
 
-                {render()}
+                    {render()}
 
-            </CardContent>
+                </CardContent>
+                
 
         </CardComponentSetting>
     )

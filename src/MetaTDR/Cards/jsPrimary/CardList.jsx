@@ -45,19 +45,24 @@ const CardList = (props) => {
         <CardComponentList >
 
             <CardContent>
+                {props.datosList.titulo ?
+                    <Typography className="titulo">
+                        {props.datosList.titulo}
+                    </Typography>
+                    : null}
 
-                <Typography className="titulo">
-                    {props.datosList.titulo}
-                </Typography>
+                {props.datosList.descripcion ?
+                    <Typography className="descripcion">
+                        {props.datosList.descripcion}
+                    </Typography>
+                    : null}
 
-                <Typography className="descripcion">
-                    {props.datosList.descripcion}
-                </Typography>
-
-                <Typography className="sub">
-                    {props.datosList.sub}
-                </Typography>
-
+                {props.datosList.sub ?
+                    <Typography className="sub">
+                        {props.datosList.sub}
+                    </Typography>
+                    : null}
+                    
             </CardContent>
 
         </CardComponentList>

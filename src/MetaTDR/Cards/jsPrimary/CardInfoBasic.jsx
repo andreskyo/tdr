@@ -54,20 +54,21 @@ const CardInfoBasic = (props) => {
         }
      
         action={
+          props.datosCardInfoBasic.iconSetting ?
           <IconButton
             disableRipple
             aria-label="settings">
-            <MoreVertIcon
+           
+            {props.datosCardInfoBasic.iconSetting}
               
-              style={{color:"black"}}
-              onClick={props.datosCardInfoBasic.handleClickSetting}
-              disableRipple
               
-              />
           </IconButton>
+          :null
         }
-        title={props.datosCardInfoBasic.titulo}
-        subheader={props.datosCardInfoBasic.sub}
+        
+        title={props.datosCardInfoBasic.titulo ? props.datosCardInfoBasic.titulo : null}
+      
+        subheader={props.datosCardInfoBasic.sub ? props.datosCardInfoBasic.sub  : null}
       />
 
 

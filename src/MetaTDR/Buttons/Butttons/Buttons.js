@@ -10,7 +10,7 @@ import AddIcon from '@mui/icons-material/Add';
 const PrimaryButton = styled(Button)`
 && {
   background: ${({ outlined }) => outlined ? 'transparent ' : ' #124596'};
-  border:${({ outlined }) => outlined ? '1px solid #124596 ' : '1px solid #004BE8'};
+  border:${({ outlined }) => outlined ? '1px solid #124596 ' : ' 1px solid #124596;'};
   color:${({ outlined }) => outlined ? '#124596' : 'white'};
   text-transform: none;
   font-family: 'Nunito';
@@ -30,9 +30,10 @@ const PrimaryButton = styled(Button)`
   }
   &&:disabled {
   background: ${({ outlined }) => outlined ? 'none' : 'rgba(11, 95, 255, 0.5)'};
-  color:white;
+  color: ${({ outlined }) => outlined ? 'rgba(11, 95, 255, 0.5)' : 'white'};
+  
+  
   }
-
   
   `
 
@@ -55,6 +56,7 @@ const SecondaryButton = styled(Button)`
   }
   &&:disabled {
   background:${({ outlined }) => outlined ? 'none' : ' rgba(25, 171, 79, 0.5)'};
+  
   color:white;
   }
 `;
@@ -98,27 +100,23 @@ export const Buttons = ({ outlined, ...props }) => {
       {props.line
         ?
         <ButtonLinee
+          className={props.className}
           onClick={() => props.onClick()}
           disableRipple
           size={props.size}
-          color={"error"}
           disabled={props.disabled}
+          startIcon={props.icons ? props.icon : null}
+          endIcon={props.endIcon}
         >
-          {props.icons
-          ?
-            <ButtonLinee
-              disableRipple
-              startIcon={props.icon}
-          >
-              {props.text}
-            </ButtonLinee >
-          : props.text}
+          
+          {props.text}
         </ButtonLinee>
         :
         <Buttonn
-          
+          className={props.className}
           onClick={() => props.onClick()}
-          component={props.component}
+          startIcon={props.startIcon}
+          endIcon={props.endIcon}
           disableRipple
           primary={props.primary}
           disabled={props.disabled}
@@ -126,10 +124,10 @@ export const Buttons = ({ outlined, ...props }) => {
           outlined={outlined}
         >
           {props.addIcon
-          ?
+            ?
             <AddIcon />
-          : props.text}
-            </Buttonn>}
+            : props.text}
+        </Buttonn>}
 
 
 
@@ -139,5 +137,3 @@ export const Buttons = ({ outlined, ...props }) => {
   );
 
 };
-
-

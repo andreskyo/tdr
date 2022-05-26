@@ -5,7 +5,6 @@ import CardHeader from '@mui/material/CardHeader';
 import CardContent from '@mui/material/CardContent';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import { Buttons } from '../../Buttons/Butttons/Buttons';
 import Avatar from '@mui/material/Avatar';
 import LinearProgress from '@mui/material/LinearProgress';
@@ -63,50 +62,52 @@ const CardProgress = (props) => {
             <CardHeader
                 avatar={
                     props.datosProgress.icon ?
-                    <Avatar
+                        <Avatar
 
-                        className="icon"
-                        variant="square">
-                        <img src={props.datosProgress.icon} />
-                        
-                    </Avatar>
-                    :null
+                            className="icon"
+                            variant="square">
+                            <img src={props.datosProgress.icon} />
+
+                        </Avatar>
+                        : null
                 }
                 action={
-                    <IconButton
-                        disableRipple
-                        aria-label="settings"
-                        onClick={props.datosProgress.onClick}
-                    >
-                        <MoreHorizIcon
-                            style={{ color: "black" }}
-                            disableRipple />
-                    </IconButton>
+                    props.datosProgress.iconSetting ?
+                        <IconButton
+                            disableRipple
+                            aria-label="settings"
+                            onClick={props.datosProgress.onClick}
+                        >
+                            {props.datosProgress.iconSetting}
+                        </IconButton>
+                        : null
                 }
             />
             <CardContent>
-
-                <Typography className="titulo">
-                    {props.datosProgress.titulo}
-                </Typography>
-
+                {props.datosProgress.titulo ?
+                    <Typography className="titulo">
+                        {props.datosProgress.titulo}
+                    </Typography>
+                    : null}
                 <>
 
-
-                    <Typography
-                        variant="body2"
-                        className="gb"
-                        style={{ float: "left" }}
-                        color="text.secondary">
-                        {props.datosProgress.value}<span className="p-1">GB</span>
-                    </Typography>
-
-                    <Typography
-                        variant="body2"
-                        className="gb"
-                        style={{ float: "right" }}
-                        color="text.secondary">{props.datosProgress.maxValue}<span className="p-1">GB</span>
-                    </Typography>
+                    {props.datosProgress.value ?
+                        <Typography
+                            variant="body2"
+                            className="gb"
+                            style={{ float: "left" }}
+                            color="text.secondary">
+                            {props.datosProgress.value}<span className="p-1">GB</span>
+                        </Typography>
+                        : null}
+                    {props.datosProgress.maxValue ?
+                        <Typography
+                            variant="body2"
+                            className="gb"
+                            style={{ float: "right" }}
+                            color="text.secondary">{props.datosProgress.maxValue}<span className="p-1">GB</span>
+                        </Typography>
+                        : null}
                 </>
 
                 <LinearProgress

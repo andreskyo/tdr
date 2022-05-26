@@ -35,7 +35,7 @@ const CardComponentStats = styled(Card)`
     color: #78716C;
 }
 
-.fCCzJv.fCCzJv {
+.button{
     font-family: 'Nunito';
     margin-top:0px;
     margin-left:-7px;
@@ -66,21 +66,15 @@ const CardStats = (props) => {
                         : null
 
                 }
-                title={props.datosCardStats.titulo}
+                title={props.datosCardStats.titulo ? props.datosCardStats.titulo : null}
                 subheader={
                     <>
 
-                        {props.datosCardStats.sub}
+                        {props.datosCardStats.sub ? props.datosCardStats.sub : null}
 
                         <br />
 
-                        <Buttons
-
-                            onClick={props.datosCardStats.onClick}
-                            className="button"
-                            primary
-                            line
-                            text={props.datosCardStats.button} />
+                        {props.datosCardStats.sub ? props.datosCardStats.button: null}
                     </>
                 }
 

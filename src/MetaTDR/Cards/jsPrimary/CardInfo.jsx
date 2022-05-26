@@ -41,13 +41,7 @@ const CardInfo = (props) => {
           <IconButton
             disableRipple
             aria-label="settings">
-            <MoreHorizIcon 
-              onClick={props.datosInfo.handleClickSetting}
-              style={{color:"black"}}
-              
-              disableRipple
-              
-              />
+          {props.datosInfo.iconSetting ? props.datosInfo.iconSetting : null}
           </IconButton>
         }
         title={props.datosInfo.titulo}
