@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from "styled-components";
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import { Buttons } from '../../Buttons/Butttons/Buttons';
@@ -13,107 +12,129 @@ const CardContentImg = styled(Card)`
     background: #FFFFFF;
     box-shadow: 0px 0px 2px rgba(14, 31, 53, 0.12), 0px 1px 4px rgba(14, 31, 53, 0.06);
     border-radius: 16px;
+    width:100%;
+    height: 100%;
+    
   }  
-  
-.titulo{
+ 
+.cardMedia{
+    display:flex;
+    justify-content: center;
+    
+.img{
+    width:95%;
+    padding-top:8px;
+    border-radius: 16px 16px 0px 0px;
+   }
+}
+ 
+.cardContent{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    
+   
+    .titulo{
+    font-family: 'SF UI Text';
     font-style: normal;
     font-weight: 500;
+    font-size: 20px;
     line-height: 150%;
-    color: black;
+    }
 
 }
-.icont{
+   .icont{
     color:#78716C;
-    font-size:17px;
+    font-size:18px;
+    
+    
 }
-.subtitulo{
+   .sub{
     color: #78716C;
+    font-family: 'SF UI Text';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 150%;
 }
+
 .descripcion{
     font-family: 'SF UI Text';
     font-style: normal;
     font-weight: 400;
     line-height: 150%;
+    font-size: 14px;
     color:black;
 }
-  .boton {
-    font-family: 'SF UI Text';
-    font-style: normal;
-    font-weight: bold;
-    margin-left:5px;
-    border: 1px solid #124596;
-    border-radius: 8px;
-    align-items: center;
-    padding: 8px 16px;
-    width: 95px;
-    color: #124596;
-  :hover{
-    border: 1px solid #124596;
-    color: #124596;
-  }
-  :active{
-    border: 1px solid #124596;
-    color: #124596;
-  }
-}
+ 
 `
 
 const CardImg = (props) => {
     return (
         <CardContentImg>
-            <CardMedia
-                className="row" style={{ width: "99%", margin: "auto", marginTop: "10px" }}>
+            {props.datosCardImg.img ?
 
+                <CardMedia
+                    className="cardMedia">
 
-                {props.datosCardImg.img ? <img style={{ margin: "auto" }} src={props.datosCardImg.img} /> : null}
+                    {props.datosCardImg.img}
 
-            </CardMedia>
+                </CardMedia>
 
-            <CardContent
-                className="row">
-
-                {props.datosCardImg.titulo ?
-                    <Typography
-                        className="col-12 m-0 titulo"
-                        gutterBottom
-                        variant="h5"
-                        component="div">
-                        {props.datosCardImg.titulo}
-                    </Typography>
-                    : null}
-
-                {props.datosCardImg.sub || props.datosCardImg.iconSub ?
-                    <Typography
-                        className="col-12 mt-3 subtitulo"
-                        variant="body2"
-                        color="text.secondary">
-
-                        {props.datosCardImg.iconSub ? props.datosCardImg.iconSub : null}
-                        {props.datosCardImg.sub ? props.datosCardImg.sub : null}
-                    </Typography>
-
-                    : null}
-
-                {props.datosCardImg.descripcion ?
-
-                    <Typography
-                        className="col-12 mt-3 descripcion"
-                        variant="body2">
-
-                        {props.datosCardImg.descripcion}
-                    </Typography>
-
-                    : null}
-
-            </CardContent>
-            {props.datosCardImg.button ?
-                <CardActions
-                    className="row button col-12">
-                    <div className="container-button">
-                        {props.datosCardImg.button}
-                    </div>
-                </CardActions>
                 : null}
+
+            {props.datosCardImg.titulo || props.datosCardImg.sub || props.datosCardImg.iconSub || props.datosCardImg.descripcion || props.datosCardImg.button ?
+                <CardContent className="cardContent">
+
+                    <div className="ContentText">
+                        {props.datosCardImg.titulo ?
+
+                            <Typography
+                                className="titulo"
+                                gutterBottom
+                                variant="h5"
+                                component="div">
+                                {props.datosCardImg.titulo}
+                            </Typography>
+                            : null}
+
+                        {props.datosCardImg.sub || props.datosCardImg.iconSub ?
+                            <Typography
+                                className="d-flex "
+                                variant="body2 sub"
+                                color="text.secondary">
+
+                                {props.datosCardImg.iconSub ? props.datosCardImg.iconSub : null}
+                                {props.datosCardImg.sub ? props.datosCardImg.sub : null}
+                            </Typography>
+
+                            : null}
+
+                        {props.datosCardImg.descripcion ?
+
+                            <Typography
+                                className="pt-2 descripcion"
+                                variant="body2">
+
+                                {props.datosCardImg.descripcion}
+                            </Typography>
+
+                            : null}
+                    </div>
+                    {props.datosCardImg.button ?
+
+                        <div className="container-button pt-4">
+
+                            {props.datosCardImg.button}
+
+                        </div>
+
+                        : null}
+
+                </CardContent>
+                : null}
+
         </CardContentImg>
     )
 }

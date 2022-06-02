@@ -15,20 +15,22 @@ const CardComponentInfo = styled(Card)`
     background: #FFFFFF;
     box-shadow: 0px 0px 2px rgba(14, 31, 53, 0.12), 0px 1px 4px rgba(14, 31, 53, 0.06);
     border-radius: 16px;
-}
-
-
-.tag{
-    background: #DC2626;
-    border-radius: 4px;
-    font-family: 'SF UI Text';
-    font-style: normal;
-    font-weight: 500;
-    line-height: 150%;
-    color: #F3F4F6;
-    margin-left:5px;
+    width:100%;
+    display:flex;
+    flex-direction: column;
     
 }
+
+.cardHeader{
+    width:100%;
+    display:flex;
+    align-items: center;
+    padding-bottom: 0px;
+}
+.titulo{
+   display:flex;
+   align-items: center;
+ }
 
 .css-1qvr50w-MuiTypography-root{
     font-family: 'Nunito';
@@ -37,18 +39,40 @@ const CardComponentInfo = styled(Card)`
     font-size: 12px;
     line-height: 16px;
     color: #94A3B8;
-    margin-bottom:0px;
-    margin-top:-15px;
-    height:0px;
+    
     
 }
+
+ .tag{
+    padding:0px 5px;
+    border-radius:4px;
+    width: auto;
+    height: 22px;
+    
+    >.css-6od3lo-MuiChip-label{
+        font-family: 'SF UI Text';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 150%;
+        text-align: center;
+        padding:5px;
+    }
+} 
+
+
+
     
 `
 
 
 const CardContentInfo = styled(CardContent)`
-&&{
-    margin-top:-20px;
+ &&{
+    display:flex;
+    flex-direction:column;
+    
+    
+    
 }
 
 .sub{
@@ -70,59 +94,47 @@ const CardContentInfo = styled(CardContent)`
    line-height: 23px;
    font-feature-settings: 'salt' on;
    color: #78716C;
-}
+   
+}  
 
 .boton{
-    margin-left:-7px;
-    font-family: 'Nunito';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 16px;
-    color: #0077E6;
-    &&:hover{
-       text-decoration:underline; 
-    }
+    padding:0px;
 }
+
 `
 
 const CardInfoFull = (props) => {
 
     return (
         <CardComponentInfo>
-            <CardHeader className="cardHeader"
-
+            <CardHeader
+                className="cardHeader"
                 action={
-                    props.datosCardInfoFull ?
-                        <IconButton
-                            disableRipple
-                            aria-label="settings"
-                        >
-
+                    <IconButton disableRipple >
+                        
                             {props.datosCardInfoFull.iconSetting}
-
-                        </IconButton>
-                        : null
+                        
+                    </IconButton>
                 }
-                title={
+                title={<div className="titulo">
+                    <div>
+                        {props.datosCardInfoFull.titulo}
+                    </div>
+                    <div className="tag">
+                        <Chip
+                            className="tag"
+                            color={"error"}
+                            label={props.datosCardInfoFull.tag}
+                        >
+                        </Chip>
+                    </div>
 
-                    <>
-                        {props.datosCardInfoFull.titulo ? props.datosCardInfoFull.titulo : null}
-
-                        {props.datosCardInfoFull.tag ?
-                            <Chip
-                                className="tag"
-                                label={props.datosCardInfoFull.tag}
-                                color="error" />
-                            : null}
-                    </>
-
-                }
-
-
+                </div>}
 
             />
-            <CardContentInfo>
+
+
+            <CardContentInfo >
 
                 {props.datosCardInfoFull.sub ?
                     <Typography
@@ -135,6 +147,7 @@ const CardInfoFull = (props) => {
                     null}
 
                 {props.datosCardInfoFull.sub ?
+
                     <Typography
                         className="descripcion"
                         color="text.secondary">
@@ -143,9 +156,13 @@ const CardInfoFull = (props) => {
                     :
                     null}
 
-                <div className="container-button">
-                    {props.datosCardInfoFull.button ? props.datosCardInfoFull.button:null}
-                </div>
+                {props.datosCardInfoFull.button ?
+                    <div className="container-button">
+
+                        {props.datosCardInfoFull.button}
+
+                    </div>
+                    : null}
             </CardContentInfo>
 
         </CardComponentInfo>

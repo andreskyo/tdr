@@ -23,11 +23,7 @@ const PrimaryButton = styled(Button)`
     color: ${({ outlined }) => outlined ? '#0053F0' : 'white'};
     cursor:pointer;
   }
-  &&:active {
-    color: ${({ outlined }) => outlined ? 'red' : '#124596'};
-    box-shadow: none;
-    color:white;
-  }
+
   &&:disabled {
   background: ${({ outlined }) => outlined ? 'none' : 'rgba(11, 95, 255, 0.5)'};
   color: ${({ outlined }) => outlined ? 'rgba(11, 95, 255, 0.5)' : 'white'};
@@ -51,9 +47,7 @@ const SecondaryButton = styled(Button)`
   background: ${({ outlined }) => outlined ? 'none' : '#0C9E42'};
   cursor:pointer;
   }
-  &&:active {
-  background:  #009236;
-  }
+
   &&:disabled {
   background:${({ outlined }) => outlined ? 'none' : ' rgba(25, 171, 79, 0.5)'};
   
@@ -74,12 +68,14 @@ const ButtonLinee = styled(Button)`
     text-decoration:underline;
     border:none;
     background:transparent;
+    
     cursor:pointer;
   }
   &&:active {
       text-decoration:underline;
       border:none;
       background:transparent;
+      
       cursor:pointer;
   }
   &&:disabled {
@@ -108,7 +104,7 @@ export const Buttons = ({ outlined, ...props }) => {
           startIcon={props.icons ? props.icon : null}
           endIcon={props.endIcon}
         >
-          
+
           {props.text}
         </ButtonLinee>
         :

@@ -1,87 +1,100 @@
 import React from 'react'
 import styled from "styled-components";
-import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
 import Avatar from '@mui/material/Avatar';
-import { Buttons } from '../../Buttons/Butttons/Buttons';
 
-const CardComponentStats = styled(Card)`
+
+const CardComponentStats = styled.div`
 &&{
     background: #FFFFFF;
     box-shadow: 0px 0px 2px rgba(14, 31, 53, 0.12), 0px 1px 4px rgba(14, 31, 53, 0.06);
     border-radius: 16px;
-}
-
-.icon{
-    margin-top:0px;
-    width: 50px;
-    height: 50px;
-    background: #E2E8F0;
-    color:#27272A;
-    margin-right:10px;
-}
-
-.css-1qvr50w-MuiTypography-root {
-    font-style: normal;
-    font-weight: 500;
-    line-height: 150%;
-    color: #27272A;
-}
-
-.css-nrdprl-MuiTypography-root {
-    font-style: normal;
-    font-weight: 400;
-    line-height: 150%;
-    color: #78716C;
-}
-
-.button{
-    font-family: 'Nunito';
-    margin-top:0px;
-    margin-left:-7px;
-    font-weight: 600;
-    color: #0077E6;
-}    
-
-.css-sgoict-MuiCardHeader-action{
-    margin-top:15px;
+    display:flex;
+    padding:16px 21px;
+    width:100%;
+    justify-content: space-between;
     
+    
+    :hover{
+       
+    box-shadow: 0px 1px 4px rgba(14, 31, 53, 0.12), 0px 4px 8px rgba(14, 31, 53, 0.1), 0px 6px 12px rgba(14, 31, 53, 0.08);
+
+    }
 }
+ .cardContent{
+     display:flex;
+     flex-direction: column;
+     
+     .text{
+        
+        .titulo{
+            font-family: 'SF UI Text';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 16px;
+            
+            color: #27272A;
+            
+        }   
+        .sub{
+            font-family: 'SF UI Text';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 150%;
+            color: #78716C;
+        }
+     }
+     .button{
+         padding-left:0px;
+         
+         
+     }
+     
+ }
+
+ .cardIcon{
+     display:flex;
+     align-items: center;
+     .avatar{
+         background: #E2E8F0;
+         border-radius: 60px;
+         color:black;
+     }
+     
+ }
 
 `
 
 const CardStats = (props) => {
     return (
         <CardComponentStats >
+            <div className="cardContent">
 
-            <CardHeader
+                <div className="text">
 
-                action={
-                    props.datosCardStats.icon ?
-                        <Avatar
-                            className="icon"
-                            aria-label="recipe">
-                            {props.datosCardStats.icon}
-                        </Avatar>
-                        : null
+                    <p className="titulo">
+                        {props.datosCardStats.titulo}
+                    </p>
 
-                }
-                title={props.datosCardStats.titulo ? props.datosCardStats.titulo : null}
-                subheader={
-                    <>
+                    <p className="sub">
+                        {props.datosCardStats.sub}
+                    </p>
 
-                        {props.datosCardStats.sub ? props.datosCardStats.sub : null}
+                </div>
 
-                        <br />
+                <div className="button">
 
-                        {props.datosCardStats.sub ? <div className="container-button">{props.datosCardStats.button}</div>: null}
-                    </>
-                }
+                    {props.datosCardStats.button}
 
-            />
+                </div>
 
+            </div>
 
-
+            <div className="cardIcon">
+                <Avatar className="avatar">
+                    {props.datosCardStats.icon}
+                </Avatar>
+            </div>
         </CardComponentStats >
     )
 }

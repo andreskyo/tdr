@@ -58,7 +58,7 @@ icons: [
 const datosVencimiento = {
   titulo: "17 de octubre",
   descripcion: "Fullstack Developer @Sky",
-  icon: <TodayIcon />
+  icon: <TodayIcon className="icono" />
 }
 
 
@@ -110,11 +110,12 @@ const datosPerfiles = [{
 ]
 
 const datosAcceso = {
-  icon: <NotificationsNoneIcon/>, 
-  titulo: "Drishti Ratan",
-  descripcion: "Fashion Designer @Clover ",
+  icon: <NotificationsNoneIcon className="icon"/>, 
+  titulo: "Drishti Ratan Drishti ",
+  descripcion: "Fashion Designer @Clover Fashion Designer @Clover ",
   button: <Buttons
   className="button"
+  
   primary
   outlined
   onClick={() => (alert("Primary"))}
@@ -159,11 +160,11 @@ export const OtherCard = Template.bind({});
 
 
 OtherCard.args = {
-  cardPerfil: true,
+  cardPerfil: false,
   cardVencimiento: false,
   cardCalendar: false,
   cardPerfiles: false,
-  cardAcceso:false,
+  cardAcceso:true,
   cardDailyStacks:false,
   datosPerfil: datosPerfil,
   datosVencimiento: datosVencimiento,

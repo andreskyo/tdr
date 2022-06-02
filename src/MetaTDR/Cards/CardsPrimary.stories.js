@@ -28,7 +28,11 @@ const datosCardInfoFull = {
     sub: "$1.512.739",
     tag: "En mora",
     descripcion: "54 DDJJ incumplidos",
-    button: <Buttons line text="Ver detalle" className="boton" onClick={() => alert("detalle")} />,
+    button: <Buttons size="large"
+    line 
+    text="Ver detalle" 
+    className="boton" 
+    onClick={() => alert("detalle")} />,
     iconSetting: <MoreVertIcon disableRipple onClick={() => { alert("setting") }} style={{ color: "black" }} />
 
 }
@@ -56,25 +60,25 @@ const datosCardInput = {
 
 
 const datosCardImg = {
-    img: RoundeCardImg,
+    img: <img src={RoundeCardImg} className="img"/>,
     titulo: "Headline",
     iconSub: <TodayIcon className="icont" />,
     sub: "13/10/2021",
-    descripcion: "Write an amazing description in this dedicated card section. Each word counts.",
+    descripcion: "Write sdfsdfsdfsdfsdfsdffdsdfsdfsdfsdf in this dedicated card section. Each word counts. Write an amazing description in this dedicated card section. Each word counts. Write an amazing description in this dedicated card section. Each word counts.",
     button: <Buttons
         className="boton"
-        medium
+        size="large"
         onClick={() => { alert("ver mas") }}
         text={"Ver más"}
         primary
-        outlined />,
+        outlined/>,
 
 }
 
 const datosCardStats = {
     titulo: "Headline",
-    sub: "Lorem impsum dolor",
-    icon: <DirectionsCarIcon />,
+    sub: "Lorem impsum dolor sfsdfsdfsdfsdfsdfsdfs dfsfsdfsfsdfsdfsdfsdfsdf sdfsdfsdfsdfsdfsdfs sdfsdfsdfsdf sdfsdfsdf sdfsdfsdfsdfsdfsdfsdf",
+    icon: <DirectionsCarIcon/>,
     button: <Buttons
         onClick={() => alert("Mas informacion")}
         className="button"
@@ -183,8 +187,8 @@ CardPrimary.args = {
     cardInfoFull: false,
     cardInfoBasic: false,
     cardInput: false,
-    cardImg: true,
-    cardStats: false,
+    cardImg: false,
+    cardStats: true,
     cardText: false,
     cardVencimiento: false,
     cardProgress: false,

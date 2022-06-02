@@ -11,29 +11,37 @@ const CardComponentVencimiento = styled(Card)`
     background: #FFFFFF;
     box-shadow: 0px 0px 2px rgba(14, 31, 53, 0.12), 0px 1px 4px rgba(14, 31, 53, 0.06);
     border-radius: 16px;
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    padding:10px;
+    
 }
+
 .icon{
-    margin:20px auto;
     background: #F1F5F9;
     color:#27272A;
-    padding:0px;
-}
-.css-i4bv87-MuiSvgIcon-root {
-    font-size:50px;
+    align-self: center;
+    width:50px;
+    height:50px;
+    .icono{
+        font-size:30px;
+    }
 }
 
 .titulo{
-    margin-top:20px;
     font-family: 'SF UI Text';
     font-style: normal;
     font-weight: 500;
     font-size: 36px;
-    text-align:center;
+    text-align: center;
     line-height: 150%;
+    width:100%;
     color: #124596;
 }
 
 .descripcion{
+    align-self: flex-start;
     font-family: 'SF UI Text';
     font-style: normal;
     font-weight: 400;
@@ -46,13 +54,14 @@ const CardComponentVencimiento = styled(Card)`
 
 const CardVencimiento = (props) => {
     return (
+        
         <CardComponentVencimiento className="container-fluid m-0">
 
             {props.datosVencimiento.icon ?
                 <Avatar
                     className="icon"
                     alt="Remy Sharp"
-                    sx={{ width: 80, height: 80, marginLeft: 2.5 }}>
+                    >
                     {props.datosVencimiento.icon}
                 </Avatar>
                 : null}
@@ -65,7 +74,7 @@ const CardVencimiento = (props) => {
 
                 : null}
 
-            <Divider />
+            <Divider variant="fullWidth"  className="divider"/>
 
             {props.datosVencimiento.descripcion ?
                 <Typography
@@ -78,6 +87,7 @@ const CardVencimiento = (props) => {
 
 
         </CardComponentVencimiento>
+        
     )
 }
 

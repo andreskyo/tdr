@@ -3,7 +3,6 @@ import styled from "styled-components";
 import Menu from "@mui/material/Menu";
 import IconButton from "@mui/material/IconButton";
 import Badge from "@mui/material/Badge";
-import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
