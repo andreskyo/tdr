@@ -7,57 +7,75 @@ import { Buttons } from '../../Buttons/Butttons/Buttons';
 import Typography from '@mui/material/Typography';
 
 
-const CardContentImg = styled(Card)`
+const CardContentImg = styled.div`
   &&{
     background: #FFFFFF;
-    box-shadow: 0px 0px 2px rgba(14, 31, 53, 0.12), 0px 1px 4px rgba(14, 31, 53, 0.06);
-    border-radius: 16px;
-    width:100%;
-    height: 100%;
-    
-  }  
- 
-.cardMedia{
+    box-shadow: 0px 0px 2px rgba(14, 31, 53, 0.12);
+    :hover{
+       box-shadow: 0px 1px 4px rgba(14, 31, 53, 0.12), 0px 4px 8px rgba(14, 31, 53, 0.1), 0px 6px 12px rgba(14, 31, 53, 0.08);
+    }
     display:flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom:20px;
+    width:100%;
+    border-radius: 16px;
+}  
+
+/*--------------------------*/
+
+.contentImg{
+    display:flex;
+    align-self: center;
+    width: 100%;
+    
     
 .img{
-    width:95%;
+    margin:auto;
     padding-top:8px;
     border-radius: 16px 16px 0px 0px;
+    width:100%;
+    padding-right:10px;
+    padding-left:10px;
    }
 }
- 
+
 .cardContent{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: flex-start;
-    
-   
+  width: 100%;
+  display:flex;
+  flex-direction: column;
+  
+}
+
+.contentText{
+  width:80%;
+  margin:auto;
+  
+}
     .titulo{
     font-family: 'SF UI Text';
     font-style: normal;
     font-weight: 500;
     font-size: 20px;
     line-height: 150%;
+    
     }
 
-}
-   .icont{
+  .iconSub{
+    display:flex;
     color:#78716C;
-    font-size:18px;
+   >svg{
+       font-size: 20px;
+   }
+  .sub{  
+      font-family: 'SF UI Text';
+      font-style: normal;
+      font-weight: 400;
+      font-size:12px;
+      padding-left:5px;
+    } 
+  }
     
-    
-}
-   .sub{
-    color: #78716C;
-    font-family: 'SF UI Text';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 13px;
-    line-height: 150%;
-}
 
 .descripcion{
     font-family: 'SF UI Text';
@@ -66,67 +84,65 @@ const CardContentImg = styled(Card)`
     line-height: 150%;
     font-size: 14px;
     color:black;
+}  
+/*-----------------------*/
+
+.containerButton{
+    width:80%;
+    margin:auto;
 }
- 
 `
 
 const CardImg = (props) => {
     return (
         <CardContentImg>
-            {props.datosCardImg.img ?
 
-                <CardMedia
-                    className="cardMedia">
-
-                    {props.datosCardImg.img}
-
-                </CardMedia>
-
-                : null}
 
             {props.datosCardImg.titulo || props.datosCardImg.sub || props.datosCardImg.iconSub || props.datosCardImg.descripcion || props.datosCardImg.button ?
                 <CardContent className="cardContent">
 
+
+                    {props.datosCardImg.img ?
+
+                        <div className="contentImg">
+
+                            {datosCardImg.img}
+
+                        </div>
+
+                        : null}
+
                     <div className="ContentText">
                         {props.datosCardImg.titulo ?
 
-                            <Typography
-                                className="titulo"
-                                gutterBottom
-                                variant="h5"
-                                component="div">
-                                {props.datosCardImg.titulo}
-                            </Typography>
+                            <p className="titulo">
+                                {datosCardImg.titulo}
+                            </p>
                             : null}
 
                         {props.datosCardImg.sub || props.datosCardImg.iconSub ?
-                            <Typography
-                                className="d-flex "
-                                variant="body2 sub"
-                                color="text.secondary">
-
-                                {props.datosCardImg.iconSub ? props.datosCardImg.iconSub : null}
-                                {props.datosCardImg.sub ? props.datosCardImg.sub : null}
-                            </Typography>
+                            <div className="iconSub">
+                                {datosCardImg.iconSub ? datosCardImg.iconSub : null}
+                                <p className="sub">{datosCardImg.sub ? datosCardImg.sub : null}</p>
+                            </div>
 
                             : null}
 
                         {props.datosCardImg.descripcion ?
 
-                            <Typography
-                                className="pt-2 descripcion"
-                                variant="body2">
-
-                                {props.datosCardImg.descripcion}
-                            </Typography>
+                            <p
+                                className="descripcion"
+                            >
+                                {datosCardImg.descripcion.substring(0, 150)}
+                            </p>
 
                             : null}
                     </div>
                     {props.datosCardImg.button ?
 
-                        <div className="container-button pt-4">
+                        <div className="containerButton">
 
-                            {props.datosCardImg.button}
+                            {datosCardImg.button}
 
                         </div>
 

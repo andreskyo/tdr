@@ -160,12 +160,12 @@ export const OtherCard = Template.bind({});
 
 
 OtherCard.args = {
-  cardPerfil: false,
-  cardVencimiento: false,
-  cardCalendar: false,
-  cardPerfiles: false,
+  // cardPerfil: false,
+  // cardVencimiento: false,
+  // cardCalendar: false,
+  // cardPerfiles: false,
   cardAcceso:true,
-  cardDailyStacks:false,
+  // cardDailyStacks:false,
   datosPerfil: datosPerfil,
   datosVencimiento: datosVencimiento,
   datosPerfiles: datosPerfiles,

@@ -1,21 +1,29 @@
 import React from 'react'
 import styled from "styled-components";
 
+
+
+
 const ComponentTitle = styled.div`
 display:flex;
-width:100%;
+width: 100%;
 align-items: baseline;
 
-.iconUno,.iconDos{
+.iconUno{
   align-self:flex-start;
+  
+}
+
+.iconDos{
+  align-self:flex-start;
+  display:block;
 }
  
 .text{
-  width:100%;
   display:flex;
   flex-direction: column;
   align-items: flex-start;
-
+  width:100%;
   .titulo{
     font-family: 'SF UI Text';
     font-style: normal;
@@ -23,7 +31,6 @@ align-items: baseline;
     font-size: 24px;
     color: #27272A;
     margin:0px;
-    
     }
    .sub{
     font-family: 'SF UI Text';
@@ -75,9 +82,9 @@ const Title = (props) => {
           {props.datosTitle.iconDos}
 
         </div>
-: null}
-        
-</ComponentTitle>
+        : null}
+
+    </ComponentTitle>
   )
 }
 

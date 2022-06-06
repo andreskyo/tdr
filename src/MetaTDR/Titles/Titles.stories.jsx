@@ -12,43 +12,43 @@ import SettingsIcon from '@mui/icons-material/Settings';
 export default {
   title: 'Titles/Titles',
   component: Titles,
- 
+
   argTypes: {
 
-   },
+  },
 };
 
 
 
-const datosTitle={
-    titulo:"Detalle de Mis impuestos ",
-    sub:"Descargá el comprobante. Encontrá más información",
-    onClickSetting:()=>{alert("setting")},
-    iconUno:<ArrowBackIosNewIcon className="icon"/>,
-    iconDos:<SettingsIcon />
+const datosTitle = {
+  titulo: "Detalle de Mis impuestos ",
+  sub: "Descargá el comprobante. Encontrá más información",
+  onClickSetting: () => { alert("setting") },
+  iconUno: <ArrowBackIosNewIcon className="icon" />,
+  iconDos: <SettingsIcon />
 }
 
-const datosSubTitle={
-  titulo:"Datos de contacto",
-  sub:"Los campos con (*) asterísco son obligatorios ",
+const datosSubTitle = {
+  titulo: "Datos de contacto",
+  sub: "Los campos con (*) asterísco son obligatorios ",
   button: <Buttons size="large"
-  line 
-  text="Añadir" 
-  className="boton" 
-  onClick={() => alert("Añadir")} />,
+    line
+    text="Añadir"
+    className="boton"
+    onClick={() => alert("Añadir")} />,
 }
 
-const datosTitulosHome={
-  titulo:"ÚLTIMAS NOTICIAS",
-  sub:"Novedades",
-  descripcion:"Enterate de las últimas noticias de Rentas Corrientes y accedé a toda la información.",
+const datosTitulosHome = {
+  titulo: "ÚLTIMAS NOTICIAS",
+  sub: "Novedades",
+  descripcion: "Enterate de las últimas noticias de Rentas Corrientes y accedé a toda la información.",
   button: <Buttons size="large"
-  contained
-  primary
-  text="Ver todo" 
-  className="boton" 
-  onClick={() => alert("Ver todo")} />,
-  fullWidth:true
+    contained
+    primary
+    text="Ver todo"
+    className="boton"
+    onClick={() => alert("Ver todo")} />,
+
 }
 
 
@@ -58,11 +58,11 @@ export const Title = Template.bind({});
 
 
 Title.args = {
- title:false,
- subtitle:false,
- titulosHome:false,
- datosTitle:datosTitle,
- datosSubTitle:datosSubTitle,
- datosTitulosHome:datosTitulosHome
+  title: false,
+  subTitle: false,
+  titulosHome: false,
+  datosTitle: datosTitle,
+  datosSubTitle: datosSubTitle,
+  datosTitulosHome: datosTitulosHome
 };
 

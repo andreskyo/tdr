@@ -1,6 +1,10 @@
 import React from 'react'
 import styled from "styled-components";
 
+
+
+
+
 const ComponentSubtitle = styled.div`
   display:flex;
   width:100%;
@@ -63,7 +67,7 @@ const SubTitles = (props) => {
 
             </div>
             : null}
-            
+
           {props.datosSubTitle.button ?
             <div className="button">
 
@@ -72,11 +76,13 @@ const SubTitles = (props) => {
             </div>
             : null}
 
+
         </ComponentSubtitle>
+
         : null}
 
       <div className="hr">
-        <hr style={{ margin: "0px", border: "1px solid #E7E5E4" }} />
+        <hr style={{margin:"0px"}} />
       </div>
 
     </>

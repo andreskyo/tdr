@@ -8,100 +8,116 @@ import Typography from '@mui/material/Typography';
 
 
 
-const CardComponentAcceso = styled(Card)`
+const CardComponentAcceso = styled.div`
      &&{
        background: #FFFFFF;
        box-shadow: 0px 0px 2px rgba(14, 31, 53, 0.12), 0px 1px 4px rgba(14, 31, 53, 0.06);
        border-radius: 16px;
        display:flex;
+       padding:16px 21px;
+       width:100%;
        :hover{
         box-shadow: 0px 1px 4px rgba(14, 31, 53, 0.12), 0px 4px 8px rgba(14, 31, 53, 0.1), 0px 6px 12px rgba(14, 31, 53, 0.08);
        }
-  } 
-   
-  .avatar{
-      width:82px;
-      height:82px;
-      border: 1.14341px solid #78716C;
-      border-radius: 60px;
-      background:transparent;
-  }
-  .icon{
-      width:30px;
-      height:30px; 
-      color:#78716C;
-    } 
-  .cardContent{
-    width:100%;
-}
- .titulo{
-    font-family: 'SF UI Text';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 150%; 
-    color: #27272A;
-  }
-  .descripcion{
-    font-family: 'SF UI Text';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 150%;
-    color: #78716C;
-  }
 
- 
-`
+     .avatar{
+         align-self:center;
+         
+        .avatarIcon{
+            border: 1.14341px solid #78716C;
+            border-radius: 60px;
+            color: #78716C;
+            background: #FFFFFF;
+        }
+       
+
+    }
+
+
+    .cardContent{
+        padding-left:10px;
+    }
+     .text{
+         
+        .titulo{
+            color: #27272A;
+            font-family: 'SF UI Text';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 150%;
+            margin:0px;
+        } 
+        .descripcion{
+            font-family: 'SF UI Text';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 15px;
+            line-height: 150%;
+            color: #78716C;
+            padding-bottom:10px;
+            margin:0px;
+        }
+         
+     }
+    }
+   
+ `
 
 const CardAcceso = (props) => {
     return (
+
         <CardComponentAcceso>
 
             {props.datosAcceso.icon ?
-                <CardHeader className="cardHeader"
-                    avatar={
+                <div className="avatar ">
 
-                        <Avatar
-                            className="avatar">
+                    <Avatar
+                        className="avatarIcon"
+                        sx={{ width: 60, height: 60 }}>
 
-                            {props.datosAcceso.icon ? props.datosAcceso.icon : null}
+                        {props.datosAcceso.icon}
 
-                        </Avatar>
-                    }
-                />
+                    </Avatar>
+
+                </div>
                 : null}
+
             {props.datosAcceso.titulo || props.datosAcceso.descripcion || props.datosAcceso.button ?
-                <CardContent className="row p-2 cardContent">
-                    {props.datosAcceso.titulo ?
-                        <Typography
-                            className="titulo">
+                <div className="cardContent ">
+                    {props.datosAcceso.titulo || props.datosAcceso.descripcion ?
+                        <div className="text">
+                            {props.datosAcceso.titulo ?
+                                <p
+                                    className="titulo">
 
-                            {props.datosAcceso.titulo ? props.datosAcceso.titulo : null}
+                                    {props.datosAcceso.titulo}
 
-                        </Typography>
+                                </p>
+                                : null}
+
+                            {props.datosAcceso.descripcion ?
+                                <p
+                                    className="descripcion">
+
+                                    {props.datosAcceso.descripcion}
+
+                                </p>
+                                : null}
+                        </div>
+
                         : null}
-                    {props.datosAcceso.descripcion ?
-                        <Typography
-                            className="descripcion">
 
-                            {props.datosAcceso.descripcion ? props.datosAcceso.descripcion : null}
-
-                        </Typography>
-                        : null}
                     {props.datosAcceso.button ?
+                        <div className="containerButton ">
 
-                      
-                            <div className="container-button pt-2">
+                            {props.datosAcceso.button}
 
-                                {props.datosAcceso.button ? props.datosAcceso.button : null}
-
-                            </div>
-                        
+                        </div>
                         : null}
-                </CardContent>
+                </div>
                 : null}
-        </CardComponentAcceso>
+        </CardComponentAcceso >
     )
 }
 
