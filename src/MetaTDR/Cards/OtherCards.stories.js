@@ -112,10 +112,8 @@ const datosPerfiles = [{
 const datosAcceso = {
   icon: <NotificationsNoneIcon className="icon"/>, 
   titulo: "Drishti Ratan Drishti ",
-  descripcion: "Fashion Designer @Clover Fashion Designer @Clover ",
+  descripcion: "Fashion Designer @Clover",
   button: <Buttons
-  className="button"
-  
   primary
   outlined
   onClick={() => (alert("Primary"))}

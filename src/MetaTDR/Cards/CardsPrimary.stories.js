@@ -76,17 +76,17 @@ const datosCardImg = {
 }
 
 const datosCardStats = {
-    titulo: "Headline",
-    sub: "Lorem impsum dolor sfsdfsdfsdfsdfsdfsdfs dfsfsdfsfsdfsdfsdfsdfsdf sdfsdfsdfsdfsdfsdfs sdfsdfsdfsdf sdfsdfsdf sdfsdfsdfsdfsdfsdfsdf",
-    icon: <DirectionsCarIcon/>,
+    titulo: "Puestos de atencion y horarios",
+    sub: "Encontra el numero telefonico de acuerdo a los que necesites realizar",
+    icon: <DirectionsCarIcon />,
     button: <Buttons
-        onClick={() => alert("Mas informacion")}
-        className="button"
-        primary
         line
-        text={"Mas informacion"} />,
-
+        primary
+        text="Mas información"
+        className="boton"
+        onClick={() => alert("Ver todo")} />,
 }
+
 
 const datosCardText = {
     tituloA: "Agente",

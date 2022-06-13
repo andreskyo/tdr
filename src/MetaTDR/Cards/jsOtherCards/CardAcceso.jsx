@@ -1,11 +1,6 @@
 import React from 'react'
 import styled from "styled-components";
-import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
-import CardContent from '@mui/material/CardContent';
 import Avatar from '@mui/material/Avatar';
-import Typography from '@mui/material/Typography';
-
 
 
 const CardComponentAcceso = styled.div`
@@ -14,23 +9,23 @@ const CardComponentAcceso = styled.div`
        box-shadow: 0px 0px 2px rgba(14, 31, 53, 0.12), 0px 1px 4px rgba(14, 31, 53, 0.06);
        border-radius: 16px;
        display:flex;
-       padding:16px 21px;
-       width:100%;
+       padding:20px;
+       width:410px;
        :hover{
         box-shadow: 0px 1px 4px rgba(14, 31, 53, 0.12), 0px 4px 8px rgba(14, 31, 53, 0.1), 0px 6px 12px rgba(14, 31, 53, 0.08);
        }
 
      .avatar{
          align-self:center;
-         
         .avatarIcon{
             border: 1.14341px solid #78716C;
             border-radius: 60px;
             color: #78716C;
             background: #FFFFFF;
+            >svg{
+            font-size:30px;
+        }  
         }
-       
-
     }
 
 
@@ -62,7 +57,7 @@ const CardComponentAcceso = styled.div`
      }
     }
    
- `
+`
 
 const CardAcceso = (props) => {
     return (
@@ -70,6 +65,7 @@ const CardAcceso = (props) => {
         <CardComponentAcceso>
 
             {props.datosAcceso.icon ?
+
                 <div className="avatar ">
 
                     <Avatar
@@ -77,46 +73,56 @@ const CardAcceso = (props) => {
                         sx={{ width: 60, height: 60 }}>
 
                         {props.datosAcceso.icon}
-
                     </Avatar>
 
                 </div>
+
                 : null}
 
             {props.datosAcceso.titulo || props.datosAcceso.descripcion || props.datosAcceso.button ?
+
                 <div className="cardContent ">
+
                     {props.datosAcceso.titulo || props.datosAcceso.descripcion ?
+
                         <div className="text">
+
                             {props.datosAcceso.titulo ?
-                                <p
-                                    className="titulo">
+
+                                <p className="titulo">
 
                                     {props.datosAcceso.titulo}
 
                                 </p>
+
                                 : null}
 
                             {props.datosAcceso.descripcion ?
-                                <p
-                                    className="descripcion">
+
+                                <p className="descripcion">
 
                                     {props.datosAcceso.descripcion}
 
                                 </p>
+
                                 : null}
                         </div>
 
                         : null}
 
                     {props.datosAcceso.button ?
+
                         <div className="containerButton ">
 
                             {props.datosAcceso.button}
 
                         </div>
+
                         : null}
                 </div>
+
                 : null}
+
         </CardComponentAcceso >
     )
 }
