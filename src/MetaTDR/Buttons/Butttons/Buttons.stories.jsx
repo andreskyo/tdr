@@ -30,9 +30,7 @@ export const Buttonss = Template.bind({});
 
 
 
-const alertt=()=>{
-return alert('hola mundo')
-}
+
 
 
 
@@ -49,7 +47,7 @@ Buttonss.args = {
   addIcon:false,
   icons:false,
   line:false,
-  onClick:alertt,
+  onClick:()=>{console.log("button")},
 };
 
 

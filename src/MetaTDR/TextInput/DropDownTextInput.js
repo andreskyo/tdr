@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import styled from "styled-components";
 import { useState } from "react";
 import InputAdornment from '@mui/material/InputAdornment';

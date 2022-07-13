@@ -80,7 +80,7 @@ const MenuCorreo = (props) => {
 
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
-        console.log(event)
+
     };
     const handleClose = () => {
         setAnchorEl();
@@ -144,17 +144,10 @@ const MenuCorreo = (props) => {
                     aria-expanded={open ? "true" : undefined}>
 
                     <Badge badgeContent={datos.filter(x => x.leido === false).length} color="primary" >
-
-
                         <MailOutlineIcon
                             className="imgIconMail"
                             style={{ color: "black" }}>
                         </MailOutlineIcon>
-
-
-
-
-
                     </Badge>
 
                 </IconButton>

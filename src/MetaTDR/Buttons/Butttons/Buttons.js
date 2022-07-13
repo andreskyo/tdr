@@ -1,8 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from "styled-components";
 import Button from '@material-ui/core/Button';
-import AddIcon from '@mui/icons-material/Add';
+
 
 
 
@@ -10,25 +9,22 @@ import AddIcon from '@mui/icons-material/Add';
 const PrimaryButton = styled(Button)`
 && {
   background: ${({ outlined }) => outlined ? 'transparent ' : ' #124596'};
-  border:${({ outlined }) => outlined ? '1px solid #124596 ' : ' 1px solid #124596;'};
+  border:${({ outlined }) => outlined ? '1px solid #124596 ' : '  #124596;'};
   color:${({ outlined }) => outlined ? '#124596' : 'white'};
   text-transform: none;
   font-family: 'Nunito';
   font-style: normal;
   font-weight: 600;
+  
 }
   &&:hover {
     background:${({ outlined }) => outlined ? 'none' : '#004BE8'}; 
-    border:${({ outlined }) => outlined ? '1px solid #0053F0 ' : '1px solid #004BE8'};
     color: ${({ outlined }) => outlined ? '#0053F0' : 'white'};
-    cursor:pointer;
   }
 
   &&:disabled {
   background: ${({ outlined }) => outlined ? 'none' : 'rgba(11, 95, 255, 0.5)'};
   color: ${({ outlined }) => outlined ? 'rgba(11, 95, 255, 0.5)' : 'white'};
-  
-  
   }
   
   `
@@ -37,20 +33,20 @@ const SecondaryButton = styled(Button)`
 && {
   text-transform: none;
   background:${({ outlined }) => outlined ? 'transparent' : '#19AB4F'};  
-  border:${({ outlined }) => outlined ? '1px solid #19AB4F ' : '1px solid #19AB4F'};
+  border:${({ outlined }) => outlined ? '1px solid #19AB4F ' : ' #19AB4F'};
   color:${({ outlined }) => outlined ? '#19AB4F' : 'white'};
   font-family: 'Nunito';
   font-style: normal;
   font-weight: 600;
+  cursor:pointer;
 }
  &&:hover {
   background: ${({ outlined }) => outlined ? 'none' : '#0C9E42'};
-  cursor:pointer;
+  
   }
 
   &&:disabled {
   background:${({ outlined }) => outlined ? 'none' : ' rgba(25, 171, 79, 0.5)'};
-  
   color:white;
   }
 `;
@@ -63,20 +59,21 @@ const ButtonLinee = styled(Button)`
   border:none;
   color:#124596;
   font-weight: bold;
+  cursor:pointer;
 }
   &&:hover {
     text-decoration:underline;
     border:none;
     background:transparent;
     
-    cursor:pointer;
+    
   }
   &&:active {
       text-decoration:underline;
       border:none;
       background:transparent;
       
-      cursor:pointer;
+      
   }
   &&:disabled {
   background: none;
@@ -97,7 +94,7 @@ export const Buttons = ({ outlined, ...props }) => {
         ?
         <ButtonLinee
           className={props.className}
-          onClick={() => props.onClick()}
+          onClick={props.onClick ? () => props.onClick() : null}
           disableRipple
           size={props.size}
           disabled={props.disabled}
@@ -110,7 +107,7 @@ export const Buttons = ({ outlined, ...props }) => {
         :
         <Buttonn
           className={props.className}
-          onClick={() => props.onClick()}
+          onClick={props.onClick ? () => props.onClick() : null}
           startIcon={props.startIcon}
           endIcon={props.endIcon}
           disableRipple
@@ -121,7 +118,7 @@ export const Buttons = ({ outlined, ...props }) => {
         >
           {props.addIcon
             ?
-            <AddIcon />
+            props.icon
             : props.text}
         </Buttonn>}
 
